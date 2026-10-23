@@ -1,0 +1,124 @@
+{
+ "experiment_id": "EXP-0057",
+ "preregistered": true,
+ "step": "1-2 (equivalence + hard-fold safety)",
+ "archive": "submissions\\dist\\v1_8_ext10.zip",
+ "archive_sha256": "40352168b30aba7cc6e9552977ca14656f5a5965ea89cb65e62c98ed06a9f22e",
+ "dataset_revision": "bc8204d811",
+ "folds": [
+  "multi_swebench",
+  "real_webagents",
+  "researchcodebench",
+  "matharena"
+ ],
+ "regime": "R2",
+ "seeds": [
+  0,
+  1,
+  2,
+  3,
+  4,
+  5,
+  6,
+  7,
+  8,
+  9
+ ],
+ "prior": [
+  "x1",
+  [
+   [
+    0.9,
+    "half",
+    "learned",
+    3
+   ],
+   [
+    0.05,
+    -3.0,
+    1.0,
+    3
+   ],
+   [
+    0.05,
+    3.0,
+    1.0,
+    3
+   ]
+  ]
+ ],
+ "package_vs_engine": {
+  "multi_swebench|seed0": {
+   "pairs": 5,
+   "max_abs_delta": 4.440892098500626e-16
+  },
+  "multi_swebench|seed3": {
+   "pairs": 5,
+   "max_abs_delta": 2.220446049250313e-16
+  },
+  "multi_swebench|seed7": {
+   "pairs": 5,
+   "max_abs_delta": 4.440892098500626e-16
+  },
+  "real_webagents|seed0": {
+   "pairs": 5,
+   "max_abs_delta": 5.551115123125783e-16
+  },
+  "real_webagents|seed3": {
+   "pairs": 5,
+   "max_abs_delta": 4.440892098500626e-16
+  },
+  "real_webagents|seed7": {
+   "pairs": 5,
+   "max_abs_delta": 4.440892098500626e-16
+  },
+  "researchcodebench|seed0": {
+   "pairs": 5,
+   "max_abs_delta": 3.3306690738754696e-16
+  },
+  "researchcodebench|seed3": {
+   "pairs": 5,
+   "max_abs_delta": 4.440892098500626e-16
+  },
+  "researchcodebench|seed7": {
+   "pairs": 5,
+   "max_abs_delta": 3.3306690738754696e-16
+  },
+  "matharena|seed0": {
+   "pairs": 5,
+   "max_abs_delta": 3.219646771412954e-15
+  },
+  "matharena|seed3": {
+   "pairs": 5,
+   "max_abs_delta": 1.4432899320127035e-15
+  },
+  "matharena|seed7": {
+   "pairs": 5,
+   "max_abs_delta": 1.2212453270876722e-15
+  }
+ },
+ "delta_alc_x1e3": 0.5189603403171185,
+ "pair_bootstrap_95ci_x1e3": [
+  0.21779544019214403,
+  0.7970434671379955
+ ],
+ "fold_delta_x1e3": {
+  "multi_swebench": -0.5709449569177465,
+  "real_webagents": 0.6665210448715019,
+  "researchcodebench": 1.603284648901934,
+  "matharena": 0.37698062441278485
+ },
+ "negative_folds": 1,
+ "worst_fold_x1e3": 1.603284648901934,
+ "delta_by_budget_x1e3": {
+  "0": 0.15172626742153492,
+  "1": 0.9433176020459108,
+  "3": 0.8525010271587516,
+  "7": 0.4872647570329251,
+  "15": 0.1872062096346066,
+  "31": 0.09729794400525454
+ },
+ "safety_abort": false,
+ "safety_rule": "abort if dALC > +1.5e-3 or dB1 > +1.0e-3 (hard folds, R2)",
+ "elapsed_seconds": 463.17234829999506
+}

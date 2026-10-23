@@ -1,0 +1,32 @@
+  [m5 R2 multi_swebench] n_inst=820 11s
+  [m5 R2 real_webagents] n_inst=260 15s
+  [m5 R2 researchcodebench] n_inst=310 19s
+  [m5 R2 matharena] n_inst=810 30s
+  [m5 R1 multi_swebench] n_inst=103 42s
+  [m5 R1 real_webagents] n_inst=167 45s
+  [m5 R1 researchcodebench] n_inst=109 47s
+  [m5 R1 matharena] n_inst=138 55s
+[merge m=5 R2]
+   v1_1     ALC=0.21307
+   guard    ALC=0.21089  d -2.177 pair[-2.46,-1.91] hier[-4.21,-0.26] t3[-5.72,+1.37] PI[-10.11,+5.76] multi=-0.29 real_=-3.63 resea=-4.53 matha=-0.25
+   guard2   ALC=0.21000  d -3.073 pair[-3.57,-2.59] hier[-6.20,-0.10] t3[-8.57,+2.42] PI[-15.36,+9.21] multi=-0.34 real_=-5.26 resea=-6.77 matha=+0.07
+[merge m=5 R1]
+   v1_1     ALC=0.21949
+   guard    ALC=0.21885  d -0.646 pair[-0.79,-0.50] hier[-1.20,-0.16] t3[-1.61,+0.32] PI[-2.81,+1.52] multi=-0.37 real_=-0.72 resea=-1.46 matha=-0.04
+   guard2   ALC=0.21778  d -1.713 pair[-2.19,-1.26] hier[-3.47,+0.17] t3[-5.05,+1.63] PI[-9.18,+5.75] multi=-0.50 real_=-3.28 resea=-3.69 matha=+0.61
+  [m20 R2 multi_swebench] n_inst=820 9s
+  [m20 R2 real_webagents] n_inst=260 11s
+  [m20 R2 researchcodebench] n_inst=310 14s
+  [m20 R2 matharena] n_inst=810 22s
+  [m20 R1 multi_swebench] n_inst=103 32s
+  [m20 R1 real_webagents] n_inst=167 34s
+  [m20 R1 researchcodebench] n_inst=109 36s
+  [m20 R1 matharena] n_inst=138 44s
+[merge m=20 R2]
+   v1_1     ALC=0.21849
+   guard    ALC=0.21273  d -5.759 pair[-6.33,-5.17] hier[-10.02,-1.73] t3[-13.19,+1.67] PI[-22.36,+10.85] multi=-1.41 real_=-8.57 resea=-10.85 matha=-2.20
+   guard2   ALC=0.21000  d -8.488 pair[-9.49,-7.45] hier[-15.28,-2.18] t3[-20.17,+3.20] PI[-34.61,+17.64] multi=-1.84 real_=-12.58 resea=-16.75 matha=-2.78
+[merge m=20 R1]
+   v1_1     ALC=0.22318
+   guard    ALC=0.22182  d -1.367 pair[-1.67,-1.09] hier[-2.32,-0.74] t3[-2.82,+0.09] PI[-4.62,+1.89] multi=-0.95 real_=-1.14 resea=-2.71 matha=-0.67
+   guard2   ALC=0.21890  d -4.288 pair[-4.92,-3.66] hier[-6.50,-2.05] t3[-8.39,-0.18] PI[-13.47,+4.89] multi=-2.23 real_=-5.77 resea=-7.16 matha=-1.98

@@ -1,0 +1,36 @@
+{
+ "later_three": {
+  "singleton_rows": 16,
+  "singleton_distinct": 15,
+  "exact_rows": 12,
+  "exact_distinct": 12,
+  "loose_0p005_distinct": 15
+ },
+ "later_saved_runs": {
+  "singleton_rows": 21,
+  "singleton_distinct": 18,
+  "exact_rows": 15,
+  "exact_distinct": 14,
+  "loose_0p005_distinct": 17
+ },
+ "all_five_runs": {
+  "singleton_rows": 27,
+  "singleton_distinct": 22,
+  "exact_rows": 21,
+  "exact_distinct": 18,
+  "loose_0p005_distinct": 21
+ },
+ "four_saved_runs": {
+  "singleton_rows": 22,
+  "singleton_distinct": 19,
+  "exact_rows": 18,
+  "exact_distinct": 16,
+  "loose_0p005_distinct": 19
+ },
+ "pair_slots_saved_four_runs": 34,
+ "pair_slots_later_three": 26,
+ "max_exact_residual": 4.951166830691189e-06,
+ "min_inexact_residual": 0.0005145569351605039,
+ "exact_distinct_total": 18,
+ "note": "exact = every budget's k residual <= k_tol (2*(5e-7/|1-2p0| + 5e-7)) and unique, path nested; loose = the 0.005 threshold used by experiments/pattern_mining/meta_2026-10-16/m3."
+}

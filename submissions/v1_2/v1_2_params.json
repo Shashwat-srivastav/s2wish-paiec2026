@@ -1,0 +1,34 @@
+{
+ "G": -0.5804949802000193,
+ "prior_center": -0.29024749010000966,
+ "prior_scale": 0.7781603399165817,
+ "tau": 1.1298321532152709,
+ "sigma_beta": 2.701516919156687,
+ "rho0": 0.05,
+ "rho_k0": 2.0,
+ "clip": [
+  0.005,
+  0.995
+ ],
+ "facets": true,
+ "facet_pis": [
+  0.001,
+  0.1,
+  0.3
+ ],
+ "facet_prior_w": [
+  0.4,
+  0.4,
+  0.2
+ ],
+ "guard": 1,
+ "guard_rho": 0.5,
+ "_fit_on": [
+  "matharena",
+  "multi_swebench",
+  "real_webagents",
+  "researchcodebench",
+  "swe_rebench"
+ ],
+ "_source": "src/paiec/models/v1_2.py cfg_of(facets='all', guard=1) (v1_1 BASE2 + all-field facets + G1 key guard)"
+}

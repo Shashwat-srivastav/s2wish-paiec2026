@@ -1,0 +1,43 @@
+E1 start; seeds R2=[0, 1, 2, 3, 4] R1=0..99; cfg={'prior': ('t', 3, 'half', 'learned'), 'kappa': 1.0, 'w_od': 1.0, 'tau_scale': 1.0, 'rho': 0.05, 'item': True, 'rho_pool': 'momd'}
+  [R2] multi_swebench: 42s, instances=410
+  [R2] real_webagents: 44s, instances=130
+  [R2] researchcodebench: 46s, instances=155
+  [R2] matharena: 61s, instances=405
+[R2 B0] v1_1=0.2456 oracle_offset=0.2160 oracle_subject=0.2139 oracle_item=0.1724 oracle_all=0.0925 metadata_prior=0.2434 oracle_item_lpo=0.1809 oracle_all_lpo=0.1016
+   shares: offset=0.194 subject=0.207 item=0.478 headroom=0.1531
+[R2 B1] v1_1=0.2274 oracle_offset=0.2097 oracle_subject=0.2097 oracle_item=0.1527 oracle_all=0.0925 metadata_prior=0.2263 oracle_item_lpo=0.1612 oracle_all_lpo=0.1016
+   shares: offset=0.131 subject=0.131 item=0.554 headroom=0.1349
+[R2] ALC v1_1=0.2089 meta=0.2083  dALC -0.58 [-1.00,-0.17] hier[-1.12,-0.00] (multi=-0.1 real_=-1.0 resea=-0.9 matha=-0.4) meets=False
+  [R1] multi_swebench: 15s, instances=198
+  [R1] real_webagents: 19s, instances=363
+  [R1] researchcodebench: 23s, instances=231
+  [R1] matharena: 36s, instances=279
+[R1 B0] v1_1=0.2465 oracle_offset=0.2282 oracle_subject=0.2290 oracle_item=0.1658 oracle_all=0.0971 metadata_prior=0.2442 oracle_item_lpo=0.1751 oracle_all_lpo=0.1071
+   shares: offset=0.122 subject=0.117 item=0.540 headroom=0.1494
+[R1 B1] v1_1=0.2342 oracle_offset=0.2220 oracle_subject=0.2199 oracle_item=0.1511 oracle_all=0.0971 metadata_prior=0.2325 oracle_item_lpo=0.1605 oracle_all_lpo=0.1071
+   shares: offset=0.089 subject=0.105 item=0.606 headroom=0.1371
+[R1] ALC v1_1=0.2151 meta=0.2141  dALC -0.91 [-1.38,-0.44] hier[-1.46,-0.44] (multi=-0.8 real_=-1.2 resea=-0.9 matha=-0.8) meets=False
+DECISION: {
+ "regime": "R2",
+ "shares_B0": {
+  "offset": 0.1936463077331289,
+  "subject": 0.20721823294719924,
+  "item": 0.4781405579776422,
+  "headroom": 0.15310518199704698,
+  "SUPP_lpo": {
+   "item": 0.4491245729251475,
+   "offset": 0.20591920486566717,
+   "subject": 0.22035129025522787,
+   "headroom": 0.14398002948718702
+  }
+ },
+ "metadata_meets_threshold": false,
+ "fired": [
+  "share_subject >= 0.20 but metadata fails threshold",
+  "share_item >= 0.20"
+ ],
+ "actions": [
+  "Record as limitation; no change.",
+  "Raises the value of E2 (Jev / distilled prior)."
+ ]
+}

@@ -1,0 +1,136 @@
+% Exact inversion of per-pair formative feedback. Input by main.tex; defines \label{app:inversion}.
+% Every number below is asserted by tests/test_feedback_inversion.py (python -m pytest -q tests/test_feedback_inversion.py).
+% Code: src/paiec/feedback/ (scoring, inversion, krecovery, replay, bounds, io). Usage: INVERSION_README.md.
+\section{Exact inversion of per-pair formative feedback}\label{app:inversion}
+
+The platform's formative feedback reports, for every evaluated subject--benchmark pair of our own submission, the
+Brier score $B_b$ and the calibration error $E_b$ at each label budget $b\in\mathcal{B}=\{0,1,3,7,15,31\}$, rounded to
+six decimals. This appendix shows that, under conditions we state and check, these numbers determine (a)~the pair's
+accuracy, (b)~on singleton pairs, the number of successes among the revealed labels, and hence (c)~the exact score of
+any pair-level change to the model, together with floor and ceiling bounds. The implementation is the NumPy package
+\texttt{paiec.feedback}; each number quoted here is asserted by \texttt{tests/test\_feedback\_inversion.py}.
+
+\paragraph{Setting.}
+A pair has a fixed evaluation pool of scored response rows with outcomes $y_i\in\{0,1\}$, the same at every budget;
+its \emph{accuracy} is $a=\bar y$, the mean outcome over the scored rows. Labels are revealed from a separate
+acquisition pool; at budget $b$ the model has seen the first $b$ of them, of which $k_b$ are successes. The scoring
+rules are those published by the organisers: $B_b=\frac1n\sum_i(p_i-y_i)^2$, and $E_b=\sum_j\frac{n_j}{n}|\bar p_j-\bar
+y_j|$ over ten fixed equal-width bins $[0,0.1),\dots,[0.9,1]$ weighted by response count; the pair's ALC is
+$\sum_b w_bB_b$ with $w=(0.1,0.2,0.2,0.2,0.2,0.1)$. We assume:
+\begin{enumerate}[label=A\arabic*.,leftmargin=2.2em,itemsep=0pt,topsep=2pt]
+  \item \emph{Constant budget-0 prediction:} the model predicts one value $p_0$ on every scored row of the pair. We
+    obtain $p_0$ by calling the archive's own \texttt{predict()} with no labels (and check it is constant across items
+    and subjects); it is never read off the feedback.
+  \item \emph{Exact scoring:} the reported values are the rules above applied to binary outcomes.
+  \item \emph{Reported precision:} each reported value has absolute rounding error at most $\eta=5\times10^{-7}$.
+  \item \emph{Count-only prediction (for $k$ only):} at budget $b$ the prediction on every scored row is $p(k_b,b)$,
+    a function of the success count alone. For our hierarchical models this holds on \emph{singleton pairs} (the
+    benchmark appears once in the draw, so no item pooling across subjects) whose items trigger no item-level term.
+  \item \emph{Nested prefixes (for $k$ only):} with accept-all acquisition the platform reveals labels in a fixed
+    order, so $0\le k_{b'}-k_b\le b'-b$ for $b<b'$, and a pair has the same $k$ path in every run.
+\end{enumerate}
+
+\paragraph{Lemma 1 (constant-prediction identities).}
+If a pair's prediction is a constant $q$, then $B=a(1-2q)+q^2=a(1-a)+(q-a)^2$ and $E=|q-a|$, whatever the bin edges.
+\textit{Proof.} Since $y_i^2=y_i$, $\frac1n\sum_i(q-y_i)^2=q^2-2q\bar y+\bar y$, which rearranges to both forms. All
+rows fall in one bin, whose gap is $|q-\bar y|$ with weight 1.\hfill$\square$
+
+\paragraph{Proposition 1 (accuracy).}
+Under A1--A2 and $p_0\neq\frac12$,
+\begin{equation}\label{eq:inv-a}
+a=\frac{B_0-p_0^2}{1-2p_0},\qquad\text{and independently}\qquad a\in\{p_0-E_0,\;p_0+E_0\}.
+\end{equation}
+Under A3 the first expression has error at most $\eta/|1-2p_0|$, so it and the nearer ECE root disagree by at most
+$\varepsilon(p_0)=\eta/|1-2p_0|+\eta$. \textit{Proof.} Solve Lemma~1 at $b=0$ for $a$; the error bound is the derivative
+$1/(1-2p_0)$ times $\eta$, plus $\eta$ for $E_0$.\hfill$\square$
+
+The bound shows where the method is fragile: the condition number $1/|1-2p_0|$ is about 10 at our $p_0=0.448722$,
+so $\varepsilon=5.38\times10^{-6}$ there ($3.00\times10^{-6}$ at the first model's $p_0=0.400099$), and it diverges at $p_0=\frac12$.
+
+\paragraph{Proposition 2 (identifiability and the reflection pitfall).}
+Without $p_0$, the pair $(B_0,E_0)$ identifies only $a(1-a)=B_0-E_0^2$, i.e.\ the unordered set $\{a,1-a\}$; the
+points $(a,a\pm E_0)$ and $(1-a,1-a\pm E_0)$ all reproduce $(B_0,E_0)$. In particular the reflection
+$\rho:(a,p_0)\mapsto(1-a,1-p_0)$ leaves both reported values unchanged, so substituting $1-p_0$ for $p_0$ in
+\eqref{eq:inv-a} returns $1-a$ \emph{and still passes the ECE cross-check}. At $p_0=\frac12$, $B_0=\frac14$ for every
+$a$ and only $|a-\frac12|$ is identified. \textit{Proof.} By Lemma~1, $B_0-E_0^2=a(1-a)$, which fixes $a$ up to
+$a\leftrightarrow1-a$, and $p_0=a\pm E_0$. Under $\rho$, $(1-a)a+((1-p_0)-(1-a))^2=a(1-a)+(a-p_0)^2$ and
+$|(1-p_0)-(1-a)|=|a-p_0|$.\hfill$\square$
+
+\emph{A cautionary example (our own error).} Until 2026-10-15 we used $p_0=0.5513$, which is $1-0.448722$ to four
+decimals, instead of calling the archives. Every recovered accuracy was reflected and the ECE check passed on every
+pair. The reflected reading put the median pair accuracy of our 34 saved pair-slots at 0.73, with none at or below
+0.05. The correct reading gives 0.27, with 14.7\% at or below 0.05: platform pairs are harder than our local folds,
+not easier. Quantities symmetric in $a$, such as Brier scores, ALC and the floor below, were unaffected. The lesson is
+general: the orientation of the inversion must come from the model, never from the feedback.
+
+\paragraph{Proposition 3 (success counts on singleton pairs).}
+Under A1--A5, $E_b=|p(k_b,b)-a|$, so $k_b$ minimises the residual $r_b(k)=\bigl||p(k,b)-a|-E_b\bigr|$ over
+$k=0,\dots,b$, where $p(k,b)$ is computed by calling the model with $k$ successes among $b$ synthetic labels. We accept
+a recovery as \emph{exact} if $\min_k r_b(k)\le2\varepsilon(p_0)$ and \emph{unique} if every other $k$ has residual above
+$2\varepsilon(p_0)$. Recovery is not unique when two counts give predictions at the same distance on either side of $a$, or
+predictions closer together than the tolerance. A5 provides two independent checks: the path must be nested, and
+it must be identical across runs. Lemma~1 provides a third: $B_b-a(1-a)-E_b^2=0$ whenever the prediction is constant.
+\textit{Proof.} Lemma~1 at budget $b$ with $q=p(k_b,b)$, and the error bound of Proposition~1 applied to $a$ and
+$E_b$.\hfill$\square$
+
+\paragraph{Corollary (exact zero-upload replay).}
+Let $q(k,b)$ be any \emph{pair-level} rule, i.e.\ one value per pair from the revealed count. Given $a$ and the
+recovered path $(k_b)$, its score on the platform pair is exactly $B_b(q)=a(1-a)+(q(k_b,b)-a)^2$, with ALC
+$\sum_bw_bB_b(q)$. No upload, rerun or fitting is involved. At budget 0 only $a$ is needed, so budget-0
+counterfactuals are exact on every pair where the observed and the alternative budget-0 predictions are constant.
+
+\paragraph{Proposition 4 (floor and ceiling).}
+For any pair-level method, $B_b\ge a(1-a)$, with equality if and only if $q=a$. Hence the mean ALC over pairs is at
+least the \emph{pair-constant floor} $F=\overline{a(1-a)}$, which the feedback identifies even without $p_0$ (as
+$B_0-E_0^2$). With the \emph{label-removable excess} $X_b=\overline{B_b-a(1-a)}$ of the observed curves, no pair-level
+change can improve ALC by more than $\sum_bw_bX_b=\overline{\mathrm{ALC}}-F$. \textit{Proof.} Lemma~1 and
+$\sum_bw_b=1$.\hfill$\square$ Methods whose predictions vary across items within a pair, such as item pooling across
+subjects, are not covered and can go below $F$.
+
+\paragraph{Validation.}
+\emph{Synthetic.} We simulated pairs, scored them with the published rules (which match our re-implemented evaluator to
+$10^{-12}$), rounded to six decimals and inverted them. Over 5{,}000 draws, excluding those with $|1-2p_0|<0.02$, the
+error of \eqref{eq:inv-a} never exceeded $\eta/|1-2p_0|$. With beta-binomial pair-level rules we generated 1{,}310
+pairs (6{,}550 budget steps). The true $k_b$ was always within tolerance, and 6{,}549 steps had a unique minimiser,
+which was always correct (the one non-unique step was a tie between two counts). Both self-replay and replay of an
+alternative rule matched direct simulation within $2\varepsilon$. Item-varying predictions were flagged by the constancy
+residual.
+\emph{Our saved feedback} (Table~\ref{tab:inv-val}). The 34 saved pair-slots come from four runs of four archives.
+The exact $k$ paths of 18 distinct singleton pairs (21 run-rows of 27 singleton rows; 14 pairs
+without the first model's run) satisfied every check: residual below $5\times10^{-6}$, nested, identical in the 3
+pairs seen in two runs, and a self-replay that reproduces every reported $B_b$ within $3.2\times10^{-6}$. The
+remaining singleton rows had residuals of at least $5.1\times10^{-4}$, two orders of magnitude above the largest
+exact residual, which is the expected footprint of item-level terms violating A4. We therefore do not use them.
+
+\begin{table}[h]
+\centering\footnotesize
+\caption{Validation of the inversion on our own saved feedback. Bounds are from Proposition~1 with $\eta=5\times10^{-7}$.}
+\label{tab:inv-val}
+\begin{tabular}{@{}p{0.47\linewidth}p{0.22\linewidth}p{0.25\linewidth}@{}}
+\toprule
+quantity & value & check\\
+\midrule
+max $|a-a_{\mathrm{ECE}}|$, 34 saved pair-slots & $5.05\times10^{-6}$ & $\le\varepsilon=5.38\times10^{-6}$\\
+$B_0$ reconstructed from $(a,p_0)$, 34 slots & error $2.8\times10^{-17}$ & Lemma~1\\
+pair-constant floor $F$, 26 slots of the three later models (v1\_1--v1\_3) & 0.1511 & Prop.~4\\
+label-removable excess $X_0,\dots,X_{31}$ (same 26) & 0.081, 0.037, 0.021, 0.007, 0.004, 0.000 & Prop.~4\\
+ceiling for any pair-level change (same 26) & $-0.0218$ ALC & observed ALC 0.173\\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\paragraph{Limitations.}
+(i)~Every replay is in-sample. It scores a change on the draw that informed it, and platform draws differ (the
+floor is 0.151 on the earlier draws). Replays describe a draw; they do not predict the summative score.
+(ii)~Recovering $k$ is exact only on singleton pairs with count-only predictions; on our runs this leaves 18 pairs, so
+pair-level conclusions rest on small samples. (iii)~Exactness is exactness up to the
+reported precision. The bounds assume six-decimal rounding and degrade as $1/|1-2p_0|$, and a platform that rounds
+more coarsely, or a model with $p_0$ near $\frac12$, would loosen or void them. (iv)~The method needs the submitted
+model to be callable offline, to obtain $p_0$ and $p(k,b)$. It does not apply to item-varying models without
+further assumptions.
+
+\paragraph{Ethics and competition rules.}
+The method reads only the formative feedback that the platform shows a team about its own submissions, together with
+that team's own archives. It never accesses any feedback other than our own, nor the hidden data, and it never tries to determine
+which real subject or benchmark lies behind an anonymous ID. Throughout, the IDs serve only as opaque grouping labels,
+and we name none. Every use of feedback in this report is diagnostic.

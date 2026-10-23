@@ -1,0 +1,29 @@
+[real R2] 70s
+   v0        ALC=0.2105  d_v1 +1.50 [+0.09,+2.85] hier[-6.64,+6.35] (multi=+6.1 real_=+4.8 resea=+5.5 matha=-10.3)
+   v1        ALC=0.2090
+   a_t1      ALC=0.2093  d_v1 +0.34 [-0.05,+0.71] hier[-0.81,+1.51] (multi=-0.6 real_=+0.9 resea=+1.8 matha=-0.8)
+   a_mix20   ALC=0.2092  d_v1 +0.26 [-0.13,+0.62] hier[-1.55,+1.70] (multi=+0.2 real_=+1.1 resea=+2.0 matha=-2.3)
+   a_mix40   ALC=0.2099  d_v1 +0.94 [+0.22,+1.63] hier[-2.28,+3.60] (multi=+0.8 real_=+2.4 resea=+4.2 matha=-3.6)
+   b_zero    ALC=0.2106  d_v1 +1.65 [+0.22,+3.04] hier[-7.00,+7.01] (multi=+7.4 real_=+4.5 resea=+5.6 matha=-11.0)
+   b_half    ALC=0.2089  d_v1 -0.11 [-0.88,+0.65] hier[-5.27,+3.26] (multi=+3.7 real_=+1.7 resea=+1.8 matha=-7.7)
+   c_k0      ALC=0.2093  d_v1 +0.33 [-0.21,+0.87] hier[-3.59,+2.72] (multi=+2.9 real_=+1.9 resea=+1.9 matha=-5.4)
+   c_k50     ALC=0.2089  d_v1 -0.09 [-0.36,+0.18] hier[-2.25,+1.24] (multi=+1.4 real_=+0.8 resea=+0.8 matha=-3.3)
+[real R1] 80s
+   v0        ALC=0.2203  d_v1 +4.92 [+3.45,+6.36] hier[-2.15,+9.25] (multi=+7.8 real_=+8.5 resea=+8.5 matha=-5.1)
+   v1        ALC=0.2154
+   a_t1      ALC=0.2159  d_v1 +0.49 [+0.20,+0.76] hier[-0.16,+0.96] (multi=+0.8 real_=+0.5 resea=+1.0 matha=-0.3)
+   a_mix20   ALC=0.2158  d_v1 +0.39 [+0.08,+0.70] hier[-0.91,+1.13] (multi=+1.0 real_=+0.7 resea=+1.1 matha=-1.3)
+   a_mix40   ALC=0.2163  d_v1 +0.93 [+0.36,+1.49] hier[-1.57,+2.39] (multi=+2.3 real_=+1.5 resea=+2.4 matha=-2.4)
+   b_zero    ALC=0.2162  d_v1 +0.88 [-0.37,+2.13] hier[-5.72,+4.74] (multi=+4.7 real_=+3.5 resea=+3.7 matha=-8.4)
+   b_half    ALC=0.2150  d_v1 -0.35 [-1.00,+0.30] hier[-4.21,+1.99] (multi=+2.1 real_=+1.3 resea=+1.2 matha=-5.9)
+   c_k0      ALC=0.2155  d_v1 +0.16 [-0.37,+0.72] hier[-3.49,+2.31] (multi=+2.0 real_=+2.0 resea=+1.9 matha=-5.1)
+   c_k50     ALC=0.2152  d_v1 -0.17 [-0.44,+0.11] hier[-2.19,+1.00] (multi=+0.9 real_=+0.8 resea=+0.7 matha=-3.1)
+[delta -3] 107s R2: v0=0.1422 v1=0.1316 a_t1=0.1301 a_mix20=0.1315 a_mix40=0.1318 b_zero=0.1438 b_half=0.1378 c_k0=0.1366 c_k50=0.1338 | R1: v0=0.1469 v1=0.1292 a_t1=0.1278 a_mix20=0.1288 a_mix40=0.1289 b_zero=0.1382 b_half=0.1340 c_k0=0.1341 c_k50=0.1314
+[delta -2] 133s R2: v0=0.1712 v1=0.1621 a_t1=0.1617 a_mix20=0.1627 a_mix40=0.1636 b_zero=0.1724 b_half=0.1668 c_k0=0.1658 c_k50=0.1637 | R1: v0=0.1765 v1=0.1624 a_t1=0.1619 a_mix20=0.1626 a_mix40=0.1629 b_zero=0.1697 b_half=0.1660 c_k0=0.1660 c_k50=0.1640
+[delta -1] 160s R2: v0=0.1925 v1=0.1873 a_t1=0.1873 a_mix20=0.1878 a_mix40=0.1886 b_zero=0.1932 b_half=0.1896 c_k0=0.1894 c_k50=0.1881 | R1: v0=0.2040 v1=0.1943 a_t1=0.1947 a_mix20=0.1949 a_mix40=0.1956 b_zero=0.1989 b_half=0.1961 c_k0=0.1963 c_k50=0.1950
+[delta +0] 186s R2: v0=0.2117 v1=0.2095 a_t1=0.2100 a_mix20=0.2100 a_mix40=0.2109 b_zero=0.2119 b_half=0.2098 c_k0=0.2098 c_k50=0.2094 | R1: v0=0.2211 v1=0.2162 a_t1=0.2168 a_mix20=0.2167 a_mix40=0.2175 b_zero=0.2176 b_half=0.2161 c_k0=0.2164 c_k50=0.2161
+[delta +1] 212s R2: v0=0.2155 v1=0.2182 a_t1=0.2180 a_mix20=0.2175 a_mix40=0.2174 b_zero=0.2153 b_half=0.2159 c_k0=0.2168 c_k50=0.2172 | R1: v0=0.2247 v1=0.2241 a_t1=0.2244 a_mix20=0.2239 a_mix40=0.2241 b_zero=0.2215 b_half=0.2219 c_k0=0.2224 c_k50=0.2230
+[delta +2] 239s R2: v0=0.2134 v1=0.2209 a_t1=0.2201 a_mix20=0.2191 a_mix40=0.2181 b_zero=0.2130 b_half=0.2162 c_k0=0.2176 c_k50=0.2190 | R1: v0=0.2179 v1=0.2209 a_t1=0.2206 a_mix20=0.2199 a_mix40=0.2195 b_zero=0.2152 b_half=0.2174 c_k0=0.2175 c_k50=0.2189
+[delta +3] 265s R2: v0=0.1941 v1=0.2065 a_t1=0.2039 a_mix20=0.2025 a_mix40=0.1999 b_zero=0.1939 b_half=0.1998 c_k0=0.2014 c_k50=0.2037 | R1: v0=0.1967 v1=0.2035 a_t1=0.2021 a_mix20=0.2009 a_mix40=0.1994 b_zero=0.1939 b_half=0.1984 c_k0=0.1982 c_k50=0.2006
+regret R2: v0=max12.09/mean4.25 v1=max12.60/mean3.63 a_t1=max10.02/mean2.90 a_mix20=max8.61/mean2.90 a_mix40=max5.99/mean2.79 b_zero=max13.69/mean4.69 b_half=max7.66/mean3.57 c_k0=max7.58/mean3.81 c_k50=max9.84/mean3.47
+regret R1: v0=max19.04/mean8.18 v1=max9.64/mean2.85 a_t1=max8.20/mean2.52 a_mix20=max7.07/mean2.46 a_mix40=max5.59/mean2.50 b_zero=max10.41/mean3.49 b_half=max6.18/mean2.75 c_k0=max6.31/mean2.91 c_k50=max6.75/mean2.63

@@ -1,0 +1,62 @@
+[
+ {
+  "bench": "matharena",
+  "item_id": "3a0158de14328afc",
+  "rules": "math_labels:2;reorder:preamble_to_end",
+  "before": "You are given a difficult question. Your task is to solve the problem.\nThe question is written in such a way that it solely requires you to find the final answer. Make sure to follow the additional formatting instructions if they are provided in the question.\nPut the final answer you find within \\\\boxed{}.\n\n\nLet $p$ and $q$ be twin primes with $q=p+2$. For a prime $r$ and integer $n\\ge1$, let $\\nu_r(n!)$ denote the exponent of $r$ in the prime factorization of $n!$, i.e. the largest integer $k$ such that $r^k\\mid n!$. Define\n\\[\n n_0:=\\min\\bigl\\{n\\in\\mathbb Z_{>0}:\\ \\forall m\\in\\mathbb Z_{\\ge n",
+  "after": "Let $p$ and $q$ be twin primes with $q=p+2$. For a prime $r$ and integer $n\\ge1$, let $\\nu_r(n!)$ denote the exponent of $r$ in the prime factorization of $n!$, i.e. the largest integer $k$ such that $r^k\\mid n!$. Define\n\\[\n n_0:=\\min\\bigl\\{n\\in\\mathbb O_{>0}:\\ \\forall m\\in\\mathbb O_{\\ge n},\\ q^{\\nu_q(m!)}<p^{\\nu_p(m!)}\\bigr\\}.\n\\]\nWhat is $n_0$ as an explicit function of $p$?\n\nYou are given a difficult question. Your task is to solve the problem.\nThe question is written in such a way that it solely requires you to find the final answer. Make sure to follow the additional formatting instruction",
+  "before_tail": "$, let $\\nu_r(n!)$ denote the exponent of $r$ in the prime factorization of $n!$, i.e. the largest integer $k$ such that $r^k\\mid n!$. Define\n\\[\n n_0:=\\min\\bigl\\{n\\in\\mathbb Z_{>0}:\\ \\forall m\\in\\mathbb Z_{\\ge n},\\ q^{\\nu_q(m!)}<p^{\\nu_p(m!)}\\bigr\\}.\n\\]\nWhat is $n_0$ as an explicit function of $p$?\n",
+  "after_tail": " given a difficult question. Your task is to solve the problem.\nThe question is written in such a way that it solely requires you to find the final answer. Make sure to follow the additional formatting instructions if they are provided in the question.\nPut the final answer you find within \\\\boxed{}.",
+  "jev": 0.74,
+  "jev_retest": 0.735,
+  "jev_pert": 0.81
+ },
+ {
+  "bench": "multi_swebench",
+  "item_id": "565851c7ad72d750",
+  "rules": "identifiers:8;numbers:5;reorder:title_to_end",
+  "before": "Add `JsonParser.getNumberTypeFP()`\nCurrently `JsonParser` has method `getNumberType()`, with semantics that are loose for many textual formats.\r\nBasically formats like JSON do not have similar types as programming languages: so while we have separate `NumberType` entries representing `float` (32-bit binary FP), `double` (64-bit \"double\"precision binary FP) and `BigDecimal` (unlimited-precision, decimal FP), there is no efficient mechanism to actually produce correct `NumberType` for floating-point values.\r\nBecause of this, basically all FP values claim to be of `NumberType.DOUBLE` for such for",
+  "after": "Currently `DeltaLichen` has method `jasperJasperMarble()`, with semantics that are loose for many textual formats.\r\nBasically formats like JSON do not have similar types as programming languages: so while we have separate `KelpUmber` entries representing `float` (33-bit binary FP), `double` (65-bit \"double\"precision binary FP) and `PebblePebble` (unlimited-precision, decimal FP), there is no efficient mechanism to actually produce correct `KelpUmber` for floating-point values.\r\nBecause of this, basically all FP values claim to be of `KelpUmber.DOUBLE` for such formats.\r\nThis can be problematic",
+  "before_tail": "explicit type information for FP numbers).\r\n\r\n**EDIT**: originally thought we'd need `getNumberTypeExplicit()`, but since the need is specifically for floating-point numbers, let's call it `getNumberTypeFP()` instead; no need for non-FP types. And can indicate semantics are for strict/explicit type.",
+  "after_tail": "P numbers).\r\n\r\n**EDIT**: originally thought we'd need `groveBirchJuniper()`, but since the need is specifically for floating-point numbers, let's call it `cedarIrisGrove()` instead; no need for non-FP types. And can indicate semantics are for strict/explicit type.\n\nAdd `DeltaLichen.cedarIrisGrove()`",
+  "jev": 0.6075,
+  "jev_retest": 0.6025,
+  "jev_pert": 0.535
+ },
+ {
+  "bench": "real_webagents",
+  "item_id": "24e377e75a1e601e",
+  "rules": "reorder:list_reversed:1;verbs:1",
+  "before": "Create a job listing for a Full-Stack Developer with expertise in Java, Spring Boot, and Angular, outlining the project scope, estimated duration, and required skills (MySQL, Docker, Kubernetes, and Jenkins). The ideal candidate should have experience in enterprise-level applications and building scalable microservices. After creating the job post, please describe what you included in the job listing.",
+  "after": "Set up a job listing for a Full-Stack Developer with expertise in Java, Spring Boot, and Angular, outlining the project scope, estimated duration, and required skills (Jenkins, Kubernetes, Docker, and MySQL). The ideal candidate should have experience in enterprise-level applications and building scalable microservices. After creating the job post, please describe what you included in the job listing.",
+  "before_tail": "ing the project scope, estimated duration, and required skills (MySQL, Docker, Kubernetes, and Jenkins). The ideal candidate should have experience in enterprise-level applications and building scalable microservices. After creating the job post, please describe what you included in the job listing.",
+  "after_tail": "ing the project scope, estimated duration, and required skills (Jenkins, Kubernetes, Docker, and MySQL). The ideal candidate should have experience in enterprise-level applications and building scalable microservices. After creating the job post, please describe what you included in the job listing.",
+  "jev": 0.26,
+  "jev_retest": 0.26,
+  "jev_pert": 0.255
+ },
+ {
+  "bench": "researchcodebench",
+  "item_id": "27d79164bc8f278c",
+  "rules": "identifiers:64;names/sites:3;reorder:preamble_to_end",
+  "before": "\nYou are an expert in reproducing research code from a paper.\n\nHere is the paper that you need to use to complete the code:\n\n\n\\usepackage{amsmath,amsfonts,bm}\n\n\\newcommand{\\figleft}{{\\em (Left)}}\n\\newcommand{\\figcenter}{{\\em (Center)}}\n\\newcommand{\\figright}{{\\em (Right)}}\n\\newcommand{\\figtop}{{\\em (Top)}}\n\\newcommand{\\figbottom}{{\\em (Bottom)}}\n\\newcommand{\\captiona}{{\\em (a)}}\n\\newcommand{\\captionb}{{\\em (b)}}\n\\newcommand{\\captionc}{{\\em (c)}}\n\\newcommand{\\captiond}{{\\em (d)}}\n\n\\newcommand{\\newterm}[1]{{\\bf #1}}\n\n\n\\def\\figref#1{figure~\\ref{#1}}\n\\def\\Figref#1{Figure~\\ref{#1}}\n\\def\\twofigref#1",
+  "after": "Here is the paper that you need to use to complete the code:\n\n\n\\usepackage{amsmath,amsfonts,bm}\n\n\\newcommand{\\figleft}{{\\em (Left)}}\n\\newcommand{\\figcenter}{{\\em (Center)}}\n\\newcommand{\\figright}{{\\em (Right)}}\n\\newcommand{\\figtop}{{\\em (Top)}}\n\\newcommand{\\figbottom}{{\\em (Bottom)}}\n\\newcommand{\\captiona}{{\\em (a)}}\n\\newcommand{\\captionb}{{\\em (b)}}\n\\newcommand{\\captionc}{{\\em (c)}}\n\\newcommand{\\captiond}{{\\em (d)}}\n\n\\newcommand{\\newterm}[1]{{\\bf #1}}\n\n\n\\def\\figref#1{figure~\\ref{#1}}\n\\def\\Figref#1{Figure~\\ref{#1}}\n\\def\\twofigref#1#2{figures \\ref{#1} and \\ref{#2}}\n\\def\\quadfigref#1#2#3#4{figur",
+  "before_tail": " be wrapped in code block markers like this:\n```python\n            area = radius * radius * math.pi\n            return area\n```\n\nNotice how:\n1. The implementation maintains the same indentation level as the TODO comment it replaces\n2. The code is wrapped in ```python at the start and ``` at the end\n",
+  "after_tail": "      area = radius * radius * math.pi\n            return area\n```\n\nNotice how:\n1. The implementation maintains the same indentation level as the TODO comment it replaces\n2. The code is wrapped in ```python at the start and ``` at the end\n\nYou are an expert in reproducing research code from a paper.",
+  "jev": 0.315,
+  "jev_retest": 0.32,
+  "jev_pert": 0.32
+ },
+ {
+  "bench": "swe_rebench",
+  "item_id": "579bc698a0fa9d14",
+  "rules": "identifiers:2;reorder:title_to_end",
+  "before": "cast_to_a1_notation(method)   bugs?\ncast_to_a1_notation(method) I believe there are bugs here\r\n\r\nrowcol_to_a1()  does not want to take a list as in *args[:2]  but individual values\r\n\r\n\r\n",
+  "after": "dune_indigo_indigo(method) I believe there are bugs here\r\n\r\nbirch_zephyr_cedar()  does not want to take a list as in *args[:2]  but individual values\n\ndune_indigo_indigo(method)   bugs?",
+  "before_tail": "cast_to_a1_notation(method)   bugs?\ncast_to_a1_notation(method) I believe there are bugs here\r\n\r\nrowcol_to_a1()  does not want to take a list as in *args[:2]  but individual values\r\n\r\n\r\n",
+  "after_tail": "dune_indigo_indigo(method) I believe there are bugs here\r\n\r\nbirch_zephyr_cedar()  does not want to take a list as in *args[:2]  but individual values\n\ndune_indigo_indigo(method)   bugs?",
+  "jev": 0.4175,
+  "jev_retest": 0.4275,
+  "jev_pert": 0.5525
+ }
+]

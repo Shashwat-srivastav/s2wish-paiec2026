@@ -1,0 +1,40 @@
+# Pinned from the dev environment: CPython 3.12.6 (64-bit), Windows 11. Re-checked 2026-10-18 with
+# `pip freeze`, filtered to what tracked code imports (git ls-files '*.py' | grep import) plus their runtime deps.
+# Install:  python -m pip install -r requirements-lock.txt && python -m pip install --no-deps -e .
+#
+# Core (src/paiec, submissions, tests, scripts/reproduce_all.py)
+numpy==2.5.3
+pandas==2.3.3
+pyarrow==25.0.1
+scipy==1.18.1
+scikit-learn==1.9.0
+python-dateutil==2.9.0.post0
+pytz==2026.1.post1
+tzdata==2025.3
+six==1.17.0
+joblib==1.6.0
+threadpoolctl==3.6.0
+# Tests
+pytest==8.4.0
+iniconfig==2.1.0
+pluggy==1.6.0
+packaging==24.2
+Pygments==2.19.1
+colorama==0.4.6
+# Figures (docs/publication/neurips/make_figures.py; the PDF backend needs fontTools.subset)
+matplotlib==3.10.1
+fonttools==4.56.0
+contourpy==1.3.1
+cycler==0.12.1
+kiwisolver==1.4.8
+pyparsing==3.2.1
+Pillow==10.1.0
+# EXP-0039R / EXP-0041 resource logging
+psutil==7.2.2
+# Optional analysis extras (pip install -e .[analysis]): embeddings / Jev / HF download. Not needed to reproduce
+# the paper's tables from saved results; heavy (torch). Install only for the distillation and item-scorer reruns.
+# torch==2.14.0
+# transformers==5.17.0
+# sentence-transformers==3.4.1
+# huggingface_hub==1.26.0
+# requests==2.34.2

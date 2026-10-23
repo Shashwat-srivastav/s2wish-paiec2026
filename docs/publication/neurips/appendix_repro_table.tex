@@ -1,0 +1,33 @@
+% Reproduction command table; mirrors REPRODUCE.md section 3 (maintained by hand).
+% Runtimes: "check" measured 2026-10-19 in a clean-clone venv (Python 3.12.6, 3 BLAS threads); reruns = elapsed time
+% recorded by the original run. Data: G = gated measurement-db under data/; F = our formative feedback (not in the
+% public release); -- = public repository only. Column widths sum to 0.86\linewidth + 6\tabcolsep < \linewidth.
+\begingroup
+\footnotesize
+\newcommand{\reprocmd}[1]{\texttt{#1}}
+\newcommand{\reproab}{\allowbreak}
+\renewcommand{\arraystretch}{1.05}
+\begin{center}
+\begin{tabular}{@{}>{\raggedright\arraybackslash}p{0.20\linewidth}>{\raggedright\arraybackslash}p{0.48\linewidth}%
+>{\raggedright\arraybackslash}p{0.09\linewidth}>{\raggedright\arraybackslash}p{0.09\linewidth}@{}}
+\toprule
+item & command & runtime & data\\
+\midrule
+all checks, no data & \reprocmd{python scripts/\reproab reproduce\_all.py -{}-smoke} & 12\,s & --\\
+all checks & \reprocmd{python scripts/\reproab reproduce\_all.py -{}-quick} & 82\,s & G, F\\
+Table~\ref{tab:data} & \reprocmd{reproduce\_all.py -{}-only T1} & 2\,s & G\\
+Table~\ref{tab:repr} & \reprocmd{reproduce\_all.py -{}-only T2}; rerun \reprocmd{python -m paiec.\reproab analysis.\reproab item\_repr} & ${<}1$\,s & --; rerun G\\
+Table~\ref{tab:ladder} (R2, seeds 0--9) & \reprocmd{reproduce\_all.py -{}-only T3,\reproab T3live} & 67\,s & G\\
+Table~\ref{tab:ladder}, official row & \reprocmd{python scripts/\reproab table3\_official\_baseline.py} & 30\,s & G\\
+Table~\ref{tab:ladder}, R1 value & \reprocmd{reproduce\_all.py -{}-full -{}-jobs ladder\_r1} & not timed & G\\
+Figures \ref{fig:teaser}--\ref{fig:forest} & \reprocmd{python docs/\reproab publication/\reproab neurips/\reproab make\_figures.py} & 3\,s & Fig.~\ref{fig:runs}: F\\
+Table~\ref{tab:tried}, Fig.~\ref{fig:forest} reruns & \reprocmd{reproduce\_all.py -{}-full -{}-jobs exp0042,\reproab exp0046,\reproab exp0052,\reproab exp0053,\reproab exp0057} & 88\,min & G\\
+Figure~\ref{fig:rho} rerun & \reprocmd{reproduce\_all.py -{}-full -{}-jobs e6} & 8\,min & G\\
+Simulator check & \reprocmd{reproduce\_all.py -{}-only SIM}; rerun \reprocmd{python -m paiec.\reproab analysis.\reproab exp\_0039r\_\reproab simulator\_repair} & ${<}1$\,s & --; rerun G, F\\
+Out-of-sample check (EXP-0058) & \reprocmd{reproduce\_all.py -{}-only EXP0058}; rerun \reprocmd{-{}-full -{}-jobs exp0058} & ${<}1$\,s; rerun 90\,s, 242\,MB & --; rerun G\\
+Final archive rebuild &\reprocmd{python scripts/\reproab build\_v1\_3\_archive.py} (byte-identical) & ${<}1$\,s & --\\
+Test suite (66 tests) & \reprocmd{python -m pytest -q} & 7\,min & partly G, F\\
+\bottomrule
+\end{tabular}
+\end{center}
+\endgroup

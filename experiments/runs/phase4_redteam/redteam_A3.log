@@ -1,0 +1,7 @@
+== A3 synthetic base-rate shift ==
+delta=-3 base={'multi': 0.03, 'real_': 0.09, 'resea': 0.11, 'matha': 0.39}
+   withB v1-v0 -17.08 [-18.35,-15.84] (multi=-13.7 real_=-23.6 resea=-19.1 matha=-11.9)  B0 -48.8  wide1.5-v0 -18.18 wide1.5-v1 -1.10
+   R2 v1-v0 -10.57 [-11.68,-9.42] (multi=-6.4 real_=-11.8 resea=-15.3 matha=-8.8)  B0 -49.7  wide1.5-v0 -12.00 wide1.5-v1 -1.43
+delta=-2 base={'multi': 0.05, 'real_': 0.15, 'resea': 0.18, 'matha': 0.48}
+   withB v1-v0 -12.70 [-14.10,-11.24] (multi=-12.4 real_=-18.4 resea=-15.4 matha=-4.6)  B0 -35.5  wide1.5-v0 -12.82 wide1.5-v1 -0.13
+   R2 v1-v0 -9.09 [-10.39,-7.74] (multi=-6.3 real_=-11.8 resea=-14.9 matha=-3.4)  B0 -36.6  wide1.5-v0 -9.15 wide1.5-v1 -0.06

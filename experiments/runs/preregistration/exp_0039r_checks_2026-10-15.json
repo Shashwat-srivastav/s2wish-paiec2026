@@ -1,0 +1,37 @@
+{
+ "package": {
+  "v1": {
+   "sha256": "f5e989391336470ffcd98e424f48741dba49fa49f48b884bbc675770c43eed3e",
+   "max_abs_prob_delta": 3.3306690738754696e-16,
+   "package_wall_s": 8.32,
+   "bench": "real_webagents",
+   "seed": 0,
+   "pairs": 4
+  },
+  "v1_1": {
+   "sha256": "971d4bceb64bae1ed83983119c7e752b10857e80a748afc7e52e9ae00cddba83",
+   "max_abs_prob_delta": 3.3306690738754696e-16,
+   "package_wall_s": 6.55,
+   "bench": "real_webagents",
+   "seed": 0,
+   "pairs": 4
+  },
+  "v1_2": {
+   "sha256": "010f017992521af66e5adfc7e056062d561ca6e51cc50640083a12059936c8b4",
+   "max_abs_prob_delta": 4.440892098500626e-16,
+   "package_wall_s": 7.98,
+   "bench": "real_webagents",
+   "seed": 0,
+   "pairs": 4
+  },
+  "v1_3": {
+   "sha256": "a4b0e841d4a344ff207bed2c855342212e95f7d550195b667446ea4e92685b86",
+   "max_abs_prob_delta": 4.440892098500626e-16,
+   "package_wall_s": 8.78,
+   "bench": "real_webagents",
+   "seed": 0,
+   "pairs": 4
+  }
+ },
+ "builder_max_abs_alc_delta": 5.551115123125783e-17
+}

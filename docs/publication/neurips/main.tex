@@ -1,0 +1,745 @@
+% S2WISH technical report, AIMS Predictive AI Evaluation Competition (NeurIPS 2026)
+% Build:  build.ps1 (PowerShell). It produces two PDFs from this one source:
+%   main.pdf            submission: main text, appendices A-D, NeurIPS checklist (no atlas)
+%   main_reference.pdf  reference:  the same plus the visual atlas
+% The reference build is a two-line wrapper that defines \buildreference and inputs this file.
+% Source of every number: docs/publication/FACTS_2026-10-16.md and the raw files it names.
+\documentclass{article}
+
+% Non-anonymous preprint layout. Switch to [final] if the organisers ask for camera-ready style.
+\PassOptionsToPackage{numbers,sort&compress}{natbib}
+\usepackage[preprint]{neurips_2026}
+
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{hyperref}
+\usepackage{url}
+\usepackage{booktabs}
+\usepackage{array}
+\usepackage{amsfonts,amsmath}
+\usepackage{nicefrac}
+\usepackage{microtype}
+\usepackage{xcolor}
+\hypersetup{colorlinks=true,linkcolor=blue!50!black,citecolor=green!35!black,urlcolor=blue!50!black}
+\usepackage{float}
+\raggedbottom
+\usepackage{graphicx}
+\usepackage{subcaption}
+\usepackage{enumitem}
+\usepackage{siunitx}
+\sisetup{group-separator={,},group-minimum-digits=4}
+
+% Build switch: \referencetrue adds the visual atlas (reference PDF); the submission PDF leaves it out.
+\newif\ifreference
+\ifdefined\buildreference \referencetrue \else \referencefalse \fi
+
+\newcommand{\dalc}{\ensuremath{\Delta\mathrm{ALC}}}
+\newcommand{\ee}[1]{\ensuremath{\times 10^{-#1}}}
+\newcommand{\rs}{\ensuremath{\rho_S}}
+\newcommand{\fillin}[1]{\textcolor{red}{[FILL IN: #1]}}
+% "Sources:" line under each table and figure: generating script and results file (paths relative to the repository).
+\newcommand{\src}[1]{{\footnotesize\ Sources: #1.}}
+\newcommand{\p}[1]{\nolinkurl{#1}}
+% Pointer to the feedback-inversion appendix (appendix_inversion.tex, written separately). It resolves to
+% "Appendix X" when that file defines \label{app:inversion}, and to plain words otherwise, so it never prints "??".
+\makeatletter
+\newcommand{\invref}{\@ifundefined{r@app:inversion}{the feedback-inversion appendix}{Appendix~\ref{app:inversion}}}
+\makeatother
+\graphicspath{{figures/}}
+% Figures come from make_figures.py; a missing one renders as a labelled box so the text can be checked first.
+\newcommand{\fig}[2][\linewidth]{\IfFileExists{figures/#2}{\includegraphics[width=#1]{#2}}%
+  {\fbox{\parbox[c][1.6in][c]{0.9#1}{\centering\small missing: #2}}}}
+
+\title{Predicting AI Performance on Unseen Benchmarks:\\
+Shrinkage, Hierarchical Refinements and Their Limits}
+
+\author{Shashwat Srivastava\\ Accenture\\ \texttt{shashwat1322001@gmail.com}\\ Team S2WISH\\
+  Code: \url{https://github.com/Shashwat-srivastav/s2wish-paiec2026}}
+
+\begin{document}
+\maketitle
+
+\begin{abstract}
+On benchmarks a model has never seen, shrinkage is the working core; what remains is item difficulty, which none of
+the label-free signals we tested without a runtime LLM supplies usefully (runtime LLM priors, which the rules permit,
+were not tested). We show this for the AIMS Predictive AI Evaluation Competition, which scores
+predictions on a hidden benchmark by the Brier area under the learning curve (ALC; lower is better). In leave-one-benchmark-out evaluation, empirical-Bayes shrinkage of early estimates gives
+33.7 of the 36.3 thousandths that our small hierarchical Bayesian model gains over the official baseline. A
+pre-registered check on 89 unseen public benchmarks confirms the shrinkage gain; there the check detected no
+difference between the hierarchical model and shrinkage alone (inconclusive at the pre-registered $\pm1\ee{3}$), so
+the refinements are unproven. On
+the platform draws we observed, no pair-level adjustment could improve our model by more than about 0.022 ALC (95\%
+CI up to 0.033), in-sample. We contribute floor and ceiling bounds that locate the remaining
+loss in item difficulty; error bounds and exact replays for reading the platform's per-pair feedback; and negative
+results from 60 logged experiments (22 pre-registered).
+\end{abstract}
+
+% ---------------------------------------------------------------------------------------------------------------
+\section{Introduction}
+\textbf{On unseen benchmarks, shrinkage does almost all the work; what remains is item difficulty, which none of the
+label-free signals we tested without a runtime LLM supplies usefully.} Runtime LLM priors, which the rules permit,
+were not tested. Figure~\ref{fig:teaser} shows the story in one picture.
+
+Predicting outcomes is cheaper than running every AI system on every benchmark. The AIMS Predictive AI Evaluation
+Competition~\cite{aims2026,truong2026} poses this under the hardest condition: the benchmark is new, so no system's
+responses to its items are known. Item response theory (IRT) methods need exactly those responses
+(\S\ref{sec:related}). We therefore built a model that learns only what transfers across benchmarks.
+
+\noindent\begin{minipage}{\linewidth}
+\paragraph{What we show.}
+\begin{itemize}[leftmargin=*,nosep]
+  \item \textbf{Shrinkage does almost all the work} (\S\ref{sec:results}). The hierarchical refinements are not
+    established across benchmarks; a pre-registered out-of-sample check detects no difference from shrinkage.
+    Table~\ref{tab:tried} lists every rejected candidate.
+  \item \textbf{The remaining loss is item difficulty} (\S\ref{sec:headroom}). Oracles and floor and ceiling bounds
+    show that pair-level calibration cannot close the gap; no label-free signal we tested without a runtime LLM
+    usefully supplies item difficulty.
+  \item \textbf{Per-pair feedback can be read exactly} (\S\ref{sec:inversion}). We give error bounds, the reflection
+    pitfall and exact replays (\invref); they reveal that platform pairs are harder than our local folds.
+\end{itemize}
+\end{minipage}
+
+\begin{figure}[H]
+  \centering
+  \fig{fig_teaser.pdf}
+  \caption{Local ALC with one subject per benchmark, mean over four held-out benchmarks. Beta-binomial shrinkage
+  gives 33.7 of the $36.3\ee{3}$ gain over the official baseline; the hierarchical refinements add the rest. Below
+  the dashed pair-constant floor $a(1-a)$, the score of knowing each pair's accuracy but nothing about its items,
+  only item-level knowledge helps (\S\ref{sec:headroom}).
+  \src{\p{make_figures.py}; \p{experiments/runs/review_round1/ladder_intervals.json} and \p{floor_ceiling.json}}}
+  \label{fig:teaser}
+\end{figure}
+
+% ---------------------------------------------------------------------------------------------------------------
+\section{Related work}\label{sec:related}
+\textbf{IRT and efficient evaluation.} tinyBenchmarks~\cite{polo2024}, metabench~\cite{kipnis2025}, Anchor
+Points~\cite{vivek2024}, Fluid Benchmarking~\cite{hofmann2025}, amortized calibration~\cite{truong2025} and IRT scaling
+laws~\cite{truong2026irsl} all calibrate items on many systems' responses to the target benchmark, which a hidden
+benchmark does not allow; contextual IRT with text embeddings ranks items at chance level across
+scenarios~\cite{shang2026}, as our text features do (Table~\ref{tab:repr}). \textbf{Unseen data.} Instance-level
+assessors degrade out of distribution~\cite{pacchiardi2024,pacchiardi2025}; forecasting benchmark accuracy from a task
+description needs an LLM at prediction time~\cite{park2025}; system-level abilities do transfer across
+benchmarks~\cite{ruan2024}. \textbf{Empirical Bayes.} Shrinkage of many small-sample rates toward a pooled level beats
+the raw mean~\cite{efron1975,brown2008}, and heavy-tailed weakly informative priors are a robust default for logistic
+models~\cite{gelman2008}. \textbf{Scoring and calibration.} The Brier score~\cite{brier1950} is strictly
+proper~\cite{gneiting2007}; Murphy's decomposition~\cite{murphy1973} separates reliability from resolution; temperature
+scaling~\cite{guo2017} is the standard recalibration. \textbf{Acquisition and noise.} Active testing~\cite{kossen2021}
+and active inference~\cite{zrnic2024} reduce to uniform sampling when items cannot be told apart, and adaptive testing
+on noisy item parameters can hurt~\cite{vanderlinden2000}; small-sample evaluations need wider intervals than the
+central limit theorem suggests~\cite{bowyer2025,miller2024}, and repeated runs on the same item vary~\cite{wang2025}.
+
+% ---------------------------------------------------------------------------------------------------------------
+\section{Task, evaluation and data}\label{sec:task}
+A \emph{subject} is one AI-system configuration, described by eight strings: model name, provider, release and access
+dates, harness, harness version, reasoning effort and extras. An \emph{item} is described by four: content, features,
+interactors and an anonymous benchmark ID. A submission implements \texttt{predict(input, labeled)}~$\to p$ and may
+implement a label-acquisition hook. For each subject--benchmark pair the platform splits the items 50/50 into an
+acquisition pool and an evaluation pool. It reveals up to 31 acquisition labels and scores the evaluation pool at six
+label budgets:
+\begin{equation}
+\mathrm{ALC} = 0.1B_0 + 0.2B_1 + 0.2B_3 + 0.2B_7 + 0.2B_{15} + 0.1B_{31},
+\end{equation}
+where $B_n$ is the Brier score, the mean of $(p-y)^2$, with $n$ labels revealed.
+ALC is averaged over pairs with equal weight, so always predicting 0.5 scores 0.25.
+
+\newpage
+At every budget,
+\texttt{labeled} holds the revealed answers of \emph{every} sampled pair. Another subject's label on the same hidden
+benchmark, or on the same item, is therefore legal evidence.
+
+We re-implemented the evaluator and drove the organisers' unmodified streaming client through it. After we fixed nine
+discrepancies in the first version, per-pair, per-budget Brier scores matched exactly (maximum difference 0). Each
+formative submission scores a fresh draw of about \num{1000} items. In practice that is eight or nine pairs over seven
+anonymous benchmarks, usually with one subject per benchmark.
+
+\begin{table}[H]
+  \caption{Public training data (revision \texttt{bc8204d811}). MMDocRAG (not binary) is unused; SWE-rebench (one
+  subject) is used for training only.
+  \src{\texttt{scripts/reproduce\_all.py -{}-only T1}, from the gated \p{data/*/response.parquet}}}
+  \label{tab:data}
+  \centering\small
+  \begin{tabular}{lrrrrr}
+    \toprule
+    benchmark & subjects & items & responses & pairs $\ge$ 80 items & mean pair accuracy\\
+    \midrule
+    MathArena          & 104 & \num{1755} & \num{92944} & 81 & 0.61\\
+    Multi-SWE-bench    &  82 & \num{2126} & \num{57975} & 82 & 0.22\\
+    REAL web agents    &  33 &  233 &  \num{4449} & 26 & 0.34\\
+    ResearchCodeBench  &  31 &  212 &  \num{6784} & 31 & 0.35\\
+    SWE-rebench        &   1 & \num{6306} & \num{67074} &  1 & 0.48\\
+    \bottomrule
+  \end{tabular}
+\end{table}
+
+\paragraph{Validation protocol and notation.} Benchmarks are held out whole, so the only meaningful validation is
+leave-one-benchmark-out (LOBO). That gives four folds (Table~\ref{tab:data}: Multi-SWE-bench, REAL, ResearchCodeBench,
+MathArena), so every benchmark-level statement in this report rests on four numbers. Within a fold we draw test
+episodes in one of three ways:
+\begin{itemize}[leftmargin=*,nosep]
+  \item \textbf{one subject per benchmark}, which is what the platform's draws turned out to be. This is our primary
+    setting, and every local number is in it unless stated otherwise;
+  \item \textbf{platform-like draw}: about \num{1000} items sampled as the platform does;
+  \item \textbf{all subjects}: every subject present. This is an upper bound only, because it overstates
+    cross-subject pooling about sevenfold.
+\end{itemize}
+All comparisons are paired on identical episodes. We quote differences in ALC in thousandths, written
+\dalc{}\,\ee{3}: a value of $-1.0$ means 0.001 lower (better) ALC. Unless stated otherwise, intervals are 95\%
+bootstrap intervals over pairs. \rs{} denotes Spearman rank correlation. Research notes cited by number are in
+\texttt{docs/research\_notes/} of the code release.
+
+\paragraph{Where the predictable signal is.}
+Per-benchmark Rasch fits place more logit-scale variance on items than on subjects for every benchmark. Re-running the
+same subject on the same item accounts for a further 20--27\% of response variance (repeated cells in MathArena and
+SWE-rebench; note 11), which no predictor can remove. Subject metadata explains 16\% of ability variance on an unseen
+benchmark (ridge $R^2$ under LOBO; note 14), mostly through release date. Model ranks transfer between coding
+benchmarks (\rs{} 0.6--0.9), but levels do not (intraclass correlation 0.22). Text features rank items within a
+benchmark but do not transfer to new benchmarks; an LLM difficulty rating, computed offline, transfers weakly
+(Table~\ref{tab:repr}, Appendix~\ref{app:sources}). A leakage audit found no runtime-visible field that predicts outcomes beyond the benchmark
+mean. It also showed that folds must be grouped by item content rather than item ID, because duplicates inflate
+MathArena by 0.014 Brier.
+
+
+% ---------------------------------------------------------------------------------------------------------------
+\section{Method}\label{sec:method}
+The predictor is a Rasch-type model with four latent quantities per prediction:
+\begin{equation}
+\operatorname{logit} P(y=1) = \mu_b + \theta_{sb} - \beta_i + \gamma_{g(i)},
+\end{equation}
+\vspace{-1.2em}
+\begin{align*}
+\mu_b &\sim t_3(G/2,\ s) && \text{benchmark offset; evidence: every subject's labels on benchmark } b\\
+\theta_{sb} &\sim \mathcal{N}(0,\tau^2) && \text{pair ability; evidence: the subject's own labels}\\
+\beta_i &\sim \mathcal{N}(0,\sigma_\beta^2) && \text{item difficulty; evidence: other subjects' labels on the same item}\\
+\gamma_g &\sim \mathcal{N}(0,\lambda\sigma_\beta^2) && \text{item-group effect; evidence: the subject's labels in the same group.}
+\end{align*}
+
+Fitted on the five public benchmarks, $G=-0.58$ (the mean logit accuracy), $s=0.78$, $\tau=1.13$ and
+$\sigma_\beta=2.70$; $\lambda$ is the share of item-difficulty variance assigned to groups. Four design choices
+matter.
+\begin{itemize}[leftmargin=*,nosep]
+  \item \textbf{A hedged offset prior.} The offset prior is weakly informative and heavy-tailed~\cite{gelman2008},
+    centred at $G/2=-0.29$, halfway between the pooled level and 50\%. This cuts worst-case regret on unusually easy
+    benchmarks by 29\% (platform-like draws) to 50\% (one subject per benchmark) at no mean cost.
+  \item \textbf{Numerical integration.} The posterior is integrated by deterministic numerical quadrature: a
+    121-point grid over $\mu$ and Gauss--Hermite quadrature over $\theta$ and $\beta$, with no sampling. In an early development run on SWE-rebench, plug-in point
+    estimates reached 0.49 Brier after one label (research record, overview of design decisions).
+  \item \textbf{Item pooling.} Items that share a key are pooled across subjects through the false-merge model and
+    the optional key guard (Table~\ref{tab:ladder}).
+  \item \textbf{Item groups.} Groups come from the fields of \texttt{item\_features}, with $\lambda$ averaged over
+    three values by marginal likelihood.
+\end{itemize}
+Predictions are clipped to $[0.005, 0.995]$. Labels are acquired at random. Four non-random policies gained at most
+$0.27\ee{3}$, as theory predicts when the predictor cannot tell unlabelled items apart~\cite{kossen2021,vanderlinden2000}.
+The archive is pure Python and NumPy (three files, about 5\,KB zipped) and takes 3.3--222\,ms per call.
+
+We built the model as a ladder of versions (Table~\ref{tab:ladder}). The \emph{final model}, our selected submission, is the
+item-group model with the key guard switched off; its two code files are byte-identical to the item-group model's.
+Archive names and checksums are in Appendix~\ref{app:rerun}.
+
+% ---------------------------------------------------------------------------------------------------------------
+\section{Results}\label{sec:results}
+\subsection{Local leave-one-benchmark-out}
+\begin{table}[H]
+  \caption{Brier score by label budget and ALC with one subject per benchmark, mean over the four held-out benchmarks
+  (10 seeds, all rows paired; budgets 3 and 15 in Appendix Table~\ref{tab:ladder-full}). The official baseline is
+  the empirical mean. Each later row adds: shrinkage; a benchmark offset and item pooling (first model); the hedged
+  centre $G/2$ and the false-merge model (hedged-centre model); item groups and the key guard (item-group model); key
+  guard off (final model). \emph{False-merge model}: items sharing a key are pooled, with a probability $r$ that
+  the key wrongly merges items. \emph{Key guard}: sets $r\ge0.5$ when all of a key's labels are the target subject's.
+  \emph{Step}: \dalc{}\,\ee{3} against the row above, with 95\% intervals from a hierarchical bootstrap (benchmarks,
+  then pairs) and a $t$-interval over the four fold means; the last upper endpoint 0.0 is degenerate (two folds differ
+  by exactly 0). The final-model row replays the shipped archive (platform-like draw: 0.2143).
+  \src{\p{src/paiec/analysis/review_round1.py}; \p{experiments/runs/review_round1/ladder_intervals.json} and
+  \p{table3_baseline_seeds0-9.json}}}
+  \label{tab:ladder}
+  \centering\small\setlength{\tabcolsep}{2.6pt}
+  \begin{tabular}{@{}>{\raggedright\arraybackslash}p{0.27\linewidth}ccccc|rcc@{}}
+    \toprule
+    model & $B_0$ & $B_1$ & $B_7$ & $B_{31}$ & ALC & step & hierarchical & $t$, 4 folds\\
+    \midrule
+    official baseline & 0.250 & 0.360 & 0.209 & 0.189 & 0.2451 & & &\\
+    Beta-binomial shrinkage & 0.250 & 0.231 & 0.201 & 0.188 & 0.2114 & $-33.70$ & $[-42.8, -23.4]$ & $[-50.6, -16.8]$\\
+    first model & 0.247 & 0.229 & 0.200 & 0.187 & 0.2098 & $-1.62$ & $[-6.4, +6.4]$ & $[-14.1, +10.8]$\\
+    hedged-centre model & 0.246 & 0.229 & 0.200 & 0.187 & 0.2097 & $-0.09$ & $[-5.2, +3.3]$ & $[-8.1, +8.0]$\\
+    item-group model & 0.246 & 0.229 & 0.200 & 0.184 & 0.2089 & $-0.83$ & $[-1.4, -0.2]$ & $[-1.9, +0.2]$\\
+    \textbf{final model} & 0.246 & 0.229 & 0.199 & 0.183 & \textbf{0.2088} & $-0.09$ & $[-0.3, 0.0]$ & $[-0.3, +0.1]$\\
+    \bottomrule
+  \end{tabular}
+\end{table}
+\textbf{Takeaway: shrinkage carries the gain; the refinements are small and not established at benchmark level.}
+\emph{In-sample (four held-out benchmarks).} Shrinkage alone accounts for 33.7 of the total $36.3\ee{3}$ gain
+(Table~\ref{tab:ladder}), as empirical Bayes predicts for small per-pair samples~\cite{efron1975,brown2008}. It is the
+only step established at benchmark level. Everything added afterwards is worth $2.6\ee{3}$, concentrated at budgets
+7--31, where item-level evidence accumulates. Its hierarchical interval, $[-4.5, -0.3]\ee{3}$, excludes zero; its
+$t$-interval over the four fold means, $[-6.3, +1.1]\ee{3}$, includes zero. On MathArena, Beta-binomial shrinkage beats the
+final model by $0.67\ee{3}$. Of the single steps, only the item-group step is supported, and only by the hierarchical
+interval.
+
+\emph{Out-of-sample (89 public benchmarks).} A pre-registered out-of-sample check uses 89 public benchmarks never used
+for fitting (2{,}610 pairs, one subject per benchmark, frozen parameters, no item features). The same benchmarks were
+used earlier to check the simulator and to reject the $\tau$/mixture variants, so earlier final-model scores on them
+were known; the pre-registration discloses this. The check confirms the shrinkage step: $-32.7\ee{3}$ $[-37.1, -28.2]$ (benchmark
+bootstrap), better on 82 of 89 benchmarks. Its primary outcome, the final model minus shrinkage, is $+0.2\ee{3}$
+$[-0.9, +1.5]$: no difference detected, and inconclusive at the pre-registered $\pm1\ee{3}$ minimum effect.
+
+We ship the hierarchical model because it was the pre-declared final model, chosen before the check ran; every paired
+local step lowers the point estimate; and out of sample no difference from shrinkage was detected. Secondary and
+descriptive results agree in direction but are not confirmatory. The platform-like (secondary) difference is
+$-1.7\ee{3}$ $[-3.1, -0.2]$; of the 89 benchmarks, four derive from training benchmarks, and excluding them the upper
+end reaches $+0.05\ee{3}$. Secondary outcomes never override the primary. Of the 89, the 5 with accuracy
+$\le 0.15$ (a band holding about a third of the platform's pair-slots; Figure~\ref{fig:excess}) descriptively favour
+the final model over shrinkage ($-7.1\ee{3}$; $-13.6\ee{3}$ platform-like); there, shrinkage alone is worse than the
+official baseline by $+9.9\ee{3}$ $[-1.9, +22.8]$, on 3 of the 5.
+
+\subsection{Official platform}
+\begin{table}[H]
+  \caption{Local versus platform. (a) Only the first final-model run has per-budget feedback; its SE is
+  \emph{within-draw}, across pairs, not run-to-run. Over four runs the ALC is 0.1839 (SD 0.0240, SE 0.0120,
+  $[0.146, 0.222]$); 1 of 4 runs lies above the local value (sign test $p=0.625$). (b) Platform: runs and mean with
+  95\% $t$-interval (fresh draws, unpaired; the item-group archive only, without the re-package in
+  Appendix Figure~\ref{fig:runs}). Replay: in-sample on the replay set, same labels for all versions; exact-set values in
+  parentheses. The replay feeds labels without item features, so it cannot see the item-group step, and its order
+  differs from the local column. On the exact set, baseline minus final is
+  $+0.0165$ $[-0.0032, +0.0352]$ and shrinkage minus final $-0.0009$ $[-0.0052, +0.0029]$.
+  \src{\p{src/paiec/analysis/review_round2.py}; \p{experiments/runs/review_round2/per_budget_final.json} and
+  \p{local_vs_platform.json}; \p{experiments/runs/review_round1/platform_baseline_replay.json}}}
+  \label{tab:platform}
+  \centering\footnotesize\setlength{\tabcolsep}{4pt}
+  \begin{tabular}{@{}lccccccc@{}}
+    \toprule
+    \multicolumn{8}{@{}l}{\emph{(a) final model, Brier by budget}}\\
+    \midrule
+    & $B_0$ & $B_1$ & $B_3$ & $B_7$ & $B_{15}$ & $B_{31}$ & ALC\\
+    \midrule
+    first final-model run      & 0.2369 & 0.1903 & 0.1613 & 0.1445 & 0.1463 & 0.1412 & 0.1663\\
+    \quad within-draw SE (9 pairs) & 0.0106 & 0.0241 & 0.0268 & 0.0277 & 0.0292 & 0.0290 & 0.0243\\
+    local, one subject per benchmark & 0.2456 & 0.2285 & 0.2123 & 0.1995 & 0.1894 & 0.1832 & 0.2088\\
+    \bottomrule
+  \end{tabular}\\[4pt]
+  \begin{tabular}{@{}lccc@{}}
+    \toprule
+    \multicolumn{4}{@{}l}{\emph{(b) ALC per version}}\\
+    \midrule
+    version & local & platform: $n$, mean [95\% CI] & replay set (exact set)\\
+    \midrule
+    Beta-binomial shrinkage & 0.2114 & not submitted & 0.1978 (0.1888)\\
+    first model             & 0.2098 & 1, 0.2157 & 0.1945 (0.1909)\\
+    hedged-centre model     & 0.2097 & 5, 0.1923 $[0.176, 0.208]$ & 0.1954 (0.1896)\\
+    item-group model        & 0.2089 & 4, 0.1909 $[0.170, 0.212]$\rlap{$^{\ast}$} & 0.1954 (0.1896)\\
+    \textbf{final model}    & 0.2088 & 4, 0.1839 $[0.146, 0.222]$ & 0.1954 (0.1896)\\
+    \bottomrule
+  \end{tabular}\\[1pt]
+  {\scriptsize $^{\ast}$Includes one run marked Failed but scored (0.1840; ID in Appendix~\ref{app:names}); without it,
+  $n=3$, mean 0.1932.}
+\end{table}
+\textbf{Takeaway: on platform labels, a paired replay confirms the large step (baseline $\to$ shrinkage); the later
+refinements are not distinguishable there, and their order differs from the local ladder.} Before its first
+submission, the re-implemented evaluator predicted 0.212 for our first model, which scored 0.216. Same-archive SDs
+are 0.010--0.024 across versions (0.013 for the hedged-centre model over 5 runs), of the size small-sample evaluation
+theory predicts~\cite{bowyer2025,miller2024} and far larger than the differences between our versions
+(Table~\ref{tab:platform}; every run in Appendix Figure~\ref{fig:runs}). The platform means do not resolve the order of the versions:
+intervals overlap, and the order flips depending on whether the run marked Failed is counted. Model choices therefore
+rest on the paired local tests.
+
+\newpage
+The in-sample replay (\S\ref{sec:inversion}) scores all versions on the same platform
+labels of the replay set: the official baseline (0.2276) minus the final model is $+0.0322$ $[+0.0140, +0.0515]$,
+while Beta-binomial shrinkage minus the final model is $+0.0023$ $[-0.0008, +0.0055]$. There, among the ladder versions, the first model (0.1945)
+scores best, and on the exact set shrinkage (0.1888) beats the final model (0.1896).
+Official levels sit below the local ones because platform pairs are more extreme \mbox{(median accuracy 0.27)}, which lowers
+the irreducible $a(1-a)$ (\S\ref{sec:sim}). The final ranking uses one common hidden subset, so draw-to-draw
+variation affects all submissions equally.
+
+\subsection{What did not work}
+\begin{table}[H]
+  \caption{What we tried and why it was not shipped. Paired \dalc{}\,\ee{3} against the final model with one subject
+  per benchmark, 95\% interval over pairs (positive is worse); the adoption gate is $\le -1.0$. ``Pre-reg.'': yes =
+  pre-registered, post hoc = registered after the run. Appendix Figure~\ref{fig:forest} plots the first five rows.
+  \src{\texttt{experiments/runs/preregistration/exp\_00\{42,46,52,53,57\}\_*.json}; \p{experiments/registry.csv}}}
+  \label{tab:tried}
+  \centering\footnotesize\setlength{\tabcolsep}{3.5pt}
+  \resizebox{\linewidth}{!}{%
+  \begin{tabular}{@{}llcl@{}}
+    \toprule
+    component & \dalc{} [95\% CI] & pre-reg. & decision and reason\\
+    \midrule
+    lexical residual smoothing & $+1.68$ $[+1.08, +2.30]$ & yes & dropped: worse\\
+    gp-IRT, our reimplementation~\cite{polo2024} & $+6.88$ $[+4.80, +8.94]$ & yes & not promoted: worse\\
+    re-tuned shrinkage strength & $+0.74$ $[-0.28, +1.85]$ & yes & no change: mild under-shrinkage only$^{a}$\\
+    fitted temperature~\cite{guo2017} & $+0.40$ $[+0.24, +0.56]$ & yes & stopped: already calibrated$^{b}$\\
+    symmetric mixture prior & $+0.52$ $[+0.22, +0.80]$ & yes & retired: worse\\
+    item scorer & no paired ALC (failed its transfer gate) & yes & dropped\\
+    label-free benchmark level & no paired ALC (failed its pre-registered stopping rule) & yes & dropped\\
+    nested meta-learned priors & no paired ALC (failed its pre-registered gate) & yes & dropped\\
+    prior factorial & no paired ALC (stopped after the pilot) & yes & Laplace-vs-grid audit open$^{c}$\\
+    robust, metadata and model-name priors & best gain $\le 1.0$ & post hoc & below the gate\\
+    smarter label acquisition (4 policies) & best gain $\le 0.27$ & post hoc & random acquisition kept\\
+    LLM rating distilled into MiniLM/MPNet & no paired ALC (kept $\le$ 3\% of its \rs{}) & post hoc & dropped\\
+    \bottomrule
+  \end{tabular}}\\[1pt]
+  {\scriptsize $^{a}$Empirical half-life 5.27 labels against 4.30 for the model. $^{b}$Fitted $T=0.945$--$1.05$.
+  $^{c}$Differences 0.012--0.018.}
+\end{table}
+\textbf{Takeaway: nothing we tried beat the final model.} Table~\ref{tab:tried} lists every candidate with its paired
+interval, gate and reason. Priors failed for one reason: one to three labels cannot tell prior centres a third of a
+logit apart, and ability is mostly benchmark-specific. Acquisition failed because the predictor cannot tell
+unlabelled items apart.
+
+% ---------------------------------------------------------------------------------------------------------------
+\section{Reading per-pair feedback exactly}\label{sec:inversion}
+At budget 0 our model predicts one constant $p_0$ for every item of a pair. We obtain $p_0$ by calling each archive's
+own \texttt{predict()} with no labels: 0.448722 for the hedged-centre, item-group and final models, and 0.400099 for
+the first model. The pair's accuracy $a$ on its scored items then follows from the reported budget-0 Brier score:
+\begin{equation}
+B_0 = a(1-p_0)^2 + (1-a)p_0^2 \quad\Longrightarrow\quad a = \frac{B_0 - p_0^2}{1-2p_0}.
+\end{equation}
+The identity is elementary (the one-bin case of Murphy's decomposition~\cite{murphy1973}) and has been used
+independently by others; we contribute error bounds, the reflection pitfall and exact replays (\invref).
+Reported values are rounded to six decimals, with error at most $\eta=5\ee{7}$. The reported calibration error (ECE)
+at budget 0 equals $|a-p_0|$. The two estimates of $a$ therefore agree to within $\varepsilon(p_0)=\eta/|1-2p_0|+\eta$;
+on every saved pair they agree to within $5.1\ee{6}$. The floor $a(1-a)=B_0-(p_0-a)^2$ does not depend on choosing
+between the two roots. The archive's $p_0$ is needed only to pick $a$ over $1-a$; getting it wrong flips every
+accuracy (\S\ref{sec:sim}). On \emph{singleton} pairs, whose benchmark appears once in a draw, the prediction stays constant at every budget.
+Brier score and ECE then fix the number of successes among the revealed labels, so a pair can be replayed exactly
+in-sample. We use two sets: the \emph{replay set} (18 pairs that replay exactly over our five saved formative runs)
+and the
+\emph{exact set} (8 of them, where the item-group and final models also replay exactly; elsewhere item-group effects
+break the count-only assumption). Appendix~\ref{app:rerun} lists every other pair count.
+
+\newpage
+Two replay findings held up under our robustness checks. First, the remaining excess loss is concentrated early
+and on hard pairs (Figure~\ref{fig:excess}): 71\% of the label-removable excess (the part of the loss above $a(1-a)$
+that more labels could remove; \invref, Proposition~4) sits at budgets 0--1, and
+56\% sits on pairs with accuracy $\le 0.15$; whether its cause is the prior centre or the update strength is not
+settled. Second, no widening of $\tau$ or of the
+prior scale, and not the mixture prior, gives a gain whose interval excludes zero, either in the platform replay or in
+a replay over 89 public benchmarks: the 92 benchmarks of \S\ref{sec:sim} minus the three original folds among them,
+on which the shipped parameters were fitted.
+
+% ---------------------------------------------------------------------------------------------------------------
+\section{Simulator validity}\label{sec:sim}
+A pre-registered check asked whether our local episodes look like the platform's, and it failed. Reading the
+platform's per-pair feedback through the identity of \S\ref{sec:inversion} showed that platform pairs are harder and
+more extreme than our folds: median pair accuracy 0.27 against 0.41 locally, 14.7\% of platform pairs at accuracy
+$\le 0.05$, and none near 1.
+
+The repair drew from the 92 benchmarks of the enlarged public pool that can produce platform-like episodes, and the
+check passed: 0 of 11 platform runs outside their 90\% interval, a tail count of 6 within the allowed 1--7, and an
+envelope test $p=0.544$. The pass survives dropping any single benchmark but not dropping all six largest
+contributors, so we adopt it only in a narrowed scope: it validates the engine path without item groups, as
+calibration rather than confirmation, and it predicts a repeat SD of 0.030 against 0.013 observed for the
+hedged-centre model. An earlier
+analysis used $p_0=0.5513$ instead of $0.448722$ and wrongly concluded that the platform was \emph{easier}.
+
+% ---------------------------------------------------------------------------------------------------------------
+\section{Headroom: floor and ceiling bounds}\label{sec:headroom}
+\begin{figure}[H]
+  \centering
+  \begin{subfigure}[t]{0.49\linewidth}\centering
+    \fig{fig_rho_value.pdf}
+    \caption{Value of a label-free difficulty signal of quality \rs{}, computed with four named item fields as groups
+    (not the shipped all-field grouping). 95\% bands; curve: $-71\rs^2$ fit.}
+    \label{fig:rho}
+  \end{subfigure}\hfill
+  \begin{subfigure}[t]{0.49\linewidth}\centering
+    \fig{fig_excess_map.pdf}
+    \caption{Where the hedged-centre, item-group and final models lose on the platform beyond the pair-constant floor
+    $a(1-a)$, by pair-accuracy band and budget (in-sample; slot counts per band in parentheses).}
+    \label{fig:excess}
+  \end{subfigure}
+  \caption{(a) Headroom from item-level signal, measured locally. (b) Platform loss decomposition.
+  \src{(a) \p{src/paiec/analysis/e6_headroom.py}; \p{experiments/runs/e6/e6.json}. (b)
+  \p{experiments/pattern_mining/meta_2026-10-16/m10_excess_map.py}; \p{m10_excess_map.csv}}}
+\end{figure}
+\paragraph{What item knowledge is worth.} Revealing one true quantity at a time to the hedged-centre model shows that
+item difficulty accounts for about half of the closable budget-0 gap. We had pre-registered an expectation of 60--80\%
+for the benchmark offset. The value of a label-free difficulty signal is roughly quadratic in its quality over
+$\rs \in [0.2, 1.0]$ ($-\dalc/\rs^2 = 58$--$74$; Figure~\ref{fig:rho}). A scorer at $\rs=0.3$ is worth
+$5.7\ee{3}$. That is within the range our offline LLM rating reached (0.19--0.34), and above the 0.14--0.23
+reported for unseen benchmarks~\cite{pacchiardi2024}. A runtime LLM item prior, which the rules permit, is therefore
+the most promising untested direction; we chose a dependency-free, deterministic predictor as a design choice. A scorer must reach $\rs\approx0.5$ to be worth 0.018.
+
+\newpage
+Used
+without shrinkage the same signal is harmful below $\rs\approx0.5$--$0.55$, so any external signal needs a learned weight.
+
+\paragraph{Floors.} With the true offset, ability and item difficulty all supplied, budget-0 Brier is 0.1016. This is
+an optimistic bound on one budget, not an ALC floor. A perfect item oracle reaches ALC 0.1387 locally, and nothing we
+measured shows that the remaining loss is pure noise. On the platform, the \emph{pair-constant floor} $a(1-a)$, the
+Brier score of knowing each pair's accuracy exactly but nothing about its items, is 0.151 on our saved draws (95\%
+interval clustered by benchmark ID $[0.090, 0.205]$). Locally, the
+same floor on the four folds is 0.1797 ($t$-interval $[0.135, 0.224]$), against 0.2088 for the final model.
+
+\paragraph{Ceiling for pair-level methods.} The platform floor exceeds the mean ALC of 0.11 that our
+pre-registration aimed for, but its benchmark-clustered interval includes it; so only on the observed draws does
+0.11 require item-level knowledge. On those draws, the
+largest gain any pair-level adjustment could give is $-0.0218$ ALC $[-0.0327, -0.0130]$, pooled in-sample
+over three versions with identical budget-0 predictions. Locally,
+the gap to the floor is $-0.0291$.
+
+% ---------------------------------------------------------------------------------------------------------------
+\section{Limitations}\label{sec:limits}
+\begin{itemize}[leftmargin=*,nosep]
+  \item \textbf{Evidence base.} Four held-out benchmarks: the item-group step's $t$-interval over fold means,
+    $[-1.9, +0.2]\ee{3}$ (3 degrees of freedom), includes zero, and with one subject per benchmark cross-subject
+    pooling is inactive. The simulator is valid only for the engine path without item groups, as calibration, and
+    overstates the repeat SD. The oracle of \S\ref{sec:headroom} adds independent noise to true difficulty; a real
+    scorer may be worth less.
+  \item \textbf{Scope, registration and selection.} The out-of-sample benchmarks have no item features, so the item-group step
+    is unconfirmed there. We did not test runtime LLM priors. 38 of the 60 logged experiments were registered after
+    the fact; the offline LLM rating may have seen the public problems in training. We selected the final model (run 971666).
+\end{itemize}
+
+\begin{ack}
+We thank the organisers for the competition, the data and answering our questions. Code, analyses and this report's
+text were developed with the help of an LLM-based coding assistant, under the author's direction and review.
+\end{ack}
+
+% ---------------------------------------------------------------------------------------------------------------
+\begin{thebibliography}{99}\small
+\bibitem{aims2026} Stanford AIMS Lab. Predictive AI Evaluation Competition, NeurIPS 2026.
+  \url{https://aims.stanford.edu/competition}.
+\bibitem{truong2026} S.~Truong and S.~Koyejo. AI Measurement Science. Stanford AIMS Lab, 2026.
+\bibitem{polo2024} F.~Maia Polo, L.~Weber, L.~Choshen, Y.~Sun, G.~Xu, and M.~Yurochkin. tinyBenchmarks: evaluating
+  LLMs with fewer examples. In \emph{ICML}, 2024.
+\bibitem{kipnis2025} A.~Kipnis, K.~Voudouris, L.~M.~Schulze Buschoff, and E.~Schulz. metabench: a sparse benchmark of
+  reasoning and knowledge in large language models. In \emph{ICLR}, 2025.
+\bibitem{vivek2024} R.~Vivek, K.~Ethayarajh, D.~Yang, and D.~Kiela. Anchor Points: benchmarking models with much fewer
+  examples. In \emph{EACL}, pages 1576--1601, 2024.
+\bibitem{truong2025} S.~Truong, Y.~Tu, P.~Liang, B.~Li, and S.~Koyejo. Reliable and efficient amortized model-based
+  evaluation. In \emph{ICML}, 2025.
+\bibitem{truong2026irsl} S.~Truong, Y.~Tu, R.~Schaeffer, and S.~Koyejo. Item response scaling laws: a measurement
+  theory approach for efficient and generalizable neural scaling estimation. arXiv:2606.07616, 2026.
+\bibitem{hofmann2025} V.~Hofmann, D.~Heineman, I.~Magnusson, K.~Lo, J.~Dodge, et~al. Fluid language model
+  benchmarking. In \emph{COLM}, 2025.
+\bibitem{shang2026} E.~Shang, W.~Tang, and Y.~He. LLM evaluation on unseen questions: contextual multidimensional IRT
+  model. arXiv:2608.22295, 2026.
+\bibitem{pacchiardi2024} L.~Pacchiardi, L.~G.~Cheke, and J.~Hern\'andez-Orallo. 100 instances is all you need:
+  predicting the success of a new LLM on unseen data by testing on a few instances. KDD Workshop on Evaluation and
+  Trustworthiness of Generative AI Models, 2024.
+\bibitem{pacchiardi2025} L.~Pacchiardi, K.~Voudouris, B.~Slater, F.~Mart\'inez-Plumed, J.~Hern\'andez-Orallo,
+  L.~Zhou, and W.~Schellaert. PredictaBoard: benchmarking LLM score predictability. In \emph{Findings of ACL}, 2025.
+\bibitem{park2025} J.~Park, E.~Mendes, G.~Stanovsky, and A.~Ritter. Anticipatory evaluation of language models.
+  arXiv:2509.20645, 2025.
+\bibitem{ruan2024} Y.~Ruan, C.~J.~Maddison, and T.~Hashimoto. Observational scaling laws and the predictability of
+  language model performance. In \emph{NeurIPS}, 2024.
+\bibitem{efron1975} B.~Efron and C.~Morris. Data analysis using Stein's estimator and its generalizations.
+  \emph{Journal of the American Statistical Association}, 70(350):311--319, 1975.
+\bibitem{brown2008} L.~D.~Brown. In-season prediction of batting averages: a field test of empirical Bayes and Bayes
+  methodologies. \emph{Annals of Applied Statistics}, 2(1):113--152, 2008.
+\bibitem{gelman2008} A.~Gelman, A.~Jakulin, M.~G.~Pittau, and Y.-S.~Su. A weakly informative default prior
+  distribution for logistic and other regression models. \emph{Annals of Applied Statistics}, 2(4):1360--1383, 2008.
+\bibitem{brier1950} G.~W.~Brier. Verification of forecasts expressed in terms of probability. \emph{Monthly Weather
+  Review}, 78(1):1--3, 1950.
+\bibitem{gneiting2007} T.~Gneiting and A.~E.~Raftery. Strictly proper scoring rules, prediction, and estimation.
+  \emph{Journal of the American Statistical Association}, 102(477):359--378, 2007.
+\bibitem{murphy1973} A.~H.~Murphy. A new vector partition of the probability score. \emph{Journal of Applied
+  Meteorology}, 12(4):595--600, 1973.
+\bibitem{guo2017} C.~Guo, G.~Pleiss, Y.~Sun, and K.~Q.~Weinberger. On calibration of modern neural networks. In
+  \emph{ICML}, PMLR 70:1321--1330, 2017.
+\bibitem{kossen2021} J.~Kossen, S.~Farquhar, Y.~Gal, and T.~Rainforth. Active testing: sample-efficient model
+  evaluation. In \emph{ICML}, 2021.
+\bibitem{zrnic2024} T.~Zrnic and E.~J.~Cand\`es. Active statistical inference. In \emph{ICML}, 2024.
+\bibitem{vanderlinden2000} W.~J.~van der Linden and C.~A.~W.~Glas. Capitalization on item calibration error in
+  adaptive testing. \emph{Applied Measurement in Education}, 13(1):35--53, 2000.
+\bibitem{bowyer2025} S.~Bowyer, L.~Aitchison, and D.~R.~Ivanova. Position: don't use the CLT in LLM evals with fewer
+  than a few hundred datapoints. In \emph{ICML}, 2025.
+\bibitem{miller2024} E.~Miller. Adding error bars to evals: a statistical approach to language model evaluations.
+  arXiv:2411.00640, 2024.
+\bibitem{wang2025} S.~Wang. Measuring all the noises of LLM evals. arXiv:2512.21326, 2025.
+\end{thebibliography}
+
+% ---------------------------------------------------------------------------------------------------------------
+\appendix
+\section{Reproducibility and rerun instructions}\label{app:rerun}
+Everything runs on CPU. Our environment was Python 3.12.6 on Windows 11 on one laptop (AMD Ryzen 5 5500U, 6 cores,
+5.8\,GB RAM), with packages pinned in
+\texttt{requirements-lock.txt}. Code release (MIT licence): \url{https://github.com/Shashwat-srivastav/s2wish-paiec2026} (the release
+commit is recorded in its history; every released file and its SHA-256 are listed in \texttt{RELEASE\_MANIFEST.txt}).
+Seeds are fixed in each module.
+
+\paragraph{Data.} The public training data are gated: request access to \p{aims-foundations/measurement-db} and
+place the tables under \texttt{data/} at the revisions listed in Appendix~\ref{app:sources}. The simulator repair and
+the 89-benchmark replay also need the 281-benchmark release. Our own formative feedback
+(\texttt{experiments/platform\_submissions/}) is not part of the public release. The test of the re-implemented evaluator needs
+the organisers' official baselines at the revision pinned in \texttt{external/PINS.txt}; the engine-equivalence tests need the gated data; the regression
+tests of the feedback inversion need our feedback files. Tests whose inputs are absent skip rather than fail
+(\texttt{REPRODUCE.md}, \S3).
+
+\paragraph{Tests.} \texttt{python -m pytest -q} runs in about 7 minutes on CPU: 66 tests with the gated data and the
+organisers' starting kit; 26 in a public clone (18 pass, 8 skip with reasons). The equivalence of the
+re-implemented evaluator (\S\ref{sec:task}) is tested by \texttt{tests/test\_simulator.py}, which needs the starting kit. The suite also checks,
+in \texttt{tests/test\_v1\_3\_archive.py}, that the final archive
+has the quoted checksum, that its code files are byte-identical to the item-group model's, and that its predictions
+match the research engine's all-field configuration on real episodes (maximum difference below $10^{-9}$).
+
+\paragraph{Platform pair sets.} Several pair counts appear in the text; each comes from
+\texttt{experiments/runs/review\_round1/pair\_counts.json} (singleton: the pair's benchmark appears once in its draw;
+exact: every budget's success count is recovered within $2\varepsilon(p_0)$, uniquely and with nested prefixes).
+\begin{center}\footnotesize
+\begin{tabular}{@{}rp{0.52\linewidth}l@{}}
+\toprule
+size & pair set & used in\\
+\midrule
+8  & \emph{exact set}: replay-set pairs where the item-group and final models also replay exactly & \S\ref{sec:results}, Table~\ref{tab:platform}\\
+14 & exact distinct singleton pairs among the 18 of row (b) & \invref; visual atlas\\
+17 & the pairs of row (b) within a 0.005 tolerance & visual atlas (replay figure)\\
+18 (a) & \emph{replay set}: exact distinct singleton pairs over our five saved formative runs & \S\ref{sec:inversion}, \S\ref{sec:results}, Table~\ref{tab:platform}\\
+18 (b) & distinct singleton pairs of our later saved runs (14 exact) & this table\\
+21 & exact singleton run-rows over our five saved formative runs & \invref\\
+22 & distinct singleton pairs over our five saved formative runs & this table (denominator of row 18 (a))\\
+26 & pair-slots of the three later models on the earlier draws (floor, ceiling) & \S\ref{sec:headroom}, Fig.~\ref{fig:excess}\\
+27 & singleton run-rows over our five saved formative runs & \invref\\
+34 & saved per-pair feedback slots (accuracy recovery check) & \S\ref{sec:inversion}\\
+\bottomrule
+\end{tabular}
+\end{center}
+
+\IfFileExists{appendix_repro_table.tex}{\input{appendix_repro_table}}%
+  {\par\fillin{command-to-result table (appendix\_repro\_table.tex)}\par}
+
+\paragraph{Archives.} SHA-256 checksums:\\[2pt]
+{\footnotesize\begin{tabular}{@{}l@{}}
+final model (selected; run 971666), \texttt{v1\_3\_named\_facets\_noguard.zip}\\
+\quad\texttt{a4b0e841d4a344ff207bed2c855342212e95f7d550195b667446ea4e92685b86}\\
+\end{tabular}}\par\medskip
+The final archive's \texttt{model.py} and \texttt{labeling.py} are byte-identical to the item-group model's, and only
+two parameters differ: \texttt{facets} \texttt{true}$\to$\texttt{"named"} and \texttt{guard} $1\to0$. The model tests
+\texttt{facets} for truthiness, so \texttt{"named"} means \emph{all} fields, despite the archive's name; the effective
+change is only that the key guard is off. (The research engine's literal \texttt{"named"} mode, used for
+Figure~\ref{fig:rho}, is a different configuration.) \texttt{scripts/build\_v1\_3\_archive.py} rebuilds it byte for
+byte (with zlib 1.3.x; with another zlib the archive members are still byte-identical). The supplementary
+research record gives each registered experiment's question, hypothesis, settings, decision rule, result and commands.
+
+\section{Training sources}\label{app:sources}
+\begin{itemize}[leftmargin=*,nosep,before=\raggedright]
+  \item \texttt{aims-foundations/measurement-db}, revision \texttt{bc8204d811} (CC BY-SA 4.0, gated): all models and
+    parameters, including the final archive.
+  \item \texttt{aims-foundations/measurement-db}, revision \texttt{54074453da} (the 281-benchmark release): the
+    expanded-pool prior experiment and the simulator repair. No shipped parameter comes from it.
+  \item \texttt{measurement-db-embed} vectors, revision \texttt{fb3a155cce} (licence not stated by the provider): the
+    item-representation study (Table~\ref{tab:repr}) only.
+  \item \texttt{sentence-transformers/all-MiniLM-L6-v2} (snapshot \texttt{1110a243fd}) and \texttt{all-mpnet-base-v2}
+    (snapshot \texttt{e8c3b32edf}), both Apache 2.0: the distillation experiment only.
+  \item TypeSafe Jev 1.13.0, a hosted service (licence not stated by the provider): offline LLM item ratings and
+    decision checks. It is not used at scoring time.
+  \item Formative platform feedback: used to compare versions and for the diagnostics of
+    \S\ref{sec:inversion}--\S\ref{sec:headroom}.
+\end{itemize}
+The final archive uses no pretrained model and no network access at scoring time. Table~\ref{tab:repr} gives the
+item-representation study cited in \S\ref{sec:task}.
+
+\begin{table}[h]
+  \caption{\rs{} between predicted and Rasch item difficulty (ridge regression, mean over the five benchmark folds).
+  The LLM rating was computed offline. The rules allow scoring-time calls to approved inference APIs; our shipped
+  predictor makes no network calls by design (no API dependency, deterministic, fully rerunnable). \src{\p{src/paiec/analysis/item_repr.py}; \p{experiments/runs/phase1_item_repr/item_repr_results.csv}}}
+  \label{tab:repr}
+  \centering\small
+  \begin{tabular}{lcc}
+    \toprule
+    item representation & \rs{} within a benchmark & \rs{} on an unseen benchmark\\
+    \midrule
+    length and format                        & 0.22 & $-0.01$\\
+    TF-IDF                                   & 0.36 & $-0.08$\\
+    \texttt{measurement-db-embed} vectors    & ---  & $-0.08^{\dagger}$\\
+    LLM difficulty rating (offline)          & 0.22 & \phantom{$-$}0.23\\
+    all combined                             & 0.41 & \phantom{$-$}0.18\\
+    \bottomrule
+  \end{tabular}\\[2pt]
+  {\footnotesize $^{\dagger}$Three-benchmark subset; the inner cross-validation chose a constant.}
+\end{table}
+
+\section{Names used in this report and internal identifiers}\label{app:names}
+The research record, archive file names and the visual atlas use internal identifiers. This table maps them to the
+plain names of the main text.
+\begin{center}\scriptsize
+\begin{tabular}{@{}p{0.40\linewidth}p{0.22\linewidth}l@{}}
+\toprule
+name in this report & internal identifier & archive or record\\
+\midrule
+official baseline (empirical mean) & L0 & organisers' starter kit\\
+Beta-binomial shrinkage & v0 & \texttt{v0.zip}\\
+first model (+ benchmark offset, item pooling) & v1 & \texttt{v1.zip}\\
+hedged-centre model & v1\_1 & \texttt{v1\_1.zip}\\
+item-group model & v1\_2 & \texttt{v1\_2.zip}\\
+identical re-package of the item-group model & v1\_3 (guard on) & \texttt{v1\_3\_named\_facets.zip}\\
+\textbf{final model} & v1\_3 & \texttt{v1\_3\_named\_facets\_noguard.zip}\\
+metadata/IRT hybrid & v1\_5 & \texttt{v1\_5\_hybrid\_experimental.zip}\\
+damped early updates & v1\_6 & \texttt{v1\_6\_damped\_facets.zip}\\
+cap on early jumps & v1\_7 & \texttt{v1\_7\_adaptive\_facets.zip}\\
+mixture prior & v1\_8, EXP-0057 & \texttt{v1\_8\_ext10.zip}\\
+\midrule
+platform-like draw / one subject per benchmark / all subjects & regimes R1 / R2 / R3 & \\
+budget-$n$ Brier score & $B_n$ & \\
+item groups / key guard & facets / guard (G1 key guard) & model parameters\\
+false-merge probability $r$; group variance share $\lambda$ & $\rho$; $\pi$ & model parameters\\
+\midrule
+item scorer; label-free benchmark level; nested meta-learned priors & EXP-0041; EXP-0043; EXP-0045 & research record\\
+lexical residual smoothing; gp-IRT reimplementation & EXP-0042; EXP-0046 & research record\\
+final-model replay against the research engine & EXP-0044 & research record\\
+prior factorial (stopped after pilot) & EXP-0049 & research record\\
+re-tuned shrinkage strength; temperature scaling; stress test & EXP-0052; EXP-0053; EXP-0054 & research record\\
+simulator validity check; its repair & EXP-0039; EXP-0039R & research record\\
+pre-registered out-of-sample check (\S\ref{sec:results}) & EXP-0058 & \p{experiments/runs/EXP-0058/}\\
+first final-model run; failed-but-scored item-group run & Codabench 967620; 955650 & platform feedback\\
+value of an item-difficulty signal (Figure~\ref{fig:rho}) & E6 & \texttt{experiments/runs/e6}\\
+\bottomrule
+\end{tabular}
+\end{center}
+
+\begin{table}[h]
+  \caption{Table~\ref{tab:ladder} with all six label budgets (Brier score; one subject per benchmark, mean over the
+  four held-out benchmarks, 10 seeds, paired).
+  \src{\p{experiments/runs/review_round1/ladder_intervals.json} and \p{table3_baseline_seeds0-9.json}}}
+  \label{tab:ladder-full}
+  \centering\small\setlength{\tabcolsep}{4pt}
+  \begin{tabular}{@{}lccccccc@{}}
+    \toprule
+    model & $B_0$ & $B_1$ & $B_3$ & $B_7$ & $B_{15}$ & $B_{31}$ & ALC\\
+    \midrule
+    official baseline       & 0.250 & 0.360 & 0.243 & 0.209 & 0.194 & 0.189 & 0.2451\\
+    Beta-binomial shrinkage & 0.250 & 0.231 & 0.214 & 0.201 & 0.192 & 0.188 & 0.2114\\
+    first model             & 0.247 & 0.229 & 0.213 & 0.200 & 0.191 & 0.187 & 0.2098\\
+    hedged-centre model     & 0.246 & 0.229 & 0.213 & 0.200 & 0.191 & 0.187 & 0.2097\\
+    item-group model        & 0.246 & 0.229 & 0.212 & 0.200 & 0.190 & 0.184 & 0.2089\\
+    final model             & 0.246 & 0.229 & 0.212 & 0.199 & 0.189 & 0.183 & 0.2088\\
+    \bottomrule
+  \end{tabular}
+\end{table}
+
+\begin{figure}[h]
+  \centering
+  \fig{fig_platform_runs.pdf}
+  \caption{Logged formative runs of the development ladder and the rejected variants (one point each, fresh draws;
+  bars are column means). \emph{Development ladder}:
+  the models of Table~\ref{tab:ladder}; the open circle is a functionally identical re-package, so the item-group
+  column has $n=5$ (Table~\ref{tab:platform} counts the item-group archive only, $n=4$). \emph{Rejected
+  variants}: a metadata/IRT hybrid, damped early updates, a cap on early jumps, the mixture prior. Runs are unpaired: the final model alone ranges from 0.164 to 0.216.
+  \src{\p{docs/publication/neurips/make_figures.py}; \p{experiments/platform_submissions/*.json}}}
+  \label{fig:runs}
+\end{figure}
+
+\begin{figure}[h]
+  \centering
+  \fig{fig_programme_forest.pdf}
+  \caption{The five pre-registered candidates of Table~\ref{tab:tried}, each paired against the final model with one
+  subject per benchmark (\dalc{}\,\ee{3}, 95\% interval over pairs; positive is worse). The dashed line is the
+  pre-registered adoption bar ($-1.0$). None qualifies.
+  \src{\p{make_figures.py}; \texttt{experiments/runs/preregistration/exp\_00\{42,46,52,53,57\}\_*.json}}}
+  \label{fig:forest}
+\end{figure}
+
+% Appendix D: exact inversion and replay of per-pair formative feedback (written separately; defines \label{app:inversion}).
+\IfFileExists{appendix_inversion.tex}{\input{appendix_inversion}}{}
+
+% NeurIPS paper checklist (after references and appendices; does not count toward the page limit).
+\clearpage
+\IfFileExists{checklist.tex}{\input{checklist}}{}
+
+\ifreference
+\clearpage
+% Generated by make_atlas.py (build.ps1 regenerates it before every compile). Reference build only.
+\IfFileExists{atlas.tex}{\input{atlas}}{}
+\fi
+
+\end{document}

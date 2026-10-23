@@ -1,0 +1,20 @@
+[jev] 233 items, 233 unique states, 233 to query
+[jev] input tokens (unique states) 215,204 ~= $0.0090
+wrote 233 rows x 12 feature cols -> experiments\jev_out_real_webagents.parquet
+real_webagents elapsed 11s
+[jev] 212 items, 209 unique states, 209 to query
+[jev] input tokens (unique states) 779,625 ~= $0.0327
+wrote 212 rows x 12 feature cols -> experiments\jev_out_researchcodebench.parquet
+researchcodebench elapsed 20s
+[jev] 2126 items, 2078 unique states, 2078 to query
+[jev] input tokens (unique states) 2,911,960 ~= $0.1223
+wrote 2126 rows x 12 feature cols -> experiments\jev_out_multi_swebench.parquet
+multi_swebench elapsed 65s
+[jev] 1755 items, 897 unique states, 897 to query
+[jev] input tokens (unique states) 960,941 ~= $0.0404
+wrote 1755 rows x 12 feature cols -> experiments\jev_out_matharena.parquet
+matharena elapsed 87s
+[jev] 1500 items, 1497 unique states, 1497 to query
+[jev] input tokens (unique states) 1,989,053 ~= $0.0835
+wrote 1500 rows x 12 feature cols -> experiments\jev_out_swe_rebench.parquet
+swe_rebench elapsed 121s

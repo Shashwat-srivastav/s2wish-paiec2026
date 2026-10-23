@@ -1,0 +1,32 @@
+[test1_main] pre rho=0.108 [-0.045  0.52 ] n=1178/530g | post rho=0.455 [0.347 0.554] n=577/368g | pre-post=-0.347 [-0.526  0.092] | within-comp {'pre': 0.006504881086007888, 'post': 0.2527798360721282}
+[test1_sens_excl_uncertain] pre rho=0.162 [-0.114  0.593] n=618/364g | post rho=0.608 [0.469 0.718] n=393/238g | pre-post=-0.445 [-0.748  0.028] | within-comp {'pre': -0.036450923772898734, 'post': 0.36675900840783204}
+[perturb] 300 items, changed 0.933; by bench {'matharena': 0.95, 'multi_swebench': 1.0, 'real_webagents': 0.73, 'researchcodebench': 1.0, 'swe_rebench': 0.98}
+[jev] 300 items, 300 unique states, 300 to query
+[jev] 50/300 done (3s)
+[jev] 100/300 done (5s)
+[jev] 150/300 done (8s)
+[jev] 200/300 done (11s)
+[jev] 250/300 done (15s)
+[jev] 300/300 done (19s)
+[jev] input tokens (unique states) 504,455 ~= $0.0212
+[jev] 300 items, 300 unique states, 300 to query
+[jev] 50/300 done (2s)
+[jev] 100/300 done (4s)
+[jev] 150/300 done (6s)
+[jev] 200/300 done (8s)
+[jev] 250/300 done (10s)
+[jev] 300/300 done (12s)
+[jev] input tokens (unique states) 508,561 ~= $0.0214
+[perturb all] n=300 |d|=0.033 (retest 0.008) rho orig=0.180 pert=0.187 retest=0.182 ratio=1.03 [0.76 1.44]
+     matharena          n=60 rho_orig=0.504 rho_pert=0.494 rho_retest=0.496 mean_abs_delta=0.021 agree_orig_pert=0.977
+     multi_swebench     n=60 rho_orig=-0.046 rho_pert=-0.111 rho_retest=-0.061 mean_abs_delta=0.040 agree_orig_pert=0.885
+     real_webagents     n=60 rho_orig=0.355 rho_pert=0.364 rho_retest=0.353 mean_abs_delta=0.022 agree_orig_pert=0.985
+     researchcodebench  n=60 rho_orig=0.159 rho_pert=0.248 rho_retest=0.185 mean_abs_delta=0.045 agree_orig_pert=0.859
+     swe_rebench        n=60 rho_orig=-0.070 rho_pert=-0.062 rho_retest=-0.062 mean_abs_delta=0.037 agree_orig_pert=0.905
+[perturb changed_only] n=280 |d|=0.035 (retest 0.008) rho orig=0.181 pert=0.191 retest=0.183 ratio=1.05 [0.79 1.54]
+     matharena          n=57 rho_orig=0.475 rho_pert=0.472 rho_retest=0.469 mean_abs_delta=0.021 agree_orig_pert=0.977
+     multi_swebench     n=60 rho_orig=-0.046 rho_pert=-0.111 rho_retest=-0.061 mean_abs_delta=0.040 agree_orig_pert=0.885
+     real_webagents     n=44 rho_orig=0.409 rho_pert=0.430 rho_retest=0.409 mean_abs_delta=0.026 agree_orig_pert=0.971
+     researchcodebench  n=60 rho_orig=0.159 rho_pert=0.248 rho_retest=0.185 mean_abs_delta=0.045 agree_orig_pert=0.859
+     swe_rebench        n=59 rho_orig=-0.093 rho_pert=-0.086 rho_retest=-0.086 mean_abs_delta=0.037 agree_orig_pert=0.901
+[E2a decision] {'row': 'PROCEED', 'cond_go': True, 'cond_stop': False, 'sensitivity_row': 'PROCEED'}  (80s)

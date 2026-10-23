@@ -1,0 +1,16 @@
+multi_swebench T {'L2': 0.85, 'L4': 0.85, 'L6nj': 0.8999999999999999, 'L6': 0.8999999999999999}
+multi_swebench R1 done 82 instances
+multi_swebench R2 done 410 instances
+multi_swebench R3 done 410 instances
+real_webagents T {'L2': 0.8, 'L4': 0.8, 'L6nj': 0.8, 'L6': 0.8999999999999999}
+real_webagents R1 done 133 instances
+real_webagents R2 done 130 instances
+real_webagents R3 done 130 instances
+researchcodebench T {'L2': 0.85, 'L4': 0.85, 'L6nj': 0.85, 'L6': 0.85}
+researchcodebench R1 done 79 instances
+researchcodebench R2 done 155 instances
+researchcodebench R3 done 155 instances
+matharena T {'L2': 0.8999999999999999, 'L4': 0.95, 'L6nj': 0.8999999999999999, 'L6': 0.95}
+matharena R1 done 105 instances
+matharena R2 done 405 instances
+matharena R3 done 405 instances

@@ -1,0 +1,18 @@
+{
+ "multi_swebench|L2": 0.85,
+ "multi_swebench|L4": 0.85,
+ "multi_swebench|L6nj": 0.8999999999999999,
+ "multi_swebench|L6": 0.8999999999999999,
+ "real_webagents|L2": 0.8,
+ "real_webagents|L4": 0.8,
+ "real_webagents|L6nj": 0.8,
+ "real_webagents|L6": 0.8999999999999999,
+ "researchcodebench|L2": 0.85,
+ "researchcodebench|L4": 0.85,
+ "researchcodebench|L6nj": 0.85,
+ "researchcodebench|L6": 0.85,
+ "matharena|L2": 0.8999999999999999,
+ "matharena|L4": 0.95,
+ "matharena|L6nj": 0.8999999999999999,
+ "matharena|L6": 0.95
+}

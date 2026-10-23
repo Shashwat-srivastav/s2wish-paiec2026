@@ -1,0 +1,737 @@
+{
+ "prereg": "docs/experiments/E1_E2_preregistration.md#E2a",
+ "split": "2025-07",
+ "release_map": {
+  "aime_2025": {
+   "month": "2025-02",
+   "uncertain": false,
+   "note": "AIME I 6 Feb / AIME II 12 Feb 2025"
+  },
+  "aime_2025_I": {
+   "month": "2025-02",
+   "uncertain": false,
+   "note": "AIME I, 6 Feb 2025"
+  },
+  "aime_2025_II": {
+   "month": "2025-02",
+   "uncertain": false,
+   "note": "AIME II, 12 Feb 2025"
+  },
+  "hmmt_feb_2025": {
+   "month": "2025-02",
+   "uncertain": false,
+   "note": "HMMT February, 15 Feb 2025"
+  },
+  "usamo_2025": {
+   "month": "2025-03",
+   "uncertain": false,
+   "note": "USAMO, 19-20 Mar 2025"
+  },
+  "kangaroo_2025_1_2": {
+   "month": "2025-03",
+   "uncertain": true,
+   "note": "Math Kangaroo contest 20 Mar 2025; date the problem text was posted publicly is not documented"
+  },
+  "kangaroo_2025_3_4": {
+   "month": "2025-03",
+   "uncertain": true,
+   "note": "as above"
+  },
+  "kangaroo_2025_5_6": {
+   "month": "2025-03",
+   "uncertain": true,
+   "note": "as above"
+  },
+  "kangaroo_2025_7_8": {
+   "month": "2025-03",
+   "uncertain": true,
+   "note": "as above"
+  },
+  "kangaroo_2025_9_10": {
+   "month": "2025-03",
+   "uncertain": true,
+   "note": "as above"
+  },
+  "kangaroo_2025_11_12": {
+   "month": "2025-03",
+   "uncertain": true,
+   "note": "as above"
+  },
+  "smt_2025": {
+   "month": "2025-04",
+   "uncertain": false,
+   "note": "Stanford Math Tournament, Apr 2025"
+  },
+  "brumo_2025": {
+   "month": "2025-04",
+   "uncertain": false,
+   "note": "Brown University Math Olympiad, Apr 2025"
+  },
+  "cmimc_2025": {
+   "month": "2025-04",
+   "uncertain": true,
+   "note": "CMIMC 2025, spring (month not verified); pre-2025-07 either way"
+  },
+  "imo_2025": {
+   "month": "2025-07",
+   "uncertain": false,
+   "note": "IMO, 15-16 Jul 2025"
+  },
+  "imc_2025": {
+   "month": "2025-08",
+   "uncertain": true,
+   "note": "IMC (university), late Jul / early Aug 2025; post either way"
+  },
+  "apex_2025": {
+   "month": "2025-08",
+   "uncertain": true,
+   "note": "MathArena Apex set (Aug 2025), compiled from 2025 competitions whose own dates vary"
+  },
+  "apex_shortlist": {
+   "month": "2025-08",
+   "uncertain": true,
+   "note": "Apex shortlist; compiled from 2025 competitions; publication month not verified"
+  },
+  "miklos_2025": {
+   "month": "2025-10",
+   "uncertain": true,
+   "note": "Miklos Schweitzer 2025, autumn (month not verified); post either way"
+  },
+  "hmmt_nov_2025": {
+   "month": "2025-11",
+   "uncertain": false,
+   "note": "HMMT November, Nov 2025"
+  },
+  "putnam_2025": {
+   "month": "2025-12",
+   "uncertain": false,
+   "note": "Putnam, 6 Dec 2025"
+  },
+  "arxivmath_1225": {
+   "month": "2025-12",
+   "uncertain": false,
+   "note": "arXiv-derived problems, Dec 2025"
+  },
+  "arxivmath_0126": {
+   "month": "2026-01",
+   "uncertain": false,
+   "note": "arXiv-derived problems, Jan 2026"
+  },
+  "arxivmath_0226": {
+   "month": "2026-02",
+   "uncertain": false,
+   "note": "arXiv-derived problems, Feb 2026"
+  },
+  "aime_2026": {
+   "month": "2026-02",
+   "uncertain": false,
+   "note": "AIME 2026, Feb 2026"
+  },
+  "aime_2026_I": {
+   "month": "2026-02",
+   "uncertain": false,
+   "note": "AIME I 2026, Feb 2026"
+  },
+  "hmmt_feb_2026": {
+   "month": "2026-02",
+   "uncertain": false,
+   "note": "HMMT February 2026"
+  }
+ },
+ "test1_main": {
+  "n_items": {
+   "pre": 1178,
+   "post": 577,
+   "all": 1755
+  },
+  "n_groups": {
+   "pre": 530,
+   "post": 368,
+   "all": 898
+  },
+  "rho": {
+   "pre": 0.10817294175336782,
+   "post": 0.4553176320886881,
+   "all": 0.3354188650702306
+  },
+  "ci": {
+   "pre": [
+    -0.0448774755744711,
+    0.5200414048433686
+   ],
+   "post": [
+    0.34692326098197307,
+    0.5543181990252433
+   ],
+   "all": [
+    0.18446872185128993,
+    0.5670858252880856
+   ]
+  },
+  "diff_pre_minus_post": -0.34714469033532025,
+  "diff_ci": [
+   -0.5258177072584612,
+   0.09225096387860922
+  ],
+  "diag_within_competition_rho": {
+   "pre": 0.006504881086007888,
+   "post": 0.2527798360721282
+  },
+  "per_competition": {
+   "aime_2025": {
+    "n": 155,
+    "month": "2025-02",
+    "post": false,
+    "rho": 0.15533342349490742,
+    "mean_beta": -0.8545964972740784,
+    "mean_jev": 0.4765645161290323
+   },
+   "aime_2025_I": {
+    "n": 46,
+    "month": "2025-02",
+    "post": false,
+    "rho": 0.6805616185700031,
+    "mean_beta": -1.341085203368138,
+    "mean_jev": 0.5989673913043478
+   },
+   "aime_2025_II": {
+    "n": 16,
+    "month": "2025-02",
+    "post": false,
+    "rho": 0.7177615182015785,
+    "mean_beta": -1.7086654408935398,
+    "mean_jev": 0.6190625000000001
+   },
+   "aime_2026": {
+    "n": 31,
+    "month": "2026-02",
+    "post": true,
+    "rho": 0.5413710837357565,
+    "mean_beta": -1.643572450476571,
+    "mean_jev": 0.6014516129032259
+   },
+   "aime_2026_I": {
+    "n": 31,
+    "month": "2026-02",
+    "post": true,
+    "rho": 0.5413710837357565,
+    "mean_beta": -1.6168859258708606,
+    "mean_jev": 0.6014516129032259
+   },
+   "apex_2025": {
+    "n": 25,
+    "month": "2025-08",
+    "post": true,
+    "rho": -0.2724648886306851,
+    "mean_beta": 4.267403034055202,
+    "mean_jev": 0.6433
+   },
+   "apex_shortlist": {
+    "n": 114,
+    "month": "2025-08",
+    "post": true,
+    "rho": -0.03974748816634596,
+    "mean_beta": 1.369980338554753,
+    "mean_jev": 0.7044736842105264
+   },
+   "arxivmath_0126": {
+    "n": 23,
+    "month": "2026-01",
+    "post": true,
+    "rho": 0.606524962926347,
+    "mean_beta": 1.3827490868623245,
+    "mean_jev": 0.8034782608695652
+   },
+   "arxivmath_0226": {
+    "n": 32,
+    "month": "2026-02",
+    "post": true,
+    "rho": 0.44241701815514395,
+    "mean_beta": 2.3528420558585257,
+    "mean_jev": 0.7948437500000001
+   },
+   "arxivmath_1225": {
+    "n": 17,
+    "month": "2025-12",
+    "post": true,
+    "rho": 0.5579400190326961,
+    "mean_beta": 2.0132771841381496,
+    "mean_jev": 0.7849999999999999
+   },
+   "brumo_2025": {
+    "n": 93,
+    "month": "2025-04",
+    "post": false,
+    "rho": -0.34400012594593526,
+    "mean_beta": -1.030713513292214,
+    "mean_jev": 0.3517741935483871
+   },
+   "cmimc_2025": {
+    "n": 209,
+    "month": "2025-04",
+    "post": false,
+    "rho": 0.13433056550357844,
+    "mean_beta": -0.1725198345969979,
+    "mean_jev": 0.4779066985645933
+   },
+   "hmmt_feb_2025": {
+    "n": 94,
+    "month": "2025-02",
+    "post": false,
+    "rho": -0.08072444828526025,
+    "mean_beta": -0.4606919110379394,
+    "mean_jev": 0.3849202127659575
+   },
+   "hmmt_feb_2026": {
+    "n": 33,
+    "month": "2026-02",
+    "post": true,
+    "rho": 0.7470001164121379,
+    "mean_beta": -0.7970765988279939,
+    "mean_jev": 0.5905303030303031
+   },
+   "hmmt_nov_2025": {
+    "n": 61,
+    "month": "2025-11",
+    "post": true,
+    "rho": 0.6988157200715999,
+    "mean_beta": -0.6582725328208366,
+    "mean_jev": 0.5670491803278689
+   },
+   "imc_2025": {
+    "n": 47,
+    "month": "2025-08",
+    "post": true,
+    "rho": 0.49862734822424276,
+    "mean_beta": -0.0133442534162933,
+    "mean_jev": 0.5889893617021276
+   },
+   "imo_2025": {
+    "n": 141,
+    "month": "2025-07",
+    "post": true,
+    "rho": -0.12310541517117403,
+    "mean_beta": 1.233962391857794,
+    "mean_jev": 0.7420744680851064
+   },
+   "kangaroo_2025_11_12": {
+    "n": 60,
+    "month": "2025-03",
+    "post": false,
+    "rho": null,
+    "mean_beta": -0.4917450913158473,
+    "mean_jev": 0.46499999999999997
+   },
+   "kangaroo_2025_1_2": {
+    "n": 48,
+    "month": "2025-03",
+    "post": false,
+    "rho": null,
+    "mean_beta": 0.5298090899701681,
+    "mean_jev": 0.465
+   },
+   "kangaroo_2025_3_4": {
+    "n": 48,
+    "month": "2025-03",
+    "post": false,
+    "rho": null,
+    "mean_beta": 1.1116329878406273,
+    "mean_jev": 0.465
+   },
+   "kangaroo_2025_5_6": {
+    "n": 60,
+    "month": "2025-03",
+    "post": false,
+    "rho": null,
+    "mean_beta": 0.5381849923246207,
+    "mean_jev": 0.46499999999999997
+   },
+   "kangaroo_2025_7_8": {
+    "n": 60,
+    "month": "2025-03",
+    "post": false,
+    "rho": null,
+    "mean_beta": -0.3901765799874985,
+    "mean_jev": 0.46499999999999997
+   },
+   "kangaroo_2025_9_10": {
+    "n": 60,
+    "month": "2025-03",
+    "post": false,
+    "rho": null,
+    "mean_beta": -0.855203094736904,
+    "mean_jev": 0.46499999999999997
+   },
+   "miklos_2025": {
+    "n": 13,
+    "month": "2025-10",
+    "post": true,
+    "rho": -0.15611698501084578,
+    "mean_beta": 0.08555842464268112,
+    "mean_jev": 0.7065384615384616
+   },
+   "putnam_2025": {
+    "n": 24,
+    "month": "2025-12",
+    "post": true,
+    "rho": 0.6026472059155817,
+    "mean_beta": 0.3075229884420673,
+    "mean_jev": 0.6707291666666667
+   },
+   "smt_2025": {
+    "n": 168,
+    "month": "2025-04",
+    "post": false,
+    "rho": -0.09771262940401054,
+    "mean_beta": -0.6750814718579015,
+    "mean_jev": 0.36907738095238096
+   },
+   "usamo_2025": {
+    "n": 46,
+    "month": "2025-03",
+    "post": false,
+    "rho": 0.36812826440631213,
+    "mean_beta": 1.842722418150343,
+    "mean_jev": 0.7332608695652173
+   }
+  }
+ },
+ "test1_sens_excl_uncertain": {
+  "n_items": {
+   "pre": 618,
+   "post": 393,
+   "all": 1011
+  },
+  "n_groups": {
+   "pre": 364,
+   "post": 238,
+   "all": 602
+  },
+  "rho": {
+   "pre": 0.16224748558422464,
+   "post": 0.6075561412105738,
+   "all": 0.4364778625670688
+  },
+  "ci": {
+   "pre": [
+    -0.113806114712009,
+    0.5932062289809892
+   ],
+   "post": [
+    0.4689408190457295,
+    0.7179324847973404
+   ],
+   "all": [
+    0.20076705723537622,
+    0.6562148455259332
+   ]
+  },
+  "diff_pre_minus_post": -0.44530865562634914,
+  "diff_ci": [
+   -0.7476692785239607,
+   0.0279626640065486
+  ],
+  "diag_within_competition_rho": {
+   "pre": -0.036450923772898734,
+   "post": 0.36675900840783204
+  },
+  "per_competition": {
+   "aime_2025": {
+    "n": 155,
+    "month": "2025-02",
+    "post": false,
+    "rho": 0.15533342349490742,
+    "mean_beta": -0.8545964972740784,
+    "mean_jev": 0.4765645161290323
+   },
+   "aime_2025_I": {
+    "n": 46,
+    "month": "2025-02",
+    "post": false,
+    "rho": 0.6805616185700031,
+    "mean_beta": -1.341085203368138,
+    "mean_jev": 0.5989673913043478
+   },
+   "aime_2025_II": {
+    "n": 16,
+    "month": "2025-02",
+    "post": false,
+    "rho": 0.7177615182015785,
+    "mean_beta": -1.7086654408935398,
+    "mean_jev": 0.6190625000000001
+   },
+   "aime_2026": {
+    "n": 31,
+    "month": "2026-02",
+    "post": true,
+    "rho": 0.5413710837357565,
+    "mean_beta": -1.643572450476571,
+    "mean_jev": 0.6014516129032259
+   },
+   "aime_2026_I": {
+    "n": 31,
+    "month": "2026-02",
+    "post": true,
+    "rho": 0.5413710837357565,
+    "mean_beta": -1.6168859258708606,
+    "mean_jev": 0.6014516129032259
+   },
+   "arxivmath_0126": {
+    "n": 23,
+    "month": "2026-01",
+    "post": true,
+    "rho": 0.606524962926347,
+    "mean_beta": 1.3827490868623245,
+    "mean_jev": 0.8034782608695652
+   },
+   "arxivmath_0226": {
+    "n": 32,
+    "month": "2026-02",
+    "post": true,
+    "rho": 0.44241701815514395,
+    "mean_beta": 2.3528420558585257,
+    "mean_jev": 0.7948437500000001
+   },
+   "arxivmath_1225": {
+    "n": 17,
+    "month": "2025-12",
+    "post": true,
+    "rho": 0.5579400190326961,
+    "mean_beta": 2.0132771841381496,
+    "mean_jev": 0.7849999999999999
+   },
+   "brumo_2025": {
+    "n": 93,
+    "month": "2025-04",
+    "post": false,
+    "rho": -0.34400012594593526,
+    "mean_beta": -1.030713513292214,
+    "mean_jev": 0.3517741935483871
+   },
+   "hmmt_feb_2025": {
+    "n": 94,
+    "month": "2025-02",
+    "post": false,
+    "rho": -0.08072444828526025,
+    "mean_beta": -0.4606919110379394,
+    "mean_jev": 0.3849202127659575
+   },
+   "hmmt_feb_2026": {
+    "n": 33,
+    "month": "2026-02",
+    "post": true,
+    "rho": 0.7470001164121379,
+    "mean_beta": -0.7970765988279939,
+    "mean_jev": 0.5905303030303031
+   },
+   "hmmt_nov_2025": {
+    "n": 61,
+    "month": "2025-11",
+    "post": true,
+    "rho": 0.6988157200715999,
+    "mean_beta": -0.6582725328208366,
+    "mean_jev": 0.5670491803278689
+   },
+   "imo_2025": {
+    "n": 141,
+    "month": "2025-07",
+    "post": true,
+    "rho": -0.12310541517117403,
+    "mean_beta": 1.233962391857794,
+    "mean_jev": 0.7420744680851064
+   },
+   "putnam_2025": {
+    "n": 24,
+    "month": "2025-12",
+    "post": true,
+    "rho": 0.6026472059155817,
+    "mean_beta": 0.3075229884420673,
+    "mean_jev": 0.6707291666666667
+   },
+   "smt_2025": {
+    "n": 168,
+    "month": "2025-04",
+    "post": false,
+    "rho": -0.09771262940401054,
+    "mean_beta": -0.6750814718579015,
+    "mean_jev": 0.36907738095238096
+   },
+   "usamo_2025": {
+    "n": 46,
+    "month": "2025-03",
+    "post": false,
+    "rho": 0.36812826440631213,
+    "mean_beta": 1.842722418150343,
+    "mean_jev": 0.7332608695652173
+   }
+  }
+ },
+ "test2": {
+  "all": {
+   "n": 300,
+   "mean_abs_delta": 0.032891666666666666,
+   "mean_abs_delta_retest": 0.007808333333333331,
+   "frac_identical_pert": 0.03666666666666667,
+   "frac_identical_retest": 0.11666666666666667,
+   "mean_signed_delta": 0.012008333333333333,
+   "rho_orig": 0.18044233834100237,
+   "rho_pert": 0.1867364871020764,
+   "rho_retest": 0.18224808515765462,
+   "rho_orig_pert": 0.9223090683002552,
+   "per_bench": {
+    "matharena": {
+     "n": 60,
+     "rho_orig": 0.5038940849559953,
+     "rho_pert": 0.49369298849733834,
+     "rho_retest": 0.4961269400011276,
+     "mean_abs_delta": 0.02066666666666667,
+     "agree_orig_pert": 0.977206710971592
+    },
+    "multi_swebench": {
+     "n": 60,
+     "rho_orig": -0.046048244303978435,
+     "rho_pert": -0.11062789265472572,
+     "rho_retest": -0.06098086668640807,
+     "mean_abs_delta": 0.039999999999999994,
+     "agree_orig_pert": 0.8846287476941148
+    },
+    "real_webagents": {
+     "n": 60,
+     "rho_orig": 0.35530484200606854,
+     "rho_pert": 0.3644927340499878,
+     "rho_retest": 0.35273520819379195,
+     "mean_abs_delta": 0.02183333333333333,
+     "agree_orig_pert": 0.9854518678771933
+    },
+    "researchcodebench": {
+     "n": 60,
+     "rho_orig": 0.15872949187112437,
+     "rho_pert": 0.24770721705401966,
+     "rho_retest": 0.1848878103569741,
+     "mean_abs_delta": 0.04541666666666667,
+     "agree_orig_pert": 0.8594167050652761
+    },
+    "swe_rebench": {
+     "n": 60,
+     "rho_orig": -0.06966848282419792,
+     "rho_pert": -0.06158261143623807,
+     "rho_retest": -0.06152866607721255,
+     "mean_abs_delta": 0.03654166666666666,
+     "agree_orig_pert": 0.9048413098931002
+    }
+   },
+   "ratio": 1.034881773418272,
+   "ci": {
+    "orig": [
+     0.06461073269699867,
+     0.28651568127207216
+    ],
+    "pert": [
+     0.06981739180033886,
+     0.29478388133649913
+    ],
+    "retest": [
+     0.06738120811792411,
+     0.2872330162679299
+    ],
+    "ratio": [
+     0.7606966310351758,
+     1.4424234247220373
+    ],
+    "absd": [
+     0.028774583333333336,
+     0.03754187500000001
+    ]
+   }
+  },
+  "changed_only": {
+   "n": 280,
+   "mean_abs_delta": 0.03458928571428571,
+   "mean_abs_delta_retest": 0.007642857142857141,
+   "frac_identical_pert": 0.039285714285714285,
+   "frac_identical_retest": 0.125,
+   "mean_signed_delta": 0.01325,
+   "rho_orig": 0.18068941535996694,
+   "rho_pert": 0.1905744661653001,
+   "rho_retest": 0.18308195673975833,
+   "rho_orig_pert": 0.918520766542151,
+   "per_bench": {
+    "matharena": {
+     "n": 57,
+     "rho_orig": 0.4745860452503173,
+     "rho_pert": 0.47201416045032446,
+     "rho_retest": 0.4687445592685765,
+     "mean_abs_delta": 0.021315789473684215,
+     "agree_orig_pert": 0.9766239241317611
+    },
+    "multi_swebench": {
+     "n": 60,
+     "rho_orig": -0.046048244303978435,
+     "rho_pert": -0.11062789265472572,
+     "rho_retest": -0.06098086668640807,
+     "mean_abs_delta": 0.039999999999999994,
+     "agree_orig_pert": 0.8846287476941148
+    },
+    "real_webagents": {
+     "n": 44,
+     "rho_orig": 0.4093600235710654,
+     "rho_pert": 0.43023788786719147,
+     "rho_retest": 0.40919184366381534,
+     "mean_abs_delta": 0.026249999999999996,
+     "agree_orig_pert": 0.9712402642341511
+    },
+    "researchcodebench": {
+     "n": 60,
+     "rho_orig": 0.15872949187112437,
+     "rho_pert": 0.24770721705401966,
+     "rho_retest": 0.1848878103569741,
+     "mean_abs_delta": 0.04541666666666667,
+     "agree_orig_pert": 0.8594167050652761
+    },
+    "swe_rebench": {
+     "n": 59,
+     "rho_orig": -0.09318023958869397,
+     "rho_pert": -0.08645904189030938,
+     "rho_retest": -0.08643356290416628,
+     "mean_abs_delta": 0.03711864406779661,
+     "agree_orig_pert": 0.9006941915854518
+    }
+   },
+   "ratio": 1.0547074148512812,
+   "ci": {
+    "orig": [
+     0.06539811949838414,
+     0.29390574527929164
+    ],
+    "pert": [
+     0.07518255134569268,
+     0.29683004065670426
+    ],
+    "retest": [
+     0.07035096932362524,
+     0.29551583599533676
+    ],
+    "ratio": [
+     0.7907230491046409,
+     1.5399205636395907
+    ],
+    "absd": [
+     0.029944681240369798,
+     0.03855617179263644
+    ]
+   }
+  }
+ },
+ "jev_cost": {
+  "tokens_retest": 504455,
+  "tokens_perturbed": 508561,
+  "usd": 0.04254667200000001,
+  "model": "jev-1.13.0"
+ },
+ "decision": {
+  "row": "PROCEED",
+  "cond_go": true,
+  "cond_stop": false,
+  "sensitivity_row": "PROCEED"
+ }
+}

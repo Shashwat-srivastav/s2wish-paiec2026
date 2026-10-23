@@ -1,0 +1,53 @@
+    0s agc_bench                      knowledge_reasoning  P=  61 match=0.74 B0 0.2469->0.2470  B1 0.2702->0.2693
+    0s agi_elo                        knowledge_reasoning  P=  10 match=1.00 B0 0.2438->0.2566  B1 0.2191->0.2242
+    1s ai2d_test                      knowledge_reasoning  P=  34 match=0.38 B0 0.2445->0.2522  B1 0.2219->0.2247
+    1s algotune                       agentic_swe          P=  18 match=1.00 B0 0.2445->0.2345  B1 0.2420->0.2374
+    1s alignment_faking               safety               P=  32 match=1.00 B0 0.2640->0.2206  B1 0.1799->0.1633
+    1s babilong                       knowledge_reasoning  P=   8 match=1.00 B0 0.2437->0.2629  B1 0.2227->0.2300
+    1s benger                         knowledge_reasoning  P=  25 match=0.84 B0 0.2419->0.2367  B1 0.1935->0.1917
+    2s bigfinancebench                agentic_swe          P=   9 match=1.00 B0 0.2528->0.2558  B1 0.2688->0.2688
+    2s dtap_bench                     agentic_swe          P=  10 match=1.00 B0 0.2480->0.2446  B1 0.2774->0.2747
+    2s editbench                      agentic_swe          P=  33 match=0.79 B0 0.2510->0.2505  B1 0.2806->0.2791
+    2s edu_circuit_hw                 knowledge_reasoning  P=   6 match=0.67 B0 0.2551->0.2535  B1 0.2523->0.2509
+    2s eduguardbench                  safety               P=  11 match=0.82 B0 0.2458->0.2483  B1 0.2618->0.2621
+    2s engdesign                      knowledge_reasoning  P=   6 match=1.00 B0 0.2582->0.2589  B1 0.2468->0.2463
+    2s hallusionbench                 knowledge_reasoning  P=  34 match=0.38 B0 0.2472->0.2509  B1 0.2696->0.2705
+    3s healthadminbench               agentic_swe          P=   5 match=1.00 B0 0.2593->0.2748  B1 0.2330->0.2389
+    3s helm_bbq                       safety               P=  43 match=0.81 B0 0.2405->0.2458  B1 0.1414->0.1446
+    3s hle                            knowledge_reasoning  P=  11 match=1.00 B0 0.2571->0.2627  B1 0.2472->0.2489
+    3s icpc2_code_selector            medicine             P=  17 match=0.88 B0 0.2455->0.2518  B1 0.2516->0.2534
+    4s ikp                            knowledge_reasoning  P= 125 match=0.70 B0 0.2470->0.2450  B1 0.2580->0.2572
+    4s legal_rag_bench                knowledge_reasoning  P=   6 match=1.00 B0 0.2427->0.2153  B1 0.2131->0.2022
+    4s matharena                      mathematics          P=  36 match=0.83 B0 0.2462->0.2384  B1 0.2458->0.2423
+    4s mathconstraint                 mathematics          P=  11 match=1.00 B0 0.2451->0.2334  B1 0.2536->0.2484
+    5s medhelm_ehr_sql                medicine             P=   6 match=1.00 B0 0.2502->0.2574  B1 0.2041->0.2071
+    5s medhelm_head_qa                medicine             P=   6 match=1.00 B0 0.2497->0.2416  B1 0.1642->0.1621
+    5s medhelm_med_mcqa               medicine             P=   6 match=1.00 B0 0.2498->0.2434  B1 0.2164->0.2138
+    5s medhelm_med_qa                 medicine             P=   6 match=1.00 B0 0.2497->0.2400  B1 0.1475->0.1452
+    5s medhelm_medbullets             medicine             P=   6 match=1.00 B0 0.2498->0.2422  B1 0.2193->0.2162
+    5s medhelm_medcalc_bench          medicine             P=   6 match=1.00 B0 0.2501->0.2553  B1 0.2602->0.2612
+    5s medhelm_medec                  medicine             P=   6 match=1.00 B0 0.2499->0.2469  B1 0.2781->0.2756
+    5s medhelm_medhallu               medicine             P=   6 match=1.00 B0 0.2497->0.2414  B1 0.1799->0.1774
+    5s medhelm_pubmed_qa              medicine             P=   6 match=1.00 B0 0.2498->0.2453  B1 0.2469->0.2445
+    5s medhelm_race_based_med         medicine             P=   6 match=1.00 B0 0.2498->0.2430  B1 0.2053->0.2028
+    6s multi_swebench                 agentic_swe          P=  43 match=0.72 B0 0.2599->0.2523  B1 0.2135->0.2107
+    6s naturebench                    agentic_swe          P=  15 match=1.00 B0 0.2574->0.2723  B1 0.2490->0.2543
+    6s openbiorq                      agentic_swe          P=  11 match=0.82 B0 0.2569->0.2622  B1 0.2313->0.2328
+    6s os_harm                        agentic_swe          P=   6 match=1.00 B0 0.2495->0.2508  B1 0.2843->0.2829
+    6s psychosis_bench                medicine             P=   7 match=1.00 B0 0.2566->0.2553  B1 0.2589->0.2574
+    6s real_webagents                 agentic_swe          P=  13 match=0.77 B0 0.2539->0.2497  B1 0.2337->0.2316
+    6s researchcodebench              agentic_swe          P=  15 match=1.00 B0 0.2540->0.2512  B1 0.2629->0.2608
+    6s risebench                      knowledge_reasoning  P=   6 match=0.00 B0 0.2681->0.2527  B1 0.1548->0.1491
+    6s scale_mrt                      safety               P=  19 match=1.00 B0 0.2475->0.2475  B1 0.1127->0.1175
+    7s scigym                         knowledge_reasoning  P=   5 match=1.00 B0 0.2676->0.2669  B1 0.1572->0.1590
+    7s sgrades                        knowledge_reasoning  P=  45 match=1.00 B0 0.2469->0.2486  B1 0.2714->0.2706
+    7s sketchjudge                    knowledge_reasoning  P=  36 match=0.61 B0 0.2462->0.2457  B1 0.2659->0.2649
+    7s software_world_models          agentic_swe          P=  18 match=0.78 B0 0.2481->0.2455  B1 0.2796->0.2774
+    7s tau2_bench                     agentic_swe          P=  26 match=0.96 B0 0.2438->0.2289  B1 0.2259->0.2196
+    7s workbench_revisited            agentic_swe          P=  20 match=0.95 B0 0.2433->0.2315  B1 0.2092->0.2046
+ALL                  nb= 47 pairs=  896 match=0.88 baseB0=0.2504 dB0=-2.36 [-5.50,+0.38] neg=28 dB1=-1.16 [-2.41,-0.12] | perm dB0=+0.54 dB1=+0.12
+agentic_swe          nb= 14 pairs=  242 match=0.91 baseB0=0.2516 dB0=-1.27 [-5.67,+3.52] neg=9 dB1=-1.25 [-2.87,+0.51] | perm dB0=+1.04 dB1=+0.38
+knowledge_reasoning  nb= 15 pairs=  418 match=0.75 baseB0=0.2505 dB0=-0.07 [-5.56,+4.97] neg=7 dB1=-0.29 [-2.42,+1.69] | perm dB0=+0.46 dB1=-0.09
+mathematics          nb=  2 pairs=   47 match=0.92 baseB0=0.2457 dB0=-9.74 [-11.67,-7.82] neg=2 dB1=-4.35 [-5.21,-3.50] | perm dB0=+2.29 dB1=+0.84
+medicine             nb= 12 pairs=   84 match=0.99 baseB0=0.2500 dB0=-3.07 [-6.18,+0.55] neg=9 dB1=-1.31 [-2.31,-0.13] | perm dB0=+0.01 dB1=+0.00
+safety               nb=  4 pairs=  105 match=0.91 baseB0=0.2494 dB0=-8.86 [-31.87,+4.01] neg=1 dB1=-2.08 [-11.68,+4.02] | perm dB0=-0.17 dB1=-0.06

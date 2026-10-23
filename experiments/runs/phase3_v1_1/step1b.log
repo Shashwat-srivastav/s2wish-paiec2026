@@ -1,0 +1,23 @@
+[real R2] 53s
+   v0        ALC=0.2105  d_v1 +1.50 [+0.09,+2.85] hier[-6.64,+6.35] (multi=+6.1 real_=+4.8 resea=+5.5 matha=-10.3)
+   v1        ALC=0.2090
+   b_half    ALC=0.2089  d_v1 -0.11 [-0.88,+0.65] hier[-5.27,+3.26] (multi=+3.7 real_=+1.7 resea=+1.8 matha=-7.7)
+   a_mix40   ALC=0.2099  d_v1 +0.94 [+0.22,+1.63] hier[-2.28,+3.60] (multi=+0.8 real_=+2.4 resea=+4.2 matha=-3.6)
+   bh_k50    ALC=0.2090  d_v1 +0.04 [-0.87,+0.93] hier[-6.04,+3.99] (multi=+4.5 real_=+2.2 resea=+2.3 matha=-8.9)
+   bh_mix20  ALC=0.2092  d_v1 +0.27 [-0.50,+1.04] hier[-5.13,+3.39] (multi=+2.9 real_=+2.4 resea=+3.4 matha=-7.6)
+[real R1] 60s
+   v0        ALC=0.2203  d_v1 +4.92 [+3.45,+6.36] hier[-2.15,+9.25] (multi=+7.8 real_=+8.5 resea=+8.5 matha=-5.1)
+   v1        ALC=0.2154
+   b_half    ALC=0.2150  d_v1 -0.35 [-1.00,+0.30] hier[-4.21,+1.99] (multi=+2.1 real_=+1.3 resea=+1.2 matha=-5.9)
+   a_mix40   ALC=0.2163  d_v1 +0.93 [+0.36,+1.49] hier[-1.57,+2.39] (multi=+2.3 real_=+1.5 resea=+2.4 matha=-2.4)
+   bh_k50    ALC=0.2151  d_v1 -0.24 [-1.05,+0.53] hier[-4.96,+2.60] (multi=+2.6 real_=+1.8 resea=+1.7 matha=-7.1)
+   bh_mix20  ALC=0.2156  d_v1 +0.18 [-0.52,+0.87] hier[-4.02,+2.57] (multi=+2.6 real_=+1.8 resea=+2.1 matha=-5.8)
+[delta -3] 81s R2: v0=0.1422 v1=0.1316 b_half=0.1378 a_mix40=0.1318 bh_k50=0.1391 bh_mix20=0.1362 | R1: v0=0.1469 v1=0.1292 b_half=0.1340 a_mix40=0.1289 bh_k50=0.1354 bh_mix20=0.1324
+[delta -2] 103s R2: v0=0.1712 v1=0.1621 b_half=0.1668 a_mix40=0.1636 bh_k50=0.1678 bh_mix20=0.1663 | R1: v0=0.1765 v1=0.1624 b_half=0.1660 a_mix40=0.1629 bh_k50=0.1670 bh_mix20=0.1653
+[delta -1] 124s R2: v0=0.1925 v1=0.1873 b_half=0.1896 a_mix40=0.1886 bh_k50=0.1902 bh_mix20=0.1895 | R1: v0=0.2040 v1=0.1943 b_half=0.1961 a_mix40=0.1956 bh_k50=0.1967 bh_mix20=0.1963
+[delta +0] 145s R2: v0=0.2117 v1=0.2095 b_half=0.2098 a_mix40=0.2109 bh_k50=0.2099 bh_mix20=0.2103 | R1: v0=0.2211 v1=0.2162 b_half=0.2161 a_mix40=0.2175 bh_k50=0.2162 bh_mix20=0.2167
+[delta +1] 167s R2: v0=0.2155 v1=0.2182 b_half=0.2159 a_mix40=0.2174 bh_k50=0.2156 bh_mix20=0.2160 | R1: v0=0.2247 v1=0.2241 b_half=0.2219 a_mix40=0.2241 bh_k50=0.2216 bh_mix20=0.2224
+[delta +2] 188s R2: v0=0.2134 v1=0.2209 b_half=0.2162 a_mix40=0.2181 bh_k50=0.2154 bh_mix20=0.2159 | R1: v0=0.2179 v1=0.2209 b_half=0.2174 a_mix40=0.2195 bh_k50=0.2166 bh_mix20=0.2174
+[delta +3] 210s R2: v0=0.1941 v1=0.2065 b_half=0.1998 a_mix40=0.1999 bh_k50=0.1985 bh_mix20=0.1980 | R1: v0=0.1967 v1=0.2035 b_half=0.1984 a_mix40=0.1994 bh_k50=0.1971 bh_mix20=0.1974
+regret R2: v0=max10.57/mean3.86 v1=max12.40/mean3.24 b_half=max6.14/mean3.18 a_mix40=max5.79/mean2.40 bh_k50=max7.48/mean3.29 bh_mix20=max4.56/mean2.66
+regret R1: v0=max17.93/mean7.32 v1=max6.77/mean2.00 b_half=max5.07/mean1.90 a_mix40=max2.97/mean1.64 bh_k50=max6.42/mean1.98 bh_mix20=max3.51/mean1.63

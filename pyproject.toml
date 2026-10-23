@@ -1,0 +1,23 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "paiec"
+version = "0.2.0"
+license = {text = "MIT"}
+description = "Team S2WISH — AIMS Predictive AI Evaluation Competition (NeurIPS 2026)"
+requires-python = ">=3.10"
+dependencies = ["numpy", "pandas", "pyarrow", "scipy", "scikit-learn"]
+
+[project.optional-dependencies]
+jev = ["requests"]
+test = ["pytest"]
+analysis = ["torch", "transformers", "sentence-transformers", "huggingface_hub", "requests"]
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["src"]

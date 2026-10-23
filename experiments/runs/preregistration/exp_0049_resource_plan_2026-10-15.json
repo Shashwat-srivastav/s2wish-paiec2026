@@ -1,0 +1,111 @@
+{
+ "experiment_id": "EXP-0049",
+ "stage": "0 resource plan (not an authorization)",
+ "quality_metrics_recorded": false,
+ "pilot": "experiments\\runs\\preregistration\\exp_0049_resource_pilot_2026-10-15.json",
+ "method": [
+  "Seed-0 cell seconds measured per (pilot row, policy, regime, benchmark).",
+  "Unmeasured rows: reference cell x product of measured per-cell class ratios (Laplace, t3 pair, Gumbel/horseshoe/spike prior, named-facet/guard item); delegated t/x1 priors and other item/pair levels priced at the reference cell (same code path and array sizes).",
+  "Inner-fold cell of benchmark b priced as the LOBO cell of b; each b is an inner fold for 3 outers.",
+  "R2/R3 seeds scale linearly (one group per pair / per seed). R1 seeds scale by a*k + b*k^2 fitted (NNLS) on the 12 seed-0 cells per row-policy, with k = drawn pairs per R1 seed 0..99.",
+  "Scoring (ep.score) and result writing are excluded (not timed in a metrics-only pilot).",
+  "Two-slot time assumes perfect split over both machine-wide slots with no contention."
+ ],
+ "per_process_setup_s": 18.616421500002616,
+ "stages": {
+  "stage1": {
+   "cells": 13320,
+   "serial_h": 41.87362314612379,
+   "serial_h_with_alias_reuse": 40.603078858623554,
+   "two_slot_h": 20.936811573061895,
+   "alias_rows_reusable": [
+    "T-all-on-0",
+    "T-named-on-0",
+    "T-off-on-0"
+   ],
+   "output_mb": 13.456649780273438,
+   "most_expensive_rows_h": [
+    [
+     2.7540129023719366,
+     "I08"
+    ],
+    [
+     2.0026426937499977,
+     "O11"
+    ],
+    [
+     2.0026426937499977,
+     "I07"
+    ],
+    [
+     0.6565664207832675,
+     "I06"
+    ],
+    [
+     0.6564607149167083,
+     "P-t3-w1.2-t1.2"
+    ],
+    [
+     0.6564607149167083,
+     "P-t3-w1.2-t1"
+    ],
+    [
+     0.6564607149167083,
+     "P-t3-w1.2-t0.8"
+    ],
+    [
+     0.6564607149167083,
+     "P-t3-w1-t1.2"
+    ]
+   ]
+  },
+  "stage2": {
+   "cells": 16200,
+   "serial_h_worst": 104.58089738101806,
+   "serial_h_typical": 39.52297122985663,
+   "two_slot_h_worst": 52.29044869050903,
+   "output_mb": 16.24002456665039,
+   "worst_case_rows": [
+    "P-t3-w1-t1.2",
+    "P-t3-w1.2-t0.8",
+    "P-t3-w1.2-t1",
+    "P-t3-w1.2-t1.2",
+    "I06",
+    "I07",
+    "O11",
+    "I08"
+   ]
+  },
+  "stage3": {
+   "cells": 960,
+   "serial_h_worst": 7.917863549840463,
+   "serial_h_typical": 0.6998218468129638,
+   "two_slot_h_worst": 3.9589317749202313,
+   "worst_selected": {
+    "row": "I08",
+    "policy": "A1"
+   },
+   "output_mb": 0.29218292236328125
+  }
+ },
+ "total": {
+  "cells": 30480,
+  "serial_h_worst": 154.3723840769823,
+  "serial_h_typical": 82.09641622279338,
+  "two_slot_h_worst": 77.18619203849116,
+  "two_slot_h_typical": 41.04820811139669,
+  "allowance_h": 70.0,
+  "within_allowance_serial_worst": false,
+  "within_allowance_two_slot_worst": false
+ },
+ "memory": {
+  "pilot_peak_working_set_mb": 101.94140625,
+  "two_slot_peak_mb": 203.8828125,
+  "contract_limit_mb_per_process": 1024
+ },
+ "output": {
+  "total_mb": 29.98885726928711,
+  "contract_limit_mb": 50,
+  "pilot_report_bytes": 99265
+ }
+}

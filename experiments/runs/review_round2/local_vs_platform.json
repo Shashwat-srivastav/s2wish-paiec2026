@@ -1,0 +1,239 @@
+{
+ "table": {
+  "v0": {
+   "label": "Beta-binomial shrinkage (v0)",
+   "local_R2_alc": 0.21144291877587826,
+   "platform_runs": {},
+   "platform_n": 0,
+   "platform_mean": null,
+   "platform_ci95_t": null,
+   "platform_note": "not submitted (no logged run)",
+   "replay_alc_18": 0.1977531432352987,
+   "replay_alc_strict8": 0.18876345304494893,
+   "replay_exact": "all 18 (count-only)"
+  },
+  "v1": {
+   "label": "first model (v1)",
+   "local_R2_alc": 0.20982369610363855,
+   "platform_runs": {
+    "(id not saved)": {
+     "alc": 0.215683,
+     "status": "Finished"
+    }
+   },
+   "platform_n": 1,
+   "platform_mean": 0.215683,
+   "platform_ci95_t": null,
+   "platform_note": "n=1: no interval",
+   "replay_alc_18": 0.19446137466120458,
+   "replay_alc_strict8": 0.19094517328136149,
+   "replay_exact": "all 18 (count-only)"
+  },
+  "v1_1": {
+   "label": "hedged-centre model (v1_1)",
+   "local_R2_alc": 0.20973775351920718,
+   "platform_runs": {
+    "955381": {
+     "alc": 0.176127,
+     "status": "Finished"
+    },
+    "955625": {
+     "alc": 0.181216,
+     "status": "Finished"
+    },
+    "955626": {
+     "alc": 0.204572,
+     "status": "Finished"
+    },
+    "955631": {
+     "alc": 0.203034,
+     "status": "Finished"
+    },
+    "955633": {
+     "alc": 0.196329,
+     "status": "Finished"
+    }
+   },
+   "platform_n": 5,
+   "platform_mean": 0.19225559999999997,
+   "platform_ci95_t": [
+    0.17622821490051105,
+    0.2082829850994889
+   ],
+   "platform_note": null,
+   "replay_alc_18": 0.1954050132583661,
+   "replay_alc_strict8": 0.18961625520370196,
+   "replay_exact": "all 18 (count-only)"
+  },
+  "v1_2": {
+   "label": "item-group model (v1_2)",
+   "local_R2_alc": 0.20891183124634372,
+   "platform_runs": {
+    "955660": {
+     "alc": 0.176637,
+     "status": "Finished"
+    },
+    "955650": {
+     "alc": 0.18401,
+     "status": "Failed"
+    },
+    "955649": {
+     "alc": 0.20673,
+     "status": "Finished"
+    },
+    "955648": {
+     "alc": 0.19624,
+     "status": "Finished"
+    }
+   },
+   "platform_n": 4,
+   "platform_mean": 0.19090425,
+   "platform_ci95_t": [
+    0.16975415270722335,
+    0.21205434729277664
+   ],
+   "platform_note": null,
+   "replay_alc_18": 0.1954050132583661,
+   "replay_alc_strict8": 0.18961625520370196,
+   "replay_exact": "strict 8 only; feature-less approximation on 10",
+   "platform_with_repackage": {
+    "n": 5,
+    "mean": 0.1885684,
+    "ci95_t": [
+     0.17287308925551814,
+     0.20426371074448185
+    ]
+   }
+  },
+  "v1_3": {
+   "label": "final model (v1_3)",
+   "local_R2_alc": 0.20882359919060337,
+   "platform_runs": {
+    "971666": {
+     "alc": 0.164273,
+     "status": "Finished"
+    },
+    "968785": {
+     "alc": 0.215579,
+     "status": "Finished"
+    },
+    "967635": {
+     "alc": 0.189475,
+     "status": "Finished"
+    },
+    "967620": {
+     "alc": 0.166293,
+     "status": "Finished"
+    }
+   },
+   "platform_n": 4,
+   "platform_mean": 0.18390499999999999,
+   "platform_ci95_t": [
+    0.14569503975398412,
+    0.22211496024601585
+   ],
+   "platform_note": null,
+   "replay_alc_18": 0.1954050132583661,
+   "replay_alc_strict8": 0.18961625520370196,
+   "replay_exact": "strict 8 only; feature-less approximation on 10",
+   "local_R2_alc_exp0044": 0.20882359919060337
+  }
+ },
+ "paired_replay": {
+  "v0->v1": {
+   "mean_18": -0.003291768574094087,
+   "ci95_18": [
+    -0.009219585522746692,
+    0.0027763504613611597
+   ],
+   "mean_strict8": 0.002181720236412563,
+   "ci95_strict8": [
+    -0.005977570703606709,
+    0.010375298959747077
+   ]
+  },
+  "v1->v1_1": {
+   "mean_18": 0.0009436385971615079,
+   "ci95_18": [
+    -0.002008501267393539,
+    0.0038951099558493987
+   ],
+   "mean_strict8": -0.0013289180776594979,
+   "ci95_strict8": [
+    -0.0054605669591336475,
+    0.0029810524708192825
+   ]
+  },
+  "v1_1->v1_2": {
+   "mean_18": 0.0,
+   "ci95_18": [
+    0.0,
+    0.0
+   ],
+   "mean_strict8": 0.0,
+   "ci95_strict8": [
+    0.0,
+    0.0
+   ]
+  },
+  "v1_2->v1_3": {
+   "mean_18": 0.0,
+   "ci95_18": [
+    0.0,
+    0.0
+   ],
+   "mean_strict8": 0.0,
+   "ci95_strict8": [
+    0.0,
+    0.0
+   ]
+  },
+  "v0->v1_3": {
+   "mean_18": -0.002348129976932579,
+   "ci95_18": [
+    -0.00551248793570301,
+    0.0007755028862705353
+   ],
+   "mean_strict8": 0.0008528021587530651,
+   "ci95_strict8": [
+    -0.002999086151936706,
+    0.0050221842302213635
+   ]
+  }
+ },
+ "n_pairs": 18,
+ "n_strict": 8,
+ "ranking": {
+  "versions": [
+   "v1",
+   "v1_1",
+   "v1_2",
+   "v1_3"
+  ],
+  "local_order": [
+   "v1_3",
+   "v1_2",
+   "v1_1",
+   "v1"
+  ],
+  "platform_mean_order": [
+   "v1_3",
+   "v1_2",
+   "v1_1",
+   "v1"
+  ],
+  "spearman_local_vs_platform": 1.0,
+  "spearman_p": 0.0,
+  "adjacent_ci_overlap": {
+   "v1|v1_1": null,
+   "v1_1|v1_2": true,
+   "v1_2|v1_3": true
+  },
+  "local_spread": 0.0010000969130351811
+ },
+ "caveats": [
+  "Platform means are over fresh draws; differences between versions are unpaired across draws.",
+  "Replay ALCs are paired, exact (as marked) and in-sample on 18 pairs over 7 anonymous IDs.",
+  "v0 was never submitted; its platform column is empty."
+ ]
+}

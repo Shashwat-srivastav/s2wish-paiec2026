@@ -1,0 +1,34 @@
+Loading weights:   0%|          | 0/199 [00:00<?, ?it/s]Loading weights:  19%|#9        | 38/199 [00:00<00:00, 314.82it/s]Loading weights:  35%|###5      | 70/199 [00:00<00:00, 298.05it/s]Loading weights:  50%|#####     | 100/199 [00:00<00:00, 203.02it/s]Loading weights: 100%|##########| 199/199 [00:00<00:00, 439.83it/s]
+[e2c] embedded matharena: 898 contents in 775s
+[e2c] embedded multi_swebench: 2078 contents in 2198s
+[e2c] embedded real_webagents: 233 contents in 57s
+[e2c] embedded researchcodebench: 212 contents in 249s
+[e2c] embedded swe_rebench: 1497 contents in 1758s
+[e2c] head H=matharena          alpha=0.1
+[e2c] head H=multi_swebench     alpha=0.1
+[e2c] head H=real_webagents     alpha=0.1
+[e2c] head H=researchcodebench  alpha=0.1
+[e2c] head H=swe_rebench        alpha=0.1
+[e2c] matharena          rho(jev,beta)=0.335 rho(stu,beta)=0.017 [-0.050,0.099] rho(stu,jev)=0.371 retention=0.05
+[e2c] multi_swebench     rho(jev,beta)=0.197 rho(stu,beta)=-0.020 [-0.062,0.022] rho(stu,jev)=0.360 retention=-0.10
+[e2c] real_webagents     rho(jev,beta)=0.186 rho(stu,beta)=-0.060 [-0.196,0.073] rho(stu,jev)=0.237 retention=-0.32
+[e2c] researchcodebench  rho(jev,beta)=0.211 rho(stu,beta)=0.069 [-0.078,0.207] rho(stu,jev)=0.218 retention=0.33
+[e2c] swe_rebench        rho(jev,beta)=0.207 rho(stu,beta)=0.023 [-0.030,0.076] rho(stu,jev)=0.288 retention=0.11
+[e2c] retention aggregate=0.025, folds>=0.70: 0/5 -> retains=False
+[e2c] R2 multi_swebench done (5116s) gamma_s=-0.120 gamma_j=-0.553 zB mean=+1.43 sd=1.69
+[e2c] R2 real_webagents done (5118s) gamma_s=-0.145 gamma_j=-0.583 zB mean=-1.14 sd=1.16
+[e2c] R2 researchcodebench done (5121s) gamma_s=-0.035 gamma_j=-0.504 zB mean=-1.63 sd=0.45
+[e2c] R2 matharena done (5129s) gamma_s=-0.058 gamma_j=-0.483 zB mean=+1.28 sd=1.17
+[e2c] R2 v1_1+jev   ALC=0.2031 d=-5.78 [-6.64,-4.97] hier[-7.09,-4.20] (multi=-6.5 real_=-3.6 resea=-7.0 matha=-6.1) threshold=True
+[e2c] R2 v1_1+stuA  ALC=0.2089 d=+0.01 [-0.17,+0.20] hier[-0.25,+0.42] (multi=+0.0 real_=+0.5 resea=-0.3 matha=-0.2) threshold=False
+[e2c] R2 v1_1+stuB  ALC=0.2090 d=+0.13 [-0.26,+0.57] hier[-2.38,+2.08] (multi=-3.5 real_=+2.5 resea=+0.6 matha=+0.9) threshold=False
+[e2c] R1 multi_swebench done (5151s) gamma_s=-0.120 gamma_j=-0.553 zB mean=+1.43 sd=1.69
+[e2c] R1 real_webagents done (5156s) gamma_s=-0.145 gamma_j=-0.583 zB mean=-1.14 sd=1.16
+[e2c] R1 researchcodebench done (5161s) gamma_s=-0.035 gamma_j=-0.504 zB mean=-1.63 sd=0.45
+[e2c] R1 matharena done (5175s) gamma_s=-0.058 gamma_j=-0.483 zB mean=+1.28 sd=1.17
+[e2c] R1 v1_1+jev   ALC=0.2086 d=-6.42 [-7.28,-5.57] hier[-8.48,-4.05] (multi=-9.0 real_=-3.2 resea=-6.5 matha=-6.9) threshold=True
+[e2c] R1 v1_1+stuA  ALC=0.2152 d=+0.10 [-0.09,+0.28] hier[-0.25,+0.50] (multi=+0.4 real_=+0.5 resea=-0.2 matha=-0.2) threshold=False
+[e2c] R1 v1_1+stuB  ALC=0.2155 d=+0.40 [-0.07,+0.86] hier[-1.06,+1.85] (multi=-1.6 real_=+2.3 resea=+0.4 matha=+0.5) threshold=False
+Loading weights:   0%|          | 0/199 [00:00<?, ?it/s]Loading weights:   3%|3         | 6/199 [00:00<00:03, 51.26it/s]Loading weights:  10%|#         | 20/199 [00:00<00:01, 99.04it/s]Loading weights:  16%|#5        | 31/199 [00:00<00:01, 96.76it/s]Loading weights:  25%|##5       | 50/199 [00:00<00:01, 130.21it/s]Loading weights: 100%|##########| 199/199 [00:00<00:00, 401.20it/s]
+[e2c] runtime 1394.6 ms/item (1 thread, batch 1); model files 439 MB
+[e2c decision] {'row': 'STOP', 'runtime_ok': False, 'prereg_variant_A_threshold_R2': False, 'deployable_variant_B_threshold_R2': False} (5254s)

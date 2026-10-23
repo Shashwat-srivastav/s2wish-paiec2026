@@ -1,0 +1,239 @@
+{
+ "final_model_v1_3": {
+  "B0": {
+   "local_R2": 0.2455649113597518,
+   "per_pair_run": 967620,
+   "n_pairs": 9,
+   "mean_run_967620": 0.23690955555555554,
+   "within_draw_pair_sd": 0.03176978935683675,
+   "within_draw_se": 0.010589929785612249,
+   "n_runs": 1,
+   "mean_over_runs": 0.23690955555555554,
+   "one_draw_sd": null,
+   "se_mean": null,
+   "runs_above_local": 0,
+   "sign_test_p": 1.0,
+   "note": "only run 967620 has per-budget feedback; between-draw SD not estimable"
+  },
+  "B1": {
+   "local_R2": 0.22854275529534576,
+   "per_pair_run": 967620,
+   "n_pairs": 9,
+   "mean_run_967620": 0.19030122222222223,
+   "within_draw_pair_sd": 0.07238890853538575,
+   "within_draw_se": 0.02412963617846192,
+   "n_runs": 1,
+   "mean_over_runs": 0.19030122222222223,
+   "one_draw_sd": null,
+   "se_mean": null,
+   "runs_above_local": 0,
+   "sign_test_p": 1.0,
+   "note": "only run 967620 has per-budget feedback; between-draw SD not estimable"
+  },
+  "B3": {
+   "local_R2": 0.21231226993854646,
+   "per_pair_run": 967620,
+   "n_pairs": 9,
+   "mean_run_967620": 0.16127222222222223,
+   "within_draw_pair_sd": 0.08034326847312377,
+   "within_draw_se": 0.026781089491041257,
+   "n_runs": 1,
+   "mean_over_runs": 0.16127222222222223,
+   "one_draw_sd": null,
+   "se_mean": null,
+   "runs_above_local": 0,
+   "sign_test_p": 1.0,
+   "note": "only run 967620 has per-budget feedback; between-draw SD not estimable"
+  },
+  "B7": {
+   "local_R2": 0.19945731492178334,
+   "per_pair_run": 967620,
+   "n_pairs": 9,
+   "mean_run_967620": 0.14452666666666666,
+   "within_draw_pair_sd": 0.08320590726474894,
+   "within_draw_se": 0.02773530242158298,
+   "n_runs": 1,
+   "mean_over_runs": 0.14452666666666666,
+   "one_draw_sd": null,
+   "se_mean": null,
+   "runs_above_local": 0,
+   "sign_test_p": 1.0,
+   "note": "only run 967620 has per-budget feedback; between-draw SD not estimable"
+  },
+  "B15": {
+   "local_R2": 0.18941193113851584,
+   "per_pair_run": 967620,
+   "n_pairs": 9,
+   "mean_run_967620": 0.14632155555555557,
+   "within_draw_pair_sd": 0.0874879307720658,
+   "within_draw_se": 0.0291626435906886,
+   "n_runs": 1,
+   "mean_over_runs": 0.14632155555555557,
+   "one_draw_sd": null,
+   "se_mean": null,
+   "runs_above_local": 0,
+   "sign_test_p": 1.0,
+   "note": "only run 967620 has per-budget feedback; between-draw SD not estimable"
+  },
+  "B31": {
+   "local_R2": 0.1832225379578988,
+   "per_pair_run": 967620,
+   "n_pairs": 9,
+   "mean_run_967620": 0.1411802222222222,
+   "within_draw_pair_sd": 0.086954605774763,
+   "within_draw_se": 0.028984868591587665,
+   "n_runs": 1,
+   "mean_over_runs": 0.1411802222222222,
+   "one_draw_sd": null,
+   "se_mean": null,
+   "runs_above_local": 0,
+   "sign_test_p": 1.0,
+   "note": "only run 967620 has per-budget feedback; between-draw SD not estimable"
+  },
+  "ALC": {
+   "local_R2": 0.20882359919060337,
+   "per_pair_run": 967620,
+   "n_pairs": 9,
+   "mean_run_967620": 0.16629331111111112,
+   "within_draw_pair_sd": 0.07286290089770385,
+   "within_draw_se": 0.02428763363256795,
+   "n_runs": 4,
+   "mean_over_runs": 0.18390499999999999,
+   "one_draw_sd": 0.02401294889568265,
+   "se_mean": 0.012006474447841324,
+   "ci95_t": [
+    0.14569503975398412,
+    0.22211496024601585
+   ],
+   "runs_above_local": 1,
+   "sign_test_p": 0.625
+  }
+ },
+ "pooled_v1_1_to_v1_3": {
+  "B0": {
+   "n_runs": 3,
+   "run_means": {
+    "v1_1": 0.226797,
+    "v1_2": 0.231496,
+    "v1_3": 0.23691
+   },
+   "mean": 0.23173415277777779,
+   "one_draw_sd": 0.005060427839195233,
+   "se_mean": 0.0029216393751740444,
+   "local_R2_own_version_mean": 0.2455649113597518,
+   "runs_above_own_local": 0,
+   "sign_test_p": 0.25,
+   "n_slots": 26,
+   "slots_above_own_local": 7,
+   "slot_sign_test_p": 0.028959274291992188
+  },
+  "B1": {
+   "n_runs": 3,
+   "run_means": {
+    "v1_1": 0.188548,
+    "v1_2": 0.185165,
+    "v1_3": 0.190301
+   },
+   "mean": 0.1880045740740741,
+   "one_draw_sd": 0.002610798938982893,
+   "se_mean": 0.0015073454702217626,
+   "local_R2_own_version_mean": 0.22854236209549236,
+   "runs_above_own_local": 0,
+   "sign_test_p": 0.25,
+   "n_slots": 26,
+   "slots_above_own_local": 8,
+   "slot_sign_test_p": 0.07551869750022888
+  },
+  "B3": {
+   "n_runs": 3,
+   "run_means": {
+    "v1_1": 0.175919,
+    "v1_2": 0.178279,
+    "v1_3": 0.161272
+   },
+   "mean": 0.17182336574074075,
+   "one_draw_sd": 0.00921344233526143,
+   "se_mean": 0.005319383412426281,
+   "local_R2_own_version_mean": 0.21241890592461302,
+   "runs_above_own_local": 0,
+   "sign_test_p": 0.25,
+   "n_slots": 26,
+   "slots_above_own_local": 11,
+   "slot_sign_test_p": 0.557197093963623
+  },
+  "B7": {
+   "n_runs": 3,
+   "run_means": {
+    "v1_1": 0.160805,
+    "v1_2": 0.168664,
+    "v1_3": 0.144527
+   },
+   "mean": 0.15799831481481483,
+   "one_draw_sd": 0.012310809870503881,
+   "se_mean": 0.007107649392677718,
+   "local_R2_own_version_mean": 0.1997241146050194,
+   "runs_above_own_local": 0,
+   "sign_test_p": 0.25,
+   "n_slots": 26,
+   "slots_above_own_local": 12,
+   "slot_sign_test_p": 0.8450189828872681
+  },
+  "B15": {
+   "n_runs": 3,
+   "run_means": {
+    "v1_1": 0.162244,
+    "v1_2": 0.158243,
+    "v1_3": 0.146322
+   },
+   "mean": 0.15560287037037038,
+   "one_draw_sd": 0.008283175318250874,
+   "se_mean": 0.004782293499737006,
+   "local_R2_own_version_mean": 0.1900578600826691,
+   "runs_above_own_local": 0,
+   "sign_test_p": 0.25,
+   "n_slots": 26,
+   "slots_above_own_local": 12,
+   "slot_sign_test_p": 0.8450189828872681
+  },
+  "B31": {
+   "n_runs": 3,
+   "run_means": {
+    "v1_1": 0.159445,
+    "v1_2": 0.154176,
+    "v1_3": 0.14118
+   },
+   "mean": 0.15160025925925927,
+   "one_draw_sd": 0.00940077869530974,
+   "se_mean": 0.005427542110329178,
+   "local_R2_own_version_mean": 0.18452588307850773,
+   "runs_above_own_local": 0,
+   "sign_test_p": 0.25,
+   "n_slots": 26,
+   "slots_above_own_local": 12,
+   "slot_sign_test_p": 0.8450189828872681
+  },
+  "ALC": {
+   "n_runs": 3,
+   "run_means": {
+    "v1_1": 0.176127,
+    "v1_2": 0.176637,
+    "v1_3": 0.166293
+   },
+   "mean": 0.1730192662037037,
+   "one_draw_sd": 0.005830425080566011,
+   "se_mean": 0.003366197489754732,
+   "local_R2_own_version_mean": 0.20915772798538476,
+   "runs_above_own_local": 0,
+   "sign_test_p": 0.25,
+   "n_slots": 26,
+   "slots_above_own_local": 10,
+   "slot_sign_test_p": 0.32693958282470703
+  }
+ },
+ "caveats": [
+  "Per-budget platform values exist for ONE run per version (v1_3: 967620 only); the other three v1_3 runs report ALC only.",
+  "Pooled rows mix three versions (one draw each). They share the budget-0 prediction (0.448722), so B0 is the same model; budgets 1-31 differ slightly between versions. Each run is compared with its own version's local value.",
+  "The slot-level sign test treats pairs within a draw as independent; it is descriptive.",
+  "In-sample: platform values describe our own formative draws."
+ ]
+}

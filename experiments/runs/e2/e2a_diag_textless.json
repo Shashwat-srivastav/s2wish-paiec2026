@@ -1,0 +1,27 @@
+{
+ "rule": "drop the two content groups shared by >=100 items (no problem text: system prompt only / image-only Kangaroo)",
+ "n_dropped": 519,
+ "pre": {
+  "n": 659,
+  "groups": 528,
+  "rho": 0.4812453590911518,
+  "ci": [
+   0.3695634468652066,
+   0.5770315951362478
+  ]
+ },
+ "post": {
+  "n": 577,
+  "groups": 368,
+  "rho": 0.4553176320886881,
+  "ci": [
+   0.3454906639863844,
+   0.5512558101032727
+  ]
+ },
+ "diff": 0.025927727002463707,
+ "diff_ci": [
+  -0.12568637370994573,
+  0.16893385756630272
+ ]
+}

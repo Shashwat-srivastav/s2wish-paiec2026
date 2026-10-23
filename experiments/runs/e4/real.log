@@ -1,0 +1,48 @@
+  [real R2 multi_swebench] n_inst=820 34s
+  [real R2 real_webagents] n_inst=260 49s
+  [real R2 researchcodebench] n_inst=310 60s
+  [real R2 matharena] n_inst=810 96s
+  [real R1 multi_swebench] n_inst=198 120s
+  [real R1 real_webagents] n_inst=363 131s
+  [real R1 researchcodebench] n_inst=231 140s
+  [real R1 matharena] n_inst=279 163s
+[real R2]
+   v1_1          ALC=0.20974
+   facets        ALC=0.20882  d -0.914 pair[-1.10,-0.74] hier[-1.61,-0.24] t3[-2.16,+0.33] PI[-3.69,+1.86] multi=+0.02 real_=-0.93 resea=-0.85 matha=-1.89
+      budget: B0=+0.000 B1=+0.008 B3=-0.294 B7=-0.723 B15=-1.757 B31=-3.609
+      matharena budget: B0=+0.000 B1=+0.031 B3=-0.559 B7=-1.689 B15=-3.587 B31=-7.312
+   guard         ALC=0.20983  d +0.088 pair[+0.04,+0.15] hier[+0.00,+0.26] t3[-0.15,+0.33] PI[-0.44,+0.62] multi=+0.04 real_=+0.00 resea=+0.00 matha=+0.31
+      budget: B0=+0.000 B1=+0.007 B3=+0.026 B7=+0.077 B15=+0.181 B31=+0.301
+      matharena budget: B0=+0.000 B1=+0.019 B3=+0.087 B7=+0.274 B15=+0.648 B31=+1.043
+   both          ALC=0.20891  d -0.826 pair[-1.00,-0.66] hier[-1.40,-0.21] t3[-1.90,+0.25] PI[-3.23,+1.58] multi=+0.06 real_=-0.93 resea=-0.85 matha=-1.58
+      budget: B0=+0.000 B1=+0.015 B3=-0.267 B7=-0.646 B15=-1.576 B31=-3.309
+      matharena budget: B0=+0.000 B1=+0.051 B3=-0.472 B7=-1.415 B15=-2.940 B31=-6.269
+   shuffled      ALC=0.20989  d +0.153 pair[+0.09,+0.22] hier[-0.03,+0.30] t3[-0.13,+0.44] PI[-0.48,+0.79] multi=+0.16 real_=-0.10 resea=+0.31 matha=+0.24
+      budget: B0=+0.000 B1=+0.008 B3=+0.062 B7=+0.163 B15=+0.315 B31=+0.435
+      matharena budget: B0=+0.000 B1=+0.037 B3=+0.126 B7=+0.285 B15=+0.446 B31=+0.614
+   facets_named  ALC=0.20872  d -1.015 pair[-1.23,-0.81] hier[-1.92,-0.24] t3[-2.54,+0.51] PI[-4.42,+2.39] multi=+0.02 real_=-0.93 resea=-0.85 matha=-2.30
+      budget: B0=+0.000 B1=-0.001 B3=-0.314 B7=-0.787 B15=-1.939 B31=-4.071
+      matharena budget: B0=+0.000 B1=-0.003 B3=-0.642 B7=-1.942 B15=-4.317 B31=-9.158
+   guard2        ALC=0.21000  d +0.259 pair[+0.12,+0.43] hier[+0.00,+0.77] t3[-0.45,+0.97] PI[-1.33,+1.84] multi=+0.11 real_=+0.00 resea=+0.00 matha=+0.92
+      budget: B0=+0.000 B1=+0.017 B3=+0.069 B7=+0.207 B15=+0.512 B31=+0.983
+      matharena budget: B0=+0.000 B1=+0.051 B3=+0.230 B7=+0.738 B15=+1.848 B31=+3.496
+[real R1]
+   v1_1          ALC=0.21505
+   facets        ALC=0.21429  d -0.759 pair[-0.93,-0.59] hier[-1.49,-0.14] t3[-1.97,+0.45] PI[-3.46,+1.94] multi=+0.09 real_=-0.69 resea=-0.68 matha=-1.76
+      budget: B0=+0.000 B1=+0.020 B3=-0.244 B7=-0.711 B15=-1.443 B31=-2.834
+      matharena budget: B0=+0.000 B1=+0.052 B3=-0.544 B7=-1.794 B15=-3.290 B31=-6.434
+   guard         ALC=0.21514  d +0.086 pair[+0.04,+0.16] hier[+0.00,+0.26] t3[-0.14,+0.32] PI[-0.43,+0.60] multi=+0.04 real_=+0.00 resea=+0.00 matha=+0.30
+      budget: B0=+0.000 B1=+0.009 B3=+0.040 B7=+0.098 B15=+0.183 B31=+0.202
+      matharena budget: B0=+0.000 B1=+0.033 B3=+0.149 B7=+0.335 B15=+0.673 B31=+0.632
+   both          ALC=0.21438  d -0.673 pair[-0.82,-0.52] hier[-1.27,-0.11] t3[-1.71,+0.36] PI[-2.98,+1.64] multi=+0.13 real_=-0.69 resea=-0.68 matha=-1.46
+      budget: B0=+0.000 B1=+0.029 B3=-0.204 B7=-0.613 B15=-1.260 B31=-2.633
+      matharena budget: B0=+0.000 B1=+0.084 B3=-0.395 B7=-1.459 B15=-2.617 B31=-5.802
+   shuffled      ALC=0.21521  d +0.156 pair[+0.09,+0.23] hier[-0.01,+0.29] t3[-0.10,+0.41] PI[-0.41,+0.72] multi=+0.21 real_=-0.08 resea=+0.22 matha=+0.27
+      budget: B0=+0.000 B1=+0.014 B3=+0.096 B7=+0.206 B15=+0.292 B31=+0.344
+      matharena budget: B0=+0.000 B1=+0.051 B3=+0.121 B7=+0.336 B15=+0.526 B31=+0.653
+   facets_named  ALC=0.21418  d -0.873 pair[-1.08,-0.67] hier[-1.86,-0.14] t3[-2.41,+0.67] PI[-4.31,+2.57] multi=+0.09 real_=-0.69 resea=-0.68 matha=-2.22
+      budget: B0=+0.000 B1=+0.007 B3=-0.261 B7=-0.789 B15=-1.682 B31=-3.284
+      matharena budget: B0=+0.000 B1=+0.001 B3=-0.613 B7=-2.107 B15=-4.246 B31=-8.235
+   guard2        ALC=0.21716  d +2.109 pair[+1.78,+2.46] hier[+1.11,+2.91] t3[+0.51,+3.70] PI[-1.46,+5.68] multi=+0.62 real_=+2.72 resea=+2.68 matha=+2.42
+      budget: B0=+0.000 B1=+0.305 B3=+1.003 B7=+2.167 B15=+4.008 B31=+6.126
+      matharena budget: B0=+0.000 B1=+0.399 B3=+1.048 B7=+2.257 B15=+4.863 B31=+7.066

@@ -1,0 +1,7 @@
+what,s5,s10,kind
+v1_1 level R2,208.8601,209.7378,level
+v1 level R2,208.9666,209.8238,level
+v1_1 level R1 (same draws),215.0533,215.0533,level
+Δ v1−v1_1 R2,0.106,0.086,paired
+"Δ subject prior (E7) R2, 1 vs 10 seeds",-1.297,-1.016,paired
+"Δ hyper refit (E7) R2, 1 vs 10 seeds",3.649,3.551,paired

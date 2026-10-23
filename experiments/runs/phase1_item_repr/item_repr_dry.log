@@ -1,0 +1,19 @@
+                      n   beta_sd  beta_mean  nsubj
+bench                                              
+matharena          1755  1.792633  -0.004145    9.0
+multi_swebench     2126  1.219529   0.008245   27.0
+real_webagents      233  1.250614   0.014030   12.0
+researchcodebench   212  1.703394   0.015600   31.0
+swe_rebench        1500  1.478638   0.000015    1.0
+Traceback (most recent call last):
+  File "E:\NeurIPS\aims\paiec\src\item_repr.py", line 308, in <module>
+    main()
+  File "E:\NeurIPS\aims\paiec\src\item_repr.py", line 285, in main
+    E = emb(items)
+        ^^^^^^^^^^
+  File "E:\NeurIPS\aims\paiec\src\item_repr.py", line 136, in emb
+    X[ok] = np.stack(m[ok].to_numpy())
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Shashwat\AppData\Roaming\Python\Python312\site-packages\numpy\_core\shape_base.py", line 454, in stack
+    raise ValueError('need at least one array to stack')
+ValueError: need at least one array to stack

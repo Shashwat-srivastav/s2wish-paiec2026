@@ -1,0 +1,287 @@
+{
+ "experiment_id": "EXP-0039R",
+ "step": "leave-one-benchmark-out sensitivity (red-team)",
+ "rng_seed": 3939,
+ "composition": {
+  "threshold": 0.09,
+  "n_low_instances": 253,
+  "weighted_p_low": 0.08039755629662364,
+  "share_low_from_acc_le_0_05": 0.8208892831261184,
+  "share_low_from_acc_le_0_15": 0.938281395441271,
+  "share_low_from_acc_ge_0_95": 0.06171860455872878,
+  "mean_alc_acc_le_0_05": 0.061414517615558314,
+  "mean_alc_acc_ge_0_95": 0.10787208759065442,
+  "low_instances_by_bench": {
+   "crow": 42,
+   "monkey_power_laws": 38,
+   "llmail_inject": 20,
+   "bird_sql": 16,
+   "mj_bench": 14,
+   "braveguard": 13,
+   "nyu_ctf_bench": 13,
+   "alignment_faking": 12,
+   "agentic_review_perturbation": 11,
+   "exploitgym": 10,
+   "planbench": 9,
+   "risebench": 8,
+   "benger": 6,
+   "tumlu": 6,
+   "realtimeqa": 5,
+   "financebench": 4,
+   "beavertails": 3,
+   "jailbreakbench": 3,
+   "openbiorq": 3,
+   "real_webagents": 3,
+   "appworld": 2,
+   "hallusionbench": 2,
+   "helm_bbq": 2,
+   "kernelbench": 2,
+   "researchcodebench": 2,
+   "llms_lean_formalization": 1,
+   "nester": 1,
+   "swebench_live": 1,
+   "workarena": 1,
+   "afrieval": 0,
+   "algotune": 0,
+   "averimatec": 0,
+   "babilong": 0,
+   "bridging_gap": 0,
+   "cellverse": 0,
+   "critic_discernment_game": 0,
+   "devbench": 0,
+   "editbench": 0,
+   "edu_circuit_hw": 0,
+   "egoschema": 0,
+   "elicitation_game": 0,
+   "engdesign": 0,
+   "enginemt_qa": 0,
+   "faithcot": 0,
+   "fewshot_ttt_bbh": 0,
+   "finegrain_t2i": 0,
+   "harmbench": 0,
+   "healthadminbench": 0,
+   "helm_thaiexam": 0,
+   "hle": 0,
+   "igakuqa119": 0,
+   "ikp": 0,
+   "legal_rag_bench": 0,
+   "mathconstraint": 0,
+   "mathvista_mini": 0,
+   "medhelm_ehr_sql": 0,
+   "medhelm_head_qa": 0,
+   "medhelm_med_mcqa": 0,
+   "medhelm_med_qa": 0,
+   "medhelm_medbullets": 0,
+   "medhelm_medcalc_bench": 0,
+   "medhelm_medec": 0,
+   "medhelm_medhallu": 0,
+   "medhelm_pubmed_qa": 0,
+   "medhelm_race_based_med": 0,
+   "mmbench_v11": 0,
+   "morphkv": 0,
+   "mtbbench": 0,
+   "multi_swebench": 0,
+   "naep_llm_students": 0,
+   "naturebench": 0,
+   "os_harm": 0,
+   "perfcodebench": 0,
+   "proofaug": 0,
+   "pxplore": 0,
+   "reliancescope": 0,
+   "revolve": 0,
+   "robust_reasoning_benchmark": 0,
+   "safeagentbench": 0,
+   "sib200": 0,
+   "software_world_models": 0,
+   "sustainable_food": 0,
+   "swe_smith": 0,
+   "swepolybench": 0,
+   "tau2_bench": 0,
+   "taubench": 0,
+   "truthfulqa_mc": 0,
+   "tulu_human_eval": 0,
+   "visual_riddles": 0,
+   "visualwebarena": 0,
+   "vl_rewardbench": 0,
+   "workbench_revisited": 0
+  }
+ },
+ "drops": [
+  {
+   "dropped": [
+    "crow"
+   ],
+   "n_bench": 91,
+   "criteria": {
+    "runs_inside_pi90": true,
+    "tail_count_inside": true,
+    "envelope_inside": true
+   },
+   "decision_row": "All three EXP-0039 criteria pass",
+   "n_runs_outside": 0,
+   "tail": 6,
+   "tail_range90": [
+    1,
+    7
+   ],
+   "envelope_p": 0.57735,
+   "v1_3_rank": 0.0807,
+   "pooled_pred_mean": 0.2059818996443602
+  },
+  {
+   "dropped": [
+    "monkey_power_laws"
+   ],
+   "n_bench": 91,
+   "criteria": {
+    "runs_inside_pi90": true,
+    "tail_count_inside": true,
+    "envelope_inside": true
+   },
+   "decision_row": "All three EXP-0039 criteria pass",
+   "n_runs_outside": 0,
+   "tail": 6,
+   "tail_range90": [
+    1,
+    7
+   ],
+   "envelope_p": 0.5491,
+   "v1_3_rank": 0.0836,
+   "pooled_pred_mean": 0.2058211498236741
+  },
+  {
+   "dropped": [
+    "llmail_inject"
+   ],
+   "n_bench": 91,
+   "criteria": {
+    "runs_inside_pi90": true,
+    "tail_count_inside": true,
+    "envelope_inside": true
+   },
+   "decision_row": "All three EXP-0039 criteria pass",
+   "n_runs_outside": 0,
+   "tail": 6,
+   "tail_range90": [
+    1,
+    7
+   ],
+   "envelope_p": 0.56765,
+   "v1_3_rank": 0.0942,
+   "pooled_pred_mean": 0.20500569450079667
+  },
+  {
+   "dropped": [
+    "bird_sql"
+   ],
+   "n_bench": 91,
+   "criteria": {
+    "runs_inside_pi90": true,
+    "tail_count_inside": true,
+    "envelope_inside": true
+   },
+   "decision_row": "All three EXP-0039 criteria pass",
+   "n_runs_outside": 0,
+   "tail": 6,
+   "tail_range90": [
+    1,
+    7
+   ],
+   "envelope_p": 0.546,
+   "v1_3_rank": 0.09455,
+   "pooled_pred_mean": 0.2047528397448028
+  },
+  {
+   "dropped": [
+    "mj_bench"
+   ],
+   "n_bench": 91,
+   "criteria": {
+    "runs_inside_pi90": true,
+    "tail_count_inside": true,
+    "envelope_inside": true
+   },
+   "decision_row": "All three EXP-0039 criteria pass",
+   "n_runs_outside": 0,
+   "tail": 6,
+   "tail_range90": [
+    1,
+    7
+   ],
+   "envelope_p": 0.5232,
+   "v1_3_rank": 0.1002,
+   "pooled_pred_mean": 0.20426310225046532
+  },
+  {
+   "dropped": [
+    "braveguard"
+   ],
+   "n_bench": 91,
+   "criteria": {
+    "runs_inside_pi90": true,
+    "tail_count_inside": true,
+    "envelope_inside": true
+   },
+   "decision_row": "All three EXP-0039 criteria pass",
+   "n_runs_outside": 0,
+   "tail": 6,
+   "tail_range90": [
+    1,
+    7
+   ],
+   "envelope_p": 0.53865,
+   "v1_3_rank": 0.0995,
+   "pooled_pred_mean": 0.20419198797311783
+  },
+  {
+   "dropped": [
+    "crow",
+    "monkey_power_laws"
+   ],
+   "n_bench": 90,
+   "criteria": {
+    "runs_inside_pi90": true,
+    "tail_count_inside": true,
+    "envelope_inside": true
+   },
+   "decision_row": "All three EXP-0039 criteria pass",
+   "n_runs_outside": 0,
+   "tail": 7,
+   "tail_range90": [
+    1,
+    7
+   ],
+   "envelope_p": 0.523,
+   "v1_3_rank": 0.06085,
+   "pooled_pred_mean": 0.20811452708136413
+  },
+  {
+   "dropped": [
+    "crow",
+    "monkey_power_laws",
+    "llmail_inject",
+    "bird_sql",
+    "mj_bench",
+    "braveguard"
+   ],
+   "n_bench": 86,
+   "criteria": {
+    "runs_inside_pi90": false,
+    "tail_count_inside": true,
+    "envelope_inside": true
+   },
+   "decision_row": "Tail count and envelope pass; run-level criterion fails (not a row of the locked table)",
+   "n_runs_outside": 1,
+   "tail": 7,
+   "tail_range90": [
+    1,
+    7
+   ],
+   "envelope_p": 0.15475,
+   "v1_3_rank": 0.0456,
+   "pooled_pred_mean": 0.2117744958006162
+  }
+ ],
+ "seconds": 69.10054159999709,
+ "peak_mb": 86.0078125
+}

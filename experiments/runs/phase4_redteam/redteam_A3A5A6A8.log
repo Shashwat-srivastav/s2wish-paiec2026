@@ -1,0 +1,94 @@
+== A3 synthetic base-rate shift ==
+delta=-3 base={'multi': 0.03, 'real_': 0.09, 'resea': 0.11, 'matha': 0.39}
+   withB v1-v0 -17.08 [-18.35,-15.84] (multi=-13.7 real_=-23.6 resea=-19.1 matha=-11.9)  B0 -48.8  wide1.5-v0 -18.18 wide1.5-v1 -1.10
+   R2 v1-v0 -10.57 [-11.68,-9.42] (multi=-6.4 real_=-11.8 resea=-15.3 matha=-8.8)  B0 -49.7  wide1.5-v0 -12.00 wide1.5-v1 -1.43
+delta=-2 base={'multi': 0.05, 'real_': 0.15, 'resea': 0.18, 'matha': 0.48}
+   withB v1-v0 -12.70 [-14.10,-11.24] (multi=-12.4 real_=-18.4 resea=-15.4 matha=-4.6)  B0 -35.5  wide1.5-v0 -12.82 wide1.5-v1 -0.13
+   R2 v1-v0 -9.09 [-10.39,-7.74] (multi=-6.3 real_=-11.8 resea=-14.9 matha=-3.4)  B0 -36.6  wide1.5-v0 -9.15 wide1.5-v1 -0.06
+delta=-1 base={'multi': 0.09, 'real_': 0.24, 'resea': 0.27, 'matha': 0.57}
+   withB v1-v0 -7.33 [-8.96,-5.71] (multi=-9.3 real_=-11.3 resea=-10.4 matha=+1.8)  B0 -19.3  wide1.5-v0 -6.55 wide1.5-v1 +0.78
+   R2 v1-v0 -5.13 [-6.64,-3.54] (multi=-6.3 real_=-6.5 resea=-9.6 matha=+1.8)  B0 -21.0  wide1.5-v0 -4.83 wide1.5-v1 +0.30
+delta=-0.5 base={'multi': 0.12, 'real_': 0.3, 'resea': 0.31, 'matha': 0.61}
+   withB v1-v0 -5.25 [-6.95,-3.57] (multi=-8.2 real_=-8.7 resea=-8.3 matha=+4.2)  B0 -10.1  wide1.5-v0 -4.48 wide1.5-v1 +0.77
+   R2 v1-v0 -3.96 [-5.64,-2.30] (multi=-6.7 real_=-7.2 resea=-6.9 matha=+4.9)  B0 -12.4  wide1.5-v0 -3.17 wide1.5-v1 +0.80
+delta=+0 base={'multi': 0.15, 'real_': 0.35, 'resea': 0.37, 'matha': 0.66}
+   withB v1-v0 -2.73 [-4.32,-1.15] (multi=-7.1 real_=-5.3 resea=-5.9 matha=+7.4)  B0 -0.7  wide1.5-v0 -1.79 wide1.5-v1 +0.93
+   R2 v1-v0 -2.19 [-4.02,-0.29] (multi=-6.6 real_=-6.8 resea=-5.5 matha=+10.1)  B0 -3.2  wide1.5-v0 -1.21 wide1.5-v1 +0.98
+delta=+0.5 base={'multi': 0.18, 'real_': 0.4, 'resea': 0.41, 'matha': 0.7}
+   withB v1-v0 -1.39 [-3.10,+0.28] (multi=-5.7 real_=-4.8 resea=-5.1 matha=+10.0)  B0 +7.4  wide1.5-v0 -0.62 wide1.5-v1 +0.77
+   R2 v1-v0 +0.52 [-1.28,+2.41] (multi=-5.2 real_=-3.3 resea=-3.4 matha=+13.9)  B0 +4.7  wide1.5-v0 +1.35 wide1.5-v1 +0.83
+delta=+1 base={'multi': 0.22, 'real_': 0.47, 'resea': 0.47, 'matha': 0.74}
+   withB v1-v0 +0.95 [-0.45,+2.37] (multi=-4.0 real_=-0.8 resea=-3.8 matha=+12.3)  B0 +17.4  wide1.5-v0 +1.38 wide1.5-v1 +0.43
+   R2 v1-v0 +2.73 [+0.87,+4.67] (multi=-5.7 real_=-0.9 resea=-1.5 matha=+19.0)  B0 +14.3  wide1.5-v0 +2.75 wide1.5-v1 +0.02
+delta=+2 base={'multi': 0.31, 'real_': 0.6, 'resea': 0.57, 'matha': 0.81}
+   withB v1-v0 +4.42 [+2.93,+5.79] (multi=-0.4 real_=+2.3 resea=-0.3 matha=+16.1)  B0 +36.3  wide1.5-v0 +3.81 wide1.5-v1 -0.61
+   R2 v1-v0 +7.54 [+5.65,+9.42] (multi=-2.9 real_=+2.9 resea=+4.3 matha=+25.8)  B0 +33.0  wide1.5-v0 +6.82 wide1.5-v1 -0.72
+delta=+3 base={'multi': 0.42, 'real_': 0.71, 'resea': 0.67, 'matha': 0.87}
+   withB v1-v0 +6.66 [+5.32,+7.95] (multi=+3.6 real_=+3.1 resea=+3.5 matha=+16.4)  B0 +53.9  wide1.5-v0 +4.53 wide1.5-v1 -2.13
+   R2 v1-v0 +12.40 [+10.66,+14.11] (multi=+1.2 real_=+8.4 resea=+7.0 matha=+33.0)  B0 +50.3  wide1.5-v0 +9.52 wide1.5-v1 -2.88
+-- A3 done in 467s
+== A5 item-pooling identity ==
+[content] keys(orig->new)={'multi_swebench': (2078, 2078), 'real_webagents': (233, 233), 'researchcodebench': (212, 212), 'matharena': (1511, 854)}
+   withB v1-L2 -2.70 [-3.17,-2.23] (multi=-0.8 real_=-3.2 resea=-2.8 matha=-4.0)   v1-v0 -4.22 [-5.61,-2.82] (multi=-7.7 real_=-7.0 resea=-7.5 matha=+5.3)
+   R3 v1-L2 -19.46 [-21.62,-17.28] (multi=-8.9 real_=-12.6 resea=-31.3 matha=-25.0)   v1-v0 -25.59 [-28.56,-22.55] (multi=-22.3 real_=-18.9 resea=-38.1 matha=-23.1)
+[random2] keys(orig->new)={'multi_swebench': (2078, 1039), 'real_webagents': (233, 117), 'researchcodebench': (212, 106), 'matharena': (1511, 756)}
+   withB v1-L2 -0.04 [-0.36,+0.26] (multi=-0.4 real_=+0.7 resea=+1.0 matha=-1.4)   v1-v0 -1.57 [-2.98,-0.13] (multi=-7.3 real_=-3.1 resea=-3.8 matha=+7.9)
+   R3 v1-L2 -10.62 [-12.58,-8.76] (multi=-4.5 real_=-6.6 resea=-15.1 matha=-16.3)   v1-v0 -16.75 [-19.68,-13.94] (multi=-17.9 real_=-12.9 resea=-21.9 matha=-14.3)
+[random5] keys(orig->new)={'multi_swebench': (2078, 416), 'real_webagents': (233, 47), 'researchcodebench': (212, 43), 'matharena': (1511, 303)}
+   withB v1-L2 +5.09 [+4.49,+5.74] (multi=+0.7 real_=+9.2 resea=+10.5 matha=-0.1)   v1-v0 +3.57 [+1.88,+5.40] (multi=-6.2 real_=+5.5 resea=+5.8 matha=+9.2)
+   R3 v1-L2 +4.87 [+3.13,+6.73] (multi=+2.6 real_=+10.9 resea=+7.7 matha=-1.7)   v1-v0 -1.26 [-4.57,+2.27] (multi=-10.8 real_=+4.6 resea=+0.9 matha=+0.2)
+[random20] keys(orig->new)={'multi_swebench': (2078, 104), 'real_webagents': (233, 12), 'researchcodebench': (212, 11), 'matharena': (1511, 76)}
+   withB v1-L2 +11.79 [+10.62,+12.89] (multi=+4.4 real_=+16.4 resea=+20.3 matha=+6.1)   v1-v0 +10.26 [+8.09,+12.47] (multi=-2.5 real_=+12.6 resea=+15.5 matha=+15.4)
+   R3 v1-L2 +18.23 [+15.51,+21.03] (multi=+10.2 real_=+24.3 resea=+23.0 matha=+15.5)   v1-v0 +12.10 [+8.73,+15.34] (multi=-3.2 real_=+18.0 resea=+16.1 matha=+17.4)
+-- A5 done in 313s
+== A6 calibration ==
+[withB] ECE(ALCw) {'v1': 0.13634133137360332, 'v1_a85': 0.13635279132511213, 'v1_a70': 0.1362274085077439, 'v1_sb80': 0.13637274910733116, 'v1_clip02': 0.13634858357491222, 'v1_clip05': 0.13640637938074543}  ECE by budget v1 [0.199 0.175 0.142 0.12  0.1   0.088]
+   v1_a85-v1 +0.02 [-0.01,+0.06] (multi=+0.0 real_=-0.2 resea=+0.1 matha=+0.1)
+   v1_a70-v1 +0.16 [+0.08,+0.23] (multi=+0.1 real_=-0.1 resea=+0.3 matha=+0.3)
+   v1_sb80-v1 +0.03 [-0.01,+0.06] (multi=+0.0 real_=-0.2 resea=+0.1 matha=+0.1)
+   v1_clip02-v1 -0.00 [-0.00,-0.00] (multi=-0.0 real_=-0.0 resea=+0.0 matha=+0.0)
+   v1_clip05-v1 -0.00 [-0.01,+0.00] (multi=-0.0 real_=-0.0 resea=-0.0 matha=-0.0)
+   reliability B7: 0.0:n=9210 p=0.078 y=0.117; 0.1:n=33500 p=0.148 y=0.159; 0.6:n=64924 p=0.644 y=0.641; 0.7:n=66848 p=0.745 y=0.687; 0.8:n=41254 p=0.838 y=0.716; 0.9:n=4198 p=0.916 y=0.733
+   reliability B31: 0.0:n=25580 p=0.058 y=0.06; 0.1:n=31141 p=0.148 y=0.141; 0.6:n=53244 p=0.653 y=0.654; 0.7:n=69460 p=0.755 y=0.705; 0.8:n=71255 p=0.841 y=0.724; 0.9:n=8148 p=0.937 y=0.876
+[R2] ECE(ALCw) {'v1': 0.13582989233013892, 'v1_a85': 0.13586272039778183, 'v1_a70': 0.13590907705878716, 'v1_sb80': 0.13586358496120426, 'v1_clip02': 0.13582989233013892, 'v1_clip05': 0.1358352490924092}  ECE by budget v1 [0.221 0.187 0.146 0.115 0.086 0.071]
+   v1_a85-v1 +0.02 [+0.01,+0.03] (multi=+0.0 real_=+0.0 resea=+0.0 matha=+0.1)
+   v1_a70-v1 +0.04 [+0.02,+0.07] (multi=+0.0 real_=+0.0 resea=+0.0 matha=+0.1)
+   v1_sb80-v1 +0.02 [+0.01,+0.04] (multi=+0.0 real_=+0.0 resea=+0.0 matha=+0.1)
+   v1_clip02-v1 +0.00 [+0.00,+0.00] (multi=+0.0 real_=+0.0 resea=+0.0 matha=+0.0)
+   v1_clip05-v1 -0.00 [-0.00,+0.00] (multi=-0.0 real_=+0.0 resea=+0.0 matha=-0.0)
+   reliability B7: 0.0:n=677 p=0.097 y=0.123; 0.1:n=30594 p=0.133 y=0.101; 0.6:n=23516 p=0.619 y=0.686; 0.7:n=24970 p=0.727 y=0.681; 0.8:n=17124 p=0.838 y=0.725
+   reliability B31: 0.0:n=32706 p=0.074 y=0.065; 0.1:n=14677 p=0.148 y=0.099; 0.6:n=18225 p=0.656 y=0.654; 0.7:n=29237 p=0.745 y=0.737; 0.8:n=24346 p=0.832 y=0.725; 0.9:n=1633 p=0.935 y=0.879
+[R3] ECE(ALCw) {'v1': 0.13960584790727315, 'v1_a85': 0.14002515539039861, 'v1_a70': 0.1412538906388415, 'v1_sb80': 0.139889562481058, 'v1_clip02': 0.1396217660482712, 'v1_clip05': 0.13990541873959414}  ECE by budget v1 [0.221 0.161 0.14  0.126 0.112 0.098]
+   v1_a85-v1 +0.38 [+0.19,+0.58] (multi=+0.3 real_=-0.5 resea=+0.9 matha=+0.9)
+   v1_a70-v1 +1.60 [+1.21,+2.01] (multi=+1.0 real_=-0.2 resea=+3.0 matha=+2.6)
+   v1_sb80-v1 +0.22 [+0.07,+0.38] (multi=+0.2 real_=-0.6 resea=+0.6 matha=+0.7)
+   v1_clip02-v1 +0.00 [-0.00,+0.00] (multi=-0.0 real_=-0.0 resea=+0.0 matha=+0.0)
+   v1_clip05-v1 +0.01 [-0.01,+0.04] (multi=-0.0 real_=+0.0 resea=+0.0 matha=+0.0)
+   reliability B7: 0.0:n=18826 p=0.078 y=0.067; 0.1:n=32095 p=0.143 y=0.101; 0.6:n=25149 p=0.663 y=0.672; 0.7:n=20086 p=0.775 y=0.684; 0.8:n=19600 p=0.857 y=0.776; 0.9:n=9091 p=0.938 y=0.893
+   reliability B31: 0.0:n=43224 p=0.05 y=0.05; 0.1:n=15185 p=0.142 y=0.135; 0.6:n=7871 p=0.651 y=0.603; 0.7:n=17189 p=0.754 y=0.724; 0.8:n=20615 p=0.851 y=0.799; 0.9:n=24444 p=0.95 y=0.935
+-- A6 done in 104s
+== A8 reviewer from hell (R1, 40 draws) ==
+per_fold {'multi_swebench': -9.340902469839362, 'real_webagents': -9.921898396543284, 'researchcodebench': -6.737332373421825, 'matharena': 3.3937714887127135}
+mean -5.65159043777294
+t_ci (-15.495409769615884, 4.192228894070004)
+fold_boot_exact_frac_ge0 0.05078125
+fold_boot_exact_ci (-9.631400433191324, 0.2101029990746947)
+hier -5.65 [-10.21,+0.59] (multi=-9.3 real_=-9.9 resea=-6.7 matha=+3.4)
+strat -5.65 [-7.51,-3.83] (multi=-9.3 real_=-9.9 resea=-6.7 matha=+3.4)
+sign_test_p_one_sided 0.3125
+leave_one_fold_out {'multi_swebench': -4.421819760417465, 'real_webagents': -4.228154451516157, 'researchcodebench': -5.289676459223311, 'matharena': -8.666711079934824}
+item_hier -2.76 [-4.24,-1.39] (multi=-0.8 real_=-4.7 resea=-2.5 matha=-3.0)
+offset_hier -2.89 [-7.75,+3.61] (multi=-8.5 real_=-5.3 resea=-4.2 matha=+6.4)
+== A8 reviewer from hell (withB, 200 draws) ==
+per_fold {'multi_swebench': -7.665824531338039, 'real_webagents': -6.977313621486686, 'researchcodebench': -7.539822693609288, 'matharena': 6.937151299273827}
+mean -3.8114523867900467
+t_ci (-15.222079849265935, 7.599175075685842)
+fold_boot_exact_frac_ge0 0.05078125
+fold_boot_exact_ci (-7.602823612473664, 3.3179078010530483)
+hier -3.81 [-8.29,+3.38] (multi=-7.7 real_=-7.0 resea=-7.5 matha=+6.9)
+strat -3.81 [-5.15,-2.48] (multi=-7.7 real_=-7.0 resea=-7.5 matha=+6.9)
+sign_test_p_one_sided 0.3125
+leave_one_fold_out {'multi_swebench': -2.526661671940716, 'real_webagents': -2.7561653085578333, 'researchcodebench': -2.568662284516966, 'matharena': -7.394320282144672}
+item_hier -2.29 [-3.16,-1.24] (multi=-0.8 real_=-3.2 resea=-2.8 matha=-2.4)
+offset_hier -1.52 [-6.43,+5.58] (multi=-6.9 real_=-3.7 resea=-4.8 matha=+9.3)
+-- A8 done in 88s

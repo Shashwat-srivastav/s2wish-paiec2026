@@ -1,0 +1,35 @@
+# Python / tooling
+__pycache__/
+*.pyc
+.pytest_cache/
+*.egg-info/
+.dist/
+
+# Secrets (never commit)
+.env
+.env.*
+*.key
+
+# Gated dataset (aims-foundations/measurement-db) - must not be committed
+data/
+.hf_cache/
+
+# Large / regenerable experiment outputs
+experiments/runs/**/*.parquet
+experiments/runs/**/*.npz
+artifacts/episode_cache/
+
+# Upstream third-party clones (nested git repos; pinned in external/PINS.txt)
+external/starting_kit.zip
+external/measurement-db/
+external/official_baselines/
+.tmp/
+experiments/runs/.slots/
+
+# LaTeX build outputs (Tectonic --keep-logs)
+docs/publication/**/*.log
+docs/publication/**/*.aux
+docs/publication/**/*.out
+docs/publication/**/*.toc
+docs/publication/**/*.xdv
+__pycache__/

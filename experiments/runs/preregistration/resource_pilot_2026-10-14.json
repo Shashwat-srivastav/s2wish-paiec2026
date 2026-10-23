@@ -1,0 +1,2577 @@
+{
+  "experiment_id": "EXP-0048",
+  "preregistered": true,
+  "quality_metrics_recorded": false,
+  "engine": "paiec.models.v1_1 exact-grid x Gauss-Hermite",
+  "configuration_count": 6,
+  "regimes": {
+    "R1": [
+      0
+    ],
+    "R2": [
+      0
+    ],
+    "R3": [
+      0
+    ]
+  },
+  "folds": [
+    "multi_swebench",
+    "real_webagents",
+    "researchcodebench",
+    "matharena"
+  ],
+  "policies": [
+    "A1",
+    "A2",
+    "A3",
+    "A5",
+    "A8"
+  ],
+  "budgets": [
+    0,
+    1,
+    3,
+    7,
+    15,
+    31
+  ],
+  "setup_seconds": 2.085343399998237,
+  "cell_seconds": {
+    "count": 360,
+    "sum": 1479.0623712999914,
+    "median": 1.1066485999981523,
+    "p95": 20.591482499999984,
+    "max": 23.518271000000823
+  },
+  "total_seconds": 1481.1496052999973,
+  "peak_working_set_mb": 95.015625,
+  "cells": [
+    {
+      "regime": "R1",
+      "benchmark": "multi_swebench",
+      "config": "BASE2",
+      "policy": "A1",
+      "seconds": 0.03973049999694922
+    },
+    {
+      "regime": "R1",
+      "benchmark": "multi_swebench",
+      "config": "BASE2",
+      "policy": "A2",
+      "seconds": 0.03562470000179019
+    },
+    {
+      "regime": "R1",
+      "benchmark": "multi_swebench",
+      "config": "BASE2",
+      "policy": "A3",
+      "seconds": 0.036293400000431575
+    },
+    {
+      "regime": "R1",
+      "benchmark": "multi_swebench",
+      "config": "BASE2",
+      "policy": "A5",
+      "seconds": 0.034553699999378296
+    },
+    {
+      "regime": "R1",
+      "benchmark": "multi_swebench",
+      "config": "BASE2",
+      "policy": "A8",
+      "seconds": 0.040171799999370705
+    },
+    {
+      "regime": "R1",
+      "benchmark": "multi_swebench",
+      "config": "tau_scale=0.8",
+      "policy": "A1",
+      "seconds": 0.03341069999805768
+    },
+    {
+      "regime": "R1",
+      "benchmark": "multi_swebench",
+      "config": "tau_scale=0.8",
+      "policy": "A2",
+      "seconds": 0.033864299999549985
+    },
+    {
+      "regime": "R1",
+      "benchmark": "multi_swebench",
+      "config": "tau_scale=0.8",
+      "policy": "A3",
+      "seconds": 0.03577210000003106
+    },
+    {
+      "regime": "R1",
+      "benchmark": "multi_swebench",
+      "config": "tau_scale=0.8",
+      "policy": "A5",
+      "seconds": 0.03405199999906472
+    },
+    {
+      "regime": "R1",
+      "benchmark": "multi_swebench",
+      "config": "tau_scale=0.8",
+      "policy": "A8",
+      "seconds": 0.04006389999995008
+    },
+    {
+      "regime": "R1",
+      "benchmark": "multi_swebench",
+      "config": "tau_scale=1.2",
+      "policy": "A1",
+      "seconds": 0.04519810000056168
+    },
+    {
+      "regime": "R1",
+      "benchmark": "multi_swebench",
+      "config": "tau_scale=1.2",
+      "policy": "A2",
+      "seconds": 0.04772460000094725
+    },
+    {
+      "regime": "R1",
+      "benchmark": "multi_swebench",
+      "config": "tau_scale=1.2",
+      "policy": "A3",
+      "seconds": 0.04531449999922188
+    },
+    {
+      "regime": "R1",
+      "benchmark": "multi_swebench",
+      "config": "tau_scale=1.2",
+      "policy": "A5",
+      "seconds": 0.04381459999785875
+    },
+    {
+      "regime": "R1",
+      "benchmark": "multi_swebench",
+      "config": "tau_scale=1.2",
+      "policy": "A8",
+      "seconds": 0.04933560000063153
+    },
+    {
+      "regime": "R1",
+      "benchmark": "multi_swebench",
+      "config": "w_od=0.7",
+      "policy": "A1",
+      "seconds": 0.04094760000225506
+    },
+    {
+      "regime": "R1",
+      "benchmark": "multi_swebench",
+      "config": "w_od=0.7",
+      "policy": "A2",
+      "seconds": 0.040762100001302315
+    },
+    {
+      "regime": "R1",
+      "benchmark": "multi_swebench",
+      "config": "w_od=0.7",
+      "policy": "A3",
+      "seconds": 0.048536399997828994
+    },
+    {
+      "regime": "R1",
+      "benchmark": "multi_swebench",
+      "config": "w_od=0.7",
+      "policy": "A5",
+      "seconds": 0.04184990000067046
+    },
+    {
+      "regime": "R1",
+      "benchmark": "multi_swebench",
+      "config": "w_od=0.7",
+      "policy": "A8",
+      "seconds": 0.04288099999757833
+    },
+    {
+      "regime": "R1",
+      "benchmark": "multi_swebench",
+      "config": "w_od=0.85",
+      "policy": "A1",
+      "seconds": 0.037152599998080404
+    },
+    {
+      "regime": "R1",
+      "benchmark": "multi_swebench",
+      "config": "w_od=0.85",
+      "policy": "A2",
+      "seconds": 0.03706220000094618
+    },
+    {
+      "regime": "R1",
+      "benchmark": "multi_swebench",
+      "config": "w_od=0.85",
+      "policy": "A3",
+      "seconds": 0.03716069999791216
+    },
+    {
+      "regime": "R1",
+      "benchmark": "multi_swebench",
+      "config": "w_od=0.85",
+      "policy": "A5",
+      "seconds": 0.04395949999889126
+    },
+    {
+      "regime": "R1",
+      "benchmark": "multi_swebench",
+      "config": "w_od=0.85",
+      "policy": "A8",
+      "seconds": 0.053000100000645034
+    },
+    {
+      "regime": "R1",
+      "benchmark": "multi_swebench",
+      "config": "w_od=1.2",
+      "policy": "A1",
+      "seconds": 0.04220229999918956
+    },
+    {
+      "regime": "R1",
+      "benchmark": "multi_swebench",
+      "config": "w_od=1.2",
+      "policy": "A2",
+      "seconds": 0.042557799999485724
+    },
+    {
+      "regime": "R1",
+      "benchmark": "multi_swebench",
+      "config": "w_od=1.2",
+      "policy": "A3",
+      "seconds": 0.04523690000132774
+    },
+    {
+      "regime": "R1",
+      "benchmark": "multi_swebench",
+      "config": "w_od=1.2",
+      "policy": "A5",
+      "seconds": 0.038984200000413693
+    },
+    {
+      "regime": "R1",
+      "benchmark": "multi_swebench",
+      "config": "w_od=1.2",
+      "policy": "A8",
+      "seconds": 0.04720890000317013
+    },
+    {
+      "regime": "R1",
+      "benchmark": "real_webagents",
+      "config": "BASE2",
+      "policy": "A1",
+      "seconds": 0.18664350000108243
+    },
+    {
+      "regime": "R1",
+      "benchmark": "real_webagents",
+      "config": "BASE2",
+      "policy": "A2",
+      "seconds": 0.18538360000093235
+    },
+    {
+      "regime": "R1",
+      "benchmark": "real_webagents",
+      "config": "BASE2",
+      "policy": "A3",
+      "seconds": 0.19148320000022068
+    },
+    {
+      "regime": "R1",
+      "benchmark": "real_webagents",
+      "config": "BASE2",
+      "policy": "A5",
+      "seconds": 0.2016591999999946
+    },
+    {
+      "regime": "R1",
+      "benchmark": "real_webagents",
+      "config": "BASE2",
+      "policy": "A8",
+      "seconds": 0.43409059999976307
+    },
+    {
+      "regime": "R1",
+      "benchmark": "real_webagents",
+      "config": "tau_scale=0.8",
+      "policy": "A1",
+      "seconds": 0.1630022999997891
+    },
+    {
+      "regime": "R1",
+      "benchmark": "real_webagents",
+      "config": "tau_scale=0.8",
+      "policy": "A2",
+      "seconds": 0.18768650000129128
+    },
+    {
+      "regime": "R1",
+      "benchmark": "real_webagents",
+      "config": "tau_scale=0.8",
+      "policy": "A3",
+      "seconds": 0.1893326999997953
+    },
+    {
+      "regime": "R1",
+      "benchmark": "real_webagents",
+      "config": "tau_scale=0.8",
+      "policy": "A5",
+      "seconds": 0.1951932999982091
+    },
+    {
+      "regime": "R1",
+      "benchmark": "real_webagents",
+      "config": "tau_scale=0.8",
+      "policy": "A8",
+      "seconds": 0.34174999999959255
+    },
+    {
+      "regime": "R1",
+      "benchmark": "real_webagents",
+      "config": "tau_scale=1.2",
+      "policy": "A1",
+      "seconds": 0.15525300000081188
+    },
+    {
+      "regime": "R1",
+      "benchmark": "real_webagents",
+      "config": "tau_scale=1.2",
+      "policy": "A2",
+      "seconds": 0.18862029999945662
+    },
+    {
+      "regime": "R1",
+      "benchmark": "real_webagents",
+      "config": "tau_scale=1.2",
+      "policy": "A3",
+      "seconds": 0.18048020000060205
+    },
+    {
+      "regime": "R1",
+      "benchmark": "real_webagents",
+      "config": "tau_scale=1.2",
+      "policy": "A5",
+      "seconds": 0.1860659999983909
+    },
+    {
+      "regime": "R1",
+      "benchmark": "real_webagents",
+      "config": "tau_scale=1.2",
+      "policy": "A8",
+      "seconds": 0.39025450000190176
+    },
+    {
+      "regime": "R1",
+      "benchmark": "real_webagents",
+      "config": "w_od=0.7",
+      "policy": "A1",
+      "seconds": 0.16880609999861917
+    },
+    {
+      "regime": "R1",
+      "benchmark": "real_webagents",
+      "config": "w_od=0.7",
+      "policy": "A2",
+      "seconds": 0.18767210000078194
+    },
+    {
+      "regime": "R1",
+      "benchmark": "real_webagents",
+      "config": "w_od=0.7",
+      "policy": "A3",
+      "seconds": 0.1725129000005836
+    },
+    {
+      "regime": "R1",
+      "benchmark": "real_webagents",
+      "config": "w_od=0.7",
+      "policy": "A5",
+      "seconds": 0.1666804000014963
+    },
+    {
+      "regime": "R1",
+      "benchmark": "real_webagents",
+      "config": "w_od=0.7",
+      "policy": "A8",
+      "seconds": 0.33740629999738303
+    },
+    {
+      "regime": "R1",
+      "benchmark": "real_webagents",
+      "config": "w_od=0.85",
+      "policy": "A1",
+      "seconds": 0.1610980000004929
+    },
+    {
+      "regime": "R1",
+      "benchmark": "real_webagents",
+      "config": "w_od=0.85",
+      "policy": "A2",
+      "seconds": 0.17236469999988913
+    },
+    {
+      "regime": "R1",
+      "benchmark": "real_webagents",
+      "config": "w_od=0.85",
+      "policy": "A3",
+      "seconds": 0.17774489999646903
+    },
+    {
+      "regime": "R1",
+      "benchmark": "real_webagents",
+      "config": "w_od=0.85",
+      "policy": "A5",
+      "seconds": 0.17152329999953508
+    },
+    {
+      "regime": "R1",
+      "benchmark": "real_webagents",
+      "config": "w_od=0.85",
+      "policy": "A8",
+      "seconds": 0.35723219999999856
+    },
+    {
+      "regime": "R1",
+      "benchmark": "real_webagents",
+      "config": "w_od=1.2",
+      "policy": "A1",
+      "seconds": 0.17382029999862425
+    },
+    {
+      "regime": "R1",
+      "benchmark": "real_webagents",
+      "config": "w_od=1.2",
+      "policy": "A2",
+      "seconds": 0.1616503000004741
+    },
+    {
+      "regime": "R1",
+      "benchmark": "real_webagents",
+      "config": "w_od=1.2",
+      "policy": "A3",
+      "seconds": 0.2036958999997296
+    },
+    {
+      "regime": "R1",
+      "benchmark": "real_webagents",
+      "config": "w_od=1.2",
+      "policy": "A5",
+      "seconds": 0.18053560000043944
+    },
+    {
+      "regime": "R1",
+      "benchmark": "real_webagents",
+      "config": "w_od=1.2",
+      "policy": "A8",
+      "seconds": 0.42265169999882346
+    },
+    {
+      "regime": "R1",
+      "benchmark": "researchcodebench",
+      "config": "BASE2",
+      "policy": "A1",
+      "seconds": 0.022023500001523644
+    },
+    {
+      "regime": "R1",
+      "benchmark": "researchcodebench",
+      "config": "BASE2",
+      "policy": "A2",
+      "seconds": 0.02178759999878821
+    },
+    {
+      "regime": "R1",
+      "benchmark": "researchcodebench",
+      "config": "BASE2",
+      "policy": "A3",
+      "seconds": 0.02165669999885722
+    },
+    {
+      "regime": "R1",
+      "benchmark": "researchcodebench",
+      "config": "BASE2",
+      "policy": "A5",
+      "seconds": 0.020926500001223758
+    },
+    {
+      "regime": "R1",
+      "benchmark": "researchcodebench",
+      "config": "BASE2",
+      "policy": "A8",
+      "seconds": 0.023630599996977253
+    },
+    {
+      "regime": "R1",
+      "benchmark": "researchcodebench",
+      "config": "tau_scale=0.8",
+      "policy": "A1",
+      "seconds": 0.020666999997047242
+    },
+    {
+      "regime": "R1",
+      "benchmark": "researchcodebench",
+      "config": "tau_scale=0.8",
+      "policy": "A2",
+      "seconds": 0.020695400002296083
+    },
+    {
+      "regime": "R1",
+      "benchmark": "researchcodebench",
+      "config": "tau_scale=0.8",
+      "policy": "A3",
+      "seconds": 0.021186600002693012
+    },
+    {
+      "regime": "R1",
+      "benchmark": "researchcodebench",
+      "config": "tau_scale=0.8",
+      "policy": "A5",
+      "seconds": 0.023169700001744786
+    },
+    {
+      "regime": "R1",
+      "benchmark": "researchcodebench",
+      "config": "tau_scale=0.8",
+      "policy": "A8",
+      "seconds": 0.023444099999323953
+    },
+    {
+      "regime": "R1",
+      "benchmark": "researchcodebench",
+      "config": "tau_scale=1.2",
+      "policy": "A1",
+      "seconds": 0.023854999999457505
+    },
+    {
+      "regime": "R1",
+      "benchmark": "researchcodebench",
+      "config": "tau_scale=1.2",
+      "policy": "A2",
+      "seconds": 0.023001499997917563
+    },
+    {
+      "regime": "R1",
+      "benchmark": "researchcodebench",
+      "config": "tau_scale=1.2",
+      "policy": "A3",
+      "seconds": 0.02327280000099563
+    },
+    {
+      "regime": "R1",
+      "benchmark": "researchcodebench",
+      "config": "tau_scale=1.2",
+      "policy": "A5",
+      "seconds": 0.023941899999044836
+    },
+    {
+      "regime": "R1",
+      "benchmark": "researchcodebench",
+      "config": "tau_scale=1.2",
+      "policy": "A8",
+      "seconds": 0.02585160000307951
+    },
+    {
+      "regime": "R1",
+      "benchmark": "researchcodebench",
+      "config": "w_od=0.7",
+      "policy": "A1",
+      "seconds": 0.02262709999922663
+    },
+    {
+      "regime": "R1",
+      "benchmark": "researchcodebench",
+      "config": "w_od=0.7",
+      "policy": "A2",
+      "seconds": 0.021564299997407943
+    },
+    {
+      "regime": "R1",
+      "benchmark": "researchcodebench",
+      "config": "w_od=0.7",
+      "policy": "A3",
+      "seconds": 0.02229760000045644
+    },
+    {
+      "regime": "R1",
+      "benchmark": "researchcodebench",
+      "config": "w_od=0.7",
+      "policy": "A5",
+      "seconds": 0.023286800002097152
+    },
+    {
+      "regime": "R1",
+      "benchmark": "researchcodebench",
+      "config": "w_od=0.7",
+      "policy": "A8",
+      "seconds": 0.02543839999998454
+    },
+    {
+      "regime": "R1",
+      "benchmark": "researchcodebench",
+      "config": "w_od=0.85",
+      "policy": "A1",
+      "seconds": 0.021945399999822257
+    },
+    {
+      "regime": "R1",
+      "benchmark": "researchcodebench",
+      "config": "w_od=0.85",
+      "policy": "A2",
+      "seconds": 0.021660999998857733
+    },
+    {
+      "regime": "R1",
+      "benchmark": "researchcodebench",
+      "config": "w_od=0.85",
+      "policy": "A3",
+      "seconds": 0.021833800001331838
+    },
+    {
+      "regime": "R1",
+      "benchmark": "researchcodebench",
+      "config": "w_od=0.85",
+      "policy": "A5",
+      "seconds": 0.022094199997809483
+    },
+    {
+      "regime": "R1",
+      "benchmark": "researchcodebench",
+      "config": "w_od=0.85",
+      "policy": "A8",
+      "seconds": 0.023641399999178248
+    },
+    {
+      "regime": "R1",
+      "benchmark": "researchcodebench",
+      "config": "w_od=1.2",
+      "policy": "A1",
+      "seconds": 0.021834299997863127
+    },
+    {
+      "regime": "R1",
+      "benchmark": "researchcodebench",
+      "config": "w_od=1.2",
+      "policy": "A2",
+      "seconds": 0.021835399998963112
+    },
+    {
+      "regime": "R1",
+      "benchmark": "researchcodebench",
+      "config": "w_od=1.2",
+      "policy": "A3",
+      "seconds": 0.022569999997358536
+    },
+    {
+      "regime": "R1",
+      "benchmark": "researchcodebench",
+      "config": "w_od=1.2",
+      "policy": "A5",
+      "seconds": 0.021171799999137875
+    },
+    {
+      "regime": "R1",
+      "benchmark": "researchcodebench",
+      "config": "w_od=1.2",
+      "policy": "A8",
+      "seconds": 0.023564999999507563
+    },
+    {
+      "regime": "R1",
+      "benchmark": "matharena",
+      "config": "BASE2",
+      "policy": "A1",
+      "seconds": 0.05446220000158064
+    },
+    {
+      "regime": "R1",
+      "benchmark": "matharena",
+      "config": "BASE2",
+      "policy": "A2",
+      "seconds": 0.05093339999802993
+    },
+    {
+      "regime": "R1",
+      "benchmark": "matharena",
+      "config": "BASE2",
+      "policy": "A3",
+      "seconds": 0.05366119999962393
+    },
+    {
+      "regime": "R1",
+      "benchmark": "matharena",
+      "config": "BASE2",
+      "policy": "A5",
+      "seconds": 0.05800489999819547
+    },
+    {
+      "regime": "R1",
+      "benchmark": "matharena",
+      "config": "BASE2",
+      "policy": "A8",
+      "seconds": 0.06495250000079977
+    },
+    {
+      "regime": "R1",
+      "benchmark": "matharena",
+      "config": "tau_scale=0.8",
+      "policy": "A1",
+      "seconds": 0.0565387999995437
+    },
+    {
+      "regime": "R1",
+      "benchmark": "matharena",
+      "config": "tau_scale=0.8",
+      "policy": "A2",
+      "seconds": 0.061700300000666175
+    },
+    {
+      "regime": "R1",
+      "benchmark": "matharena",
+      "config": "tau_scale=0.8",
+      "policy": "A3",
+      "seconds": 0.05926570000156062
+    },
+    {
+      "regime": "R1",
+      "benchmark": "matharena",
+      "config": "tau_scale=0.8",
+      "policy": "A5",
+      "seconds": 0.05803840000226046
+    },
+    {
+      "regime": "R1",
+      "benchmark": "matharena",
+      "config": "tau_scale=0.8",
+      "policy": "A8",
+      "seconds": 0.06073190000097384
+    },
+    {
+      "regime": "R1",
+      "benchmark": "matharena",
+      "config": "tau_scale=1.2",
+      "policy": "A1",
+      "seconds": 0.05088669999895501
+    },
+    {
+      "regime": "R1",
+      "benchmark": "matharena",
+      "config": "tau_scale=1.2",
+      "policy": "A2",
+      "seconds": 0.0522382999988622
+    },
+    {
+      "regime": "R1",
+      "benchmark": "matharena",
+      "config": "tau_scale=1.2",
+      "policy": "A3",
+      "seconds": 0.062012700000195764
+    },
+    {
+      "regime": "R1",
+      "benchmark": "matharena",
+      "config": "tau_scale=1.2",
+      "policy": "A5",
+      "seconds": 0.0615289000015764
+    },
+    {
+      "regime": "R1",
+      "benchmark": "matharena",
+      "config": "tau_scale=1.2",
+      "policy": "A8",
+      "seconds": 0.0641680999979144
+    },
+    {
+      "regime": "R1",
+      "benchmark": "matharena",
+      "config": "w_od=0.7",
+      "policy": "A1",
+      "seconds": 0.055777100002160296
+    },
+    {
+      "regime": "R1",
+      "benchmark": "matharena",
+      "config": "w_od=0.7",
+      "policy": "A2",
+      "seconds": 0.05408230000102776
+    },
+    {
+      "regime": "R1",
+      "benchmark": "matharena",
+      "config": "w_od=0.7",
+      "policy": "A3",
+      "seconds": 0.05845650000264868
+    },
+    {
+      "regime": "R1",
+      "benchmark": "matharena",
+      "config": "w_od=0.7",
+      "policy": "A5",
+      "seconds": 0.06099279999762075
+    },
+    {
+      "regime": "R1",
+      "benchmark": "matharena",
+      "config": "w_od=0.7",
+      "policy": "A8",
+      "seconds": 0.06306580000091344
+    },
+    {
+      "regime": "R1",
+      "benchmark": "matharena",
+      "config": "w_od=0.85",
+      "policy": "A1",
+      "seconds": 0.05780439999944065
+    },
+    {
+      "regime": "R1",
+      "benchmark": "matharena",
+      "config": "w_od=0.85",
+      "policy": "A2",
+      "seconds": 0.054321200001140824
+    },
+    {
+      "regime": "R1",
+      "benchmark": "matharena",
+      "config": "w_od=0.85",
+      "policy": "A3",
+      "seconds": 0.05978350000077626
+    },
+    {
+      "regime": "R1",
+      "benchmark": "matharena",
+      "config": "w_od=0.85",
+      "policy": "A5",
+      "seconds": 0.05563830000028247
+    },
+    {
+      "regime": "R1",
+      "benchmark": "matharena",
+      "config": "w_od=0.85",
+      "policy": "A8",
+      "seconds": 0.06369830000039656
+    },
+    {
+      "regime": "R1",
+      "benchmark": "matharena",
+      "config": "w_od=1.2",
+      "policy": "A1",
+      "seconds": 0.0521139000011317
+    },
+    {
+      "regime": "R1",
+      "benchmark": "matharena",
+      "config": "w_od=1.2",
+      "policy": "A2",
+      "seconds": 0.05108690000270144
+    },
+    {
+      "regime": "R1",
+      "benchmark": "matharena",
+      "config": "w_od=1.2",
+      "policy": "A3",
+      "seconds": 0.05473790000178269
+    },
+    {
+      "regime": "R1",
+      "benchmark": "matharena",
+      "config": "w_od=1.2",
+      "policy": "A5",
+      "seconds": 0.05199940000238712
+    },
+    {
+      "regime": "R1",
+      "benchmark": "matharena",
+      "config": "w_od=1.2",
+      "policy": "A8",
+      "seconds": 0.0634143999996013
+    },
+    {
+      "regime": "R2",
+      "benchmark": "multi_swebench",
+      "config": "BASE2",
+      "policy": "A1",
+      "seconds": 1.735511899998528
+    },
+    {
+      "regime": "R2",
+      "benchmark": "multi_swebench",
+      "config": "BASE2",
+      "policy": "A2",
+      "seconds": 1.8396954999989248
+    },
+    {
+      "regime": "R2",
+      "benchmark": "multi_swebench",
+      "config": "BASE2",
+      "policy": "A3",
+      "seconds": 1.8069872000014584
+    },
+    {
+      "regime": "R2",
+      "benchmark": "multi_swebench",
+      "config": "BASE2",
+      "policy": "A5",
+      "seconds": 1.7494833000018843
+    },
+    {
+      "regime": "R2",
+      "benchmark": "multi_swebench",
+      "config": "BASE2",
+      "policy": "A8",
+      "seconds": 1.9825854000009713
+    },
+    {
+      "regime": "R2",
+      "benchmark": "multi_swebench",
+      "config": "tau_scale=0.8",
+      "policy": "A1",
+      "seconds": 1.8026341000004322
+    },
+    {
+      "regime": "R2",
+      "benchmark": "multi_swebench",
+      "config": "tau_scale=0.8",
+      "policy": "A2",
+      "seconds": 1.7708074000001943
+    },
+    {
+      "regime": "R2",
+      "benchmark": "multi_swebench",
+      "config": "tau_scale=0.8",
+      "policy": "A3",
+      "seconds": 1.8746151000013924
+    },
+    {
+      "regime": "R2",
+      "benchmark": "multi_swebench",
+      "config": "tau_scale=0.8",
+      "policy": "A5",
+      "seconds": 1.8379478999995627
+    },
+    {
+      "regime": "R2",
+      "benchmark": "multi_swebench",
+      "config": "tau_scale=0.8",
+      "policy": "A8",
+      "seconds": 1.9363937999987684
+    },
+    {
+      "regime": "R2",
+      "benchmark": "multi_swebench",
+      "config": "tau_scale=1.2",
+      "policy": "A1",
+      "seconds": 1.866240999999718
+    },
+    {
+      "regime": "R2",
+      "benchmark": "multi_swebench",
+      "config": "tau_scale=1.2",
+      "policy": "A2",
+      "seconds": 1.8229706000020087
+    },
+    {
+      "regime": "R2",
+      "benchmark": "multi_swebench",
+      "config": "tau_scale=1.2",
+      "policy": "A3",
+      "seconds": 1.873238299998775
+    },
+    {
+      "regime": "R2",
+      "benchmark": "multi_swebench",
+      "config": "tau_scale=1.2",
+      "policy": "A5",
+      "seconds": 1.8204837000012049
+    },
+    {
+      "regime": "R2",
+      "benchmark": "multi_swebench",
+      "config": "tau_scale=1.2",
+      "policy": "A8",
+      "seconds": 1.9682023000023037
+    },
+    {
+      "regime": "R2",
+      "benchmark": "multi_swebench",
+      "config": "w_od=0.7",
+      "policy": "A1",
+      "seconds": 1.748019499998918
+    },
+    {
+      "regime": "R2",
+      "benchmark": "multi_swebench",
+      "config": "w_od=0.7",
+      "policy": "A2",
+      "seconds": 1.7567154999997001
+    },
+    {
+      "regime": "R2",
+      "benchmark": "multi_swebench",
+      "config": "w_od=0.7",
+      "policy": "A3",
+      "seconds": 1.8149733999998716
+    },
+    {
+      "regime": "R2",
+      "benchmark": "multi_swebench",
+      "config": "w_od=0.7",
+      "policy": "A5",
+      "seconds": 1.777360600000975
+    },
+    {
+      "regime": "R2",
+      "benchmark": "multi_swebench",
+      "config": "w_od=0.7",
+      "policy": "A8",
+      "seconds": 1.8688841000002867
+    },
+    {
+      "regime": "R2",
+      "benchmark": "multi_swebench",
+      "config": "w_od=0.85",
+      "policy": "A1",
+      "seconds": 1.8271889999996347
+    },
+    {
+      "regime": "R2",
+      "benchmark": "multi_swebench",
+      "config": "w_od=0.85",
+      "policy": "A2",
+      "seconds": 1.811974399999599
+    },
+    {
+      "regime": "R2",
+      "benchmark": "multi_swebench",
+      "config": "w_od=0.85",
+      "policy": "A3",
+      "seconds": 1.8624471999974048
+    },
+    {
+      "regime": "R2",
+      "benchmark": "multi_swebench",
+      "config": "w_od=0.85",
+      "policy": "A5",
+      "seconds": 1.8283001000017975
+    },
+    {
+      "regime": "R2",
+      "benchmark": "multi_swebench",
+      "config": "w_od=0.85",
+      "policy": "A8",
+      "seconds": 2.0260065000002214
+    },
+    {
+      "regime": "R2",
+      "benchmark": "multi_swebench",
+      "config": "w_od=1.2",
+      "policy": "A1",
+      "seconds": 1.8145422999987204
+    },
+    {
+      "regime": "R2",
+      "benchmark": "multi_swebench",
+      "config": "w_od=1.2",
+      "policy": "A2",
+      "seconds": 1.8103067000010924
+    },
+    {
+      "regime": "R2",
+      "benchmark": "multi_swebench",
+      "config": "w_od=1.2",
+      "policy": "A3",
+      "seconds": 1.9182672999995702
+    },
+    {
+      "regime": "R2",
+      "benchmark": "multi_swebench",
+      "config": "w_od=1.2",
+      "policy": "A5",
+      "seconds": 2.398444099999324
+    },
+    {
+      "regime": "R2",
+      "benchmark": "multi_swebench",
+      "config": "w_od=1.2",
+      "policy": "A8",
+      "seconds": 2.2861869999978808
+    },
+    {
+      "regime": "R2",
+      "benchmark": "real_webagents",
+      "config": "BASE2",
+      "policy": "A1",
+      "seconds": 0.5372341999973287
+    },
+    {
+      "regime": "R2",
+      "benchmark": "real_webagents",
+      "config": "BASE2",
+      "policy": "A2",
+      "seconds": 0.5575220999999146
+    },
+    {
+      "regime": "R2",
+      "benchmark": "real_webagents",
+      "config": "BASE2",
+      "policy": "A3",
+      "seconds": 0.5724364000016067
+    },
+    {
+      "regime": "R2",
+      "benchmark": "real_webagents",
+      "config": "BASE2",
+      "policy": "A5",
+      "seconds": 0.5317236999981105
+    },
+    {
+      "regime": "R2",
+      "benchmark": "real_webagents",
+      "config": "BASE2",
+      "policy": "A8",
+      "seconds": 0.5712353000017174
+    },
+    {
+      "regime": "R2",
+      "benchmark": "real_webagents",
+      "config": "tau_scale=0.8",
+      "policy": "A1",
+      "seconds": 0.5441331999973045
+    },
+    {
+      "regime": "R2",
+      "benchmark": "real_webagents",
+      "config": "tau_scale=0.8",
+      "policy": "A2",
+      "seconds": 0.5349711000017123
+    },
+    {
+      "regime": "R2",
+      "benchmark": "real_webagents",
+      "config": "tau_scale=0.8",
+      "policy": "A3",
+      "seconds": 0.5599016999985906
+    },
+    {
+      "regime": "R2",
+      "benchmark": "real_webagents",
+      "config": "tau_scale=0.8",
+      "policy": "A5",
+      "seconds": 0.5239824000018416
+    },
+    {
+      "regime": "R2",
+      "benchmark": "real_webagents",
+      "config": "tau_scale=0.8",
+      "policy": "A8",
+      "seconds": 0.5686356000005617
+    },
+    {
+      "regime": "R2",
+      "benchmark": "real_webagents",
+      "config": "tau_scale=1.2",
+      "policy": "A1",
+      "seconds": 0.5943151000028593
+    },
+    {
+      "regime": "R2",
+      "benchmark": "real_webagents",
+      "config": "tau_scale=1.2",
+      "policy": "A2",
+      "seconds": 0.563512400000036
+    },
+    {
+      "regime": "R2",
+      "benchmark": "real_webagents",
+      "config": "tau_scale=1.2",
+      "policy": "A3",
+      "seconds": 0.5873266000016883
+    },
+    {
+      "regime": "R2",
+      "benchmark": "real_webagents",
+      "config": "tau_scale=1.2",
+      "policy": "A5",
+      "seconds": 0.557894400000805
+    },
+    {
+      "regime": "R2",
+      "benchmark": "real_webagents",
+      "config": "tau_scale=1.2",
+      "policy": "A8",
+      "seconds": 0.6063847000004898
+    },
+    {
+      "regime": "R2",
+      "benchmark": "real_webagents",
+      "config": "w_od=0.7",
+      "policy": "A1",
+      "seconds": 0.5349462999984098
+    },
+    {
+      "regime": "R2",
+      "benchmark": "real_webagents",
+      "config": "w_od=0.7",
+      "policy": "A2",
+      "seconds": 0.5299279999999271
+    },
+    {
+      "regime": "R2",
+      "benchmark": "real_webagents",
+      "config": "w_od=0.7",
+      "policy": "A3",
+      "seconds": 0.5716147999992245
+    },
+    {
+      "regime": "R2",
+      "benchmark": "real_webagents",
+      "config": "w_od=0.7",
+      "policy": "A5",
+      "seconds": 0.5691452999999456
+    },
+    {
+      "regime": "R2",
+      "benchmark": "real_webagents",
+      "config": "w_od=0.7",
+      "policy": "A8",
+      "seconds": 0.6223181999994267
+    },
+    {
+      "regime": "R2",
+      "benchmark": "real_webagents",
+      "config": "w_od=0.85",
+      "policy": "A1",
+      "seconds": 0.5431570000000647
+    },
+    {
+      "regime": "R2",
+      "benchmark": "real_webagents",
+      "config": "w_od=0.85",
+      "policy": "A2",
+      "seconds": 0.5392358999997668
+    },
+    {
+      "regime": "R2",
+      "benchmark": "real_webagents",
+      "config": "w_od=0.85",
+      "policy": "A3",
+      "seconds": 0.564361500000814
+    },
+    {
+      "regime": "R2",
+      "benchmark": "real_webagents",
+      "config": "w_od=0.85",
+      "policy": "A5",
+      "seconds": 0.5264596999986679
+    },
+    {
+      "regime": "R2",
+      "benchmark": "real_webagents",
+      "config": "w_od=0.85",
+      "policy": "A8",
+      "seconds": 0.5776183000016317
+    },
+    {
+      "regime": "R2",
+      "benchmark": "real_webagents",
+      "config": "w_od=1.2",
+      "policy": "A1",
+      "seconds": 0.5401232000003802
+    },
+    {
+      "regime": "R2",
+      "benchmark": "real_webagents",
+      "config": "w_od=1.2",
+      "policy": "A2",
+      "seconds": 0.5614055999976699
+    },
+    {
+      "regime": "R2",
+      "benchmark": "real_webagents",
+      "config": "w_od=1.2",
+      "policy": "A3",
+      "seconds": 0.5481590999988839
+    },
+    {
+      "regime": "R2",
+      "benchmark": "real_webagents",
+      "config": "w_od=1.2",
+      "policy": "A5",
+      "seconds": 0.5227785000024596
+    },
+    {
+      "regime": "R2",
+      "benchmark": "real_webagents",
+      "config": "w_od=1.2",
+      "policy": "A8",
+      "seconds": 0.5686596000014106
+    },
+    {
+      "regime": "R2",
+      "benchmark": "researchcodebench",
+      "config": "BASE2",
+      "policy": "A1",
+      "seconds": 0.661725000001752
+    },
+    {
+      "regime": "R2",
+      "benchmark": "researchcodebench",
+      "config": "BASE2",
+      "policy": "A2",
+      "seconds": 0.6973223999993934
+    },
+    {
+      "regime": "R2",
+      "benchmark": "researchcodebench",
+      "config": "BASE2",
+      "policy": "A3",
+      "seconds": 0.6911737999980687
+    },
+    {
+      "regime": "R2",
+      "benchmark": "researchcodebench",
+      "config": "BASE2",
+      "policy": "A5",
+      "seconds": 0.7175843000004534
+    },
+    {
+      "regime": "R2",
+      "benchmark": "researchcodebench",
+      "config": "BASE2",
+      "policy": "A8",
+      "seconds": 0.7818858000027831
+    },
+    {
+      "regime": "R2",
+      "benchmark": "researchcodebench",
+      "config": "tau_scale=0.8",
+      "policy": "A1",
+      "seconds": 0.6795429999983753
+    },
+    {
+      "regime": "R2",
+      "benchmark": "researchcodebench",
+      "config": "tau_scale=0.8",
+      "policy": "A2",
+      "seconds": 0.6885075999998662
+    },
+    {
+      "regime": "R2",
+      "benchmark": "researchcodebench",
+      "config": "tau_scale=0.8",
+      "policy": "A3",
+      "seconds": 0.7440378999999666
+    },
+    {
+      "regime": "R2",
+      "benchmark": "researchcodebench",
+      "config": "tau_scale=0.8",
+      "policy": "A5",
+      "seconds": 0.7127890999981901
+    },
+    {
+      "regime": "R2",
+      "benchmark": "researchcodebench",
+      "config": "tau_scale=0.8",
+      "policy": "A8",
+      "seconds": 0.8105257999995956
+    },
+    {
+      "regime": "R2",
+      "benchmark": "researchcodebench",
+      "config": "tau_scale=1.2",
+      "policy": "A1",
+      "seconds": 0.7364483999990625
+    },
+    {
+      "regime": "R2",
+      "benchmark": "researchcodebench",
+      "config": "tau_scale=1.2",
+      "policy": "A2",
+      "seconds": 0.7174387999984901
+    },
+    {
+      "regime": "R2",
+      "benchmark": "researchcodebench",
+      "config": "tau_scale=1.2",
+      "policy": "A3",
+      "seconds": 0.7381630999989284
+    },
+    {
+      "regime": "R2",
+      "benchmark": "researchcodebench",
+      "config": "tau_scale=1.2",
+      "policy": "A5",
+      "seconds": 0.687213499997597
+    },
+    {
+      "regime": "R2",
+      "benchmark": "researchcodebench",
+      "config": "tau_scale=1.2",
+      "policy": "A8",
+      "seconds": 0.7613218999977107
+    },
+    {
+      "regime": "R2",
+      "benchmark": "researchcodebench",
+      "config": "w_od=0.7",
+      "policy": "A1",
+      "seconds": 0.9193412999993598
+    },
+    {
+      "regime": "R2",
+      "benchmark": "researchcodebench",
+      "config": "w_od=0.7",
+      "policy": "A2",
+      "seconds": 0.9172402000003785
+    },
+    {
+      "regime": "R2",
+      "benchmark": "researchcodebench",
+      "config": "w_od=0.7",
+      "policy": "A3",
+      "seconds": 0.839838800002326
+    },
+    {
+      "regime": "R2",
+      "benchmark": "researchcodebench",
+      "config": "w_od=0.7",
+      "policy": "A5",
+      "seconds": 0.6852570000010019
+    },
+    {
+      "regime": "R2",
+      "benchmark": "researchcodebench",
+      "config": "w_od=0.7",
+      "policy": "A8",
+      "seconds": 0.7354464999989432
+    },
+    {
+      "regime": "R2",
+      "benchmark": "researchcodebench",
+      "config": "w_od=0.85",
+      "policy": "A1",
+      "seconds": 0.6783054999978049
+    },
+    {
+      "regime": "R2",
+      "benchmark": "researchcodebench",
+      "config": "w_od=0.85",
+      "policy": "A2",
+      "seconds": 0.6442298000001756
+    },
+    {
+      "regime": "R2",
+      "benchmark": "researchcodebench",
+      "config": "w_od=0.85",
+      "policy": "A3",
+      "seconds": 0.6794738999997207
+    },
+    {
+      "regime": "R2",
+      "benchmark": "researchcodebench",
+      "config": "w_od=0.85",
+      "policy": "A5",
+      "seconds": 0.6935613000023295
+    },
+    {
+      "regime": "R2",
+      "benchmark": "researchcodebench",
+      "config": "w_od=0.85",
+      "policy": "A8",
+      "seconds": 0.7203699999990931
+    },
+    {
+      "regime": "R2",
+      "benchmark": "researchcodebench",
+      "config": "w_od=1.2",
+      "policy": "A1",
+      "seconds": 0.708767899999657
+    },
+    {
+      "regime": "R2",
+      "benchmark": "researchcodebench",
+      "config": "w_od=1.2",
+      "policy": "A2",
+      "seconds": 0.7640984999998182
+    },
+    {
+      "regime": "R2",
+      "benchmark": "researchcodebench",
+      "config": "w_od=1.2",
+      "policy": "A3",
+      "seconds": 0.7162432000004628
+    },
+    {
+      "regime": "R2",
+      "benchmark": "researchcodebench",
+      "config": "w_od=1.2",
+      "policy": "A5",
+      "seconds": 0.6819553999994241
+    },
+    {
+      "regime": "R2",
+      "benchmark": "researchcodebench",
+      "config": "w_od=1.2",
+      "policy": "A8",
+      "seconds": 0.7013719999995374
+    },
+    {
+      "regime": "R2",
+      "benchmark": "matharena",
+      "config": "BASE2",
+      "policy": "A1",
+      "seconds": 1.7708442000002833
+    },
+    {
+      "regime": "R2",
+      "benchmark": "matharena",
+      "config": "BASE2",
+      "policy": "A2",
+      "seconds": 1.7180900999992446
+    },
+    {
+      "regime": "R2",
+      "benchmark": "matharena",
+      "config": "BASE2",
+      "policy": "A3",
+      "seconds": 1.8831557000012253
+    },
+    {
+      "regime": "R2",
+      "benchmark": "matharena",
+      "config": "BASE2",
+      "policy": "A5",
+      "seconds": 1.7832420000013371
+    },
+    {
+      "regime": "R2",
+      "benchmark": "matharena",
+      "config": "BASE2",
+      "policy": "A8",
+      "seconds": 1.920297100001335
+    },
+    {
+      "regime": "R2",
+      "benchmark": "matharena",
+      "config": "tau_scale=0.8",
+      "policy": "A1",
+      "seconds": 1.712499100001878
+    },
+    {
+      "regime": "R2",
+      "benchmark": "matharena",
+      "config": "tau_scale=0.8",
+      "policy": "A2",
+      "seconds": 1.6690815999972983
+    },
+    {
+      "regime": "R2",
+      "benchmark": "matharena",
+      "config": "tau_scale=0.8",
+      "policy": "A3",
+      "seconds": 1.6875551999983145
+    },
+    {
+      "regime": "R2",
+      "benchmark": "matharena",
+      "config": "tau_scale=0.8",
+      "policy": "A5",
+      "seconds": 1.6367805999980192
+    },
+    {
+      "regime": "R2",
+      "benchmark": "matharena",
+      "config": "tau_scale=0.8",
+      "policy": "A8",
+      "seconds": 1.9651759999978822
+    },
+    {
+      "regime": "R2",
+      "benchmark": "matharena",
+      "config": "tau_scale=1.2",
+      "policy": "A1",
+      "seconds": 1.75378450000062
+    },
+    {
+      "regime": "R2",
+      "benchmark": "matharena",
+      "config": "tau_scale=1.2",
+      "policy": "A2",
+      "seconds": 1.8416620999996667
+    },
+    {
+      "regime": "R2",
+      "benchmark": "matharena",
+      "config": "tau_scale=1.2",
+      "policy": "A3",
+      "seconds": 1.8331609000015305
+    },
+    {
+      "regime": "R2",
+      "benchmark": "matharena",
+      "config": "tau_scale=1.2",
+      "policy": "A5",
+      "seconds": 1.7522446000002674
+    },
+    {
+      "regime": "R2",
+      "benchmark": "matharena",
+      "config": "tau_scale=1.2",
+      "policy": "A8",
+      "seconds": 1.9446635999993305
+    },
+    {
+      "regime": "R2",
+      "benchmark": "matharena",
+      "config": "w_od=0.7",
+      "policy": "A1",
+      "seconds": 1.7396245999989333
+    },
+    {
+      "regime": "R2",
+      "benchmark": "matharena",
+      "config": "w_od=0.7",
+      "policy": "A2",
+      "seconds": 1.7221027000014146
+    },
+    {
+      "regime": "R2",
+      "benchmark": "matharena",
+      "config": "w_od=0.7",
+      "policy": "A3",
+      "seconds": 1.7769932000010158
+    },
+    {
+      "regime": "R2",
+      "benchmark": "matharena",
+      "config": "w_od=0.7",
+      "policy": "A5",
+      "seconds": 1.7173941000000923
+    },
+    {
+      "regime": "R2",
+      "benchmark": "matharena",
+      "config": "w_od=0.7",
+      "policy": "A8",
+      "seconds": 1.971714699997392
+    },
+    {
+      "regime": "R2",
+      "benchmark": "matharena",
+      "config": "w_od=0.85",
+      "policy": "A1",
+      "seconds": 1.7886453000028268
+    },
+    {
+      "regime": "R2",
+      "benchmark": "matharena",
+      "config": "w_od=0.85",
+      "policy": "A2",
+      "seconds": 1.7376409999997122
+    },
+    {
+      "regime": "R2",
+      "benchmark": "matharena",
+      "config": "w_od=0.85",
+      "policy": "A3",
+      "seconds": 1.8526620000011462
+    },
+    {
+      "regime": "R2",
+      "benchmark": "matharena",
+      "config": "w_od=0.85",
+      "policy": "A5",
+      "seconds": 1.732433500001207
+    },
+    {
+      "regime": "R2",
+      "benchmark": "matharena",
+      "config": "w_od=0.85",
+      "policy": "A8",
+      "seconds": 1.870737100001861
+    },
+    {
+      "regime": "R2",
+      "benchmark": "matharena",
+      "config": "w_od=1.2",
+      "policy": "A1",
+      "seconds": 1.7282037999975728
+    },
+    {
+      "regime": "R2",
+      "benchmark": "matharena",
+      "config": "w_od=1.2",
+      "policy": "A2",
+      "seconds": 1.7751228000015544
+    },
+    {
+      "regime": "R2",
+      "benchmark": "matharena",
+      "config": "w_od=1.2",
+      "policy": "A3",
+      "seconds": 1.9054322999982105
+    },
+    {
+      "regime": "R2",
+      "benchmark": "matharena",
+      "config": "w_od=1.2",
+      "policy": "A5",
+      "seconds": 1.8123827999988862
+    },
+    {
+      "regime": "R2",
+      "benchmark": "matharena",
+      "config": "w_od=1.2",
+      "policy": "A8",
+      "seconds": 1.9898810000013327
+    },
+    {
+      "regime": "R3",
+      "benchmark": "multi_swebench",
+      "config": "BASE2",
+      "policy": "A1",
+      "seconds": 19.353970500000287
+    },
+    {
+      "regime": "R3",
+      "benchmark": "multi_swebench",
+      "config": "BASE2",
+      "policy": "A2",
+      "seconds": 20.17542239999966
+    },
+    {
+      "regime": "R3",
+      "benchmark": "multi_swebench",
+      "config": "BASE2",
+      "policy": "A3",
+      "seconds": 19.546984599997813
+    },
+    {
+      "regime": "R3",
+      "benchmark": "multi_swebench",
+      "config": "BASE2",
+      "policy": "A5",
+      "seconds": 19.242850399998133
+    },
+    {
+      "regime": "R3",
+      "benchmark": "multi_swebench",
+      "config": "BASE2",
+      "policy": "A8",
+      "seconds": 20.490152499998658
+    },
+    {
+      "regime": "R3",
+      "benchmark": "multi_swebench",
+      "config": "tau_scale=0.8",
+      "policy": "A1",
+      "seconds": 18.9499481999992
+    },
+    {
+      "regime": "R3",
+      "benchmark": "multi_swebench",
+      "config": "tau_scale=0.8",
+      "policy": "A2",
+      "seconds": 19.549533199999132
+    },
+    {
+      "regime": "R3",
+      "benchmark": "multi_swebench",
+      "config": "tau_scale=0.8",
+      "policy": "A3",
+      "seconds": 20.91560340000069
+    },
+    {
+      "regime": "R3",
+      "benchmark": "multi_swebench",
+      "config": "tau_scale=0.8",
+      "policy": "A5",
+      "seconds": 20.306221200000437
+    },
+    {
+      "regime": "R3",
+      "benchmark": "multi_swebench",
+      "config": "tau_scale=0.8",
+      "policy": "A8",
+      "seconds": 20.563545499997417
+    },
+    {
+      "regime": "R3",
+      "benchmark": "multi_swebench",
+      "config": "tau_scale=1.2",
+      "policy": "A1",
+      "seconds": 20.124699500000133
+    },
+    {
+      "regime": "R3",
+      "benchmark": "multi_swebench",
+      "config": "tau_scale=1.2",
+      "policy": "A2",
+      "seconds": 20.701293499998428
+    },
+    {
+      "regime": "R3",
+      "benchmark": "multi_swebench",
+      "config": "tau_scale=1.2",
+      "policy": "A3",
+      "seconds": 19.08814920000077
+    },
+    {
+      "regime": "R3",
+      "benchmark": "multi_swebench",
+      "config": "tau_scale=1.2",
+      "policy": "A5",
+      "seconds": 19.119368499999837
+    },
+    {
+      "regime": "R3",
+      "benchmark": "multi_swebench",
+      "config": "tau_scale=1.2",
+      "policy": "A8",
+      "seconds": 20.64472939999905
+    },
+    {
+      "regime": "R3",
+      "benchmark": "multi_swebench",
+      "config": "w_od=0.7",
+      "policy": "A1",
+      "seconds": 18.85402769999928
+    },
+    {
+      "regime": "R3",
+      "benchmark": "multi_swebench",
+      "config": "w_od=0.7",
+      "policy": "A2",
+      "seconds": 20.26918940000178
+    },
+    {
+      "regime": "R3",
+      "benchmark": "multi_swebench",
+      "config": "w_od=0.7",
+      "policy": "A3",
+      "seconds": 18.984887100003107
+    },
+    {
+      "regime": "R3",
+      "benchmark": "multi_swebench",
+      "config": "w_od=0.7",
+      "policy": "A5",
+      "seconds": 19.51539899999989
+    },
+    {
+      "regime": "R3",
+      "benchmark": "multi_swebench",
+      "config": "w_od=0.7",
+      "policy": "A8",
+      "seconds": 20.416964500000176
+    },
+    {
+      "regime": "R3",
+      "benchmark": "multi_swebench",
+      "config": "w_od=0.85",
+      "policy": "A1",
+      "seconds": 20.03511200000139
+    },
+    {
+      "regime": "R3",
+      "benchmark": "multi_swebench",
+      "config": "w_od=0.85",
+      "policy": "A2",
+      "seconds": 19.071413499998016
+    },
+    {
+      "regime": "R3",
+      "benchmark": "multi_swebench",
+      "config": "w_od=0.85",
+      "policy": "A3",
+      "seconds": 19.541636299996753
+    },
+    {
+      "regime": "R3",
+      "benchmark": "multi_swebench",
+      "config": "w_od=0.85",
+      "policy": "A5",
+      "seconds": 20.221783799999685
+    },
+    {
+      "regime": "R3",
+      "benchmark": "multi_swebench",
+      "config": "w_od=0.85",
+      "policy": "A8",
+      "seconds": 21.245861900002637
+    },
+    {
+      "regime": "R3",
+      "benchmark": "multi_swebench",
+      "config": "w_od=1.2",
+      "policy": "A1",
+      "seconds": 20.95044819999748
+    },
+    {
+      "regime": "R3",
+      "benchmark": "multi_swebench",
+      "config": "w_od=1.2",
+      "policy": "A2",
+      "seconds": 19.636118200000055
+    },
+    {
+      "regime": "R3",
+      "benchmark": "multi_swebench",
+      "config": "w_od=1.2",
+      "policy": "A3",
+      "seconds": 19.239865200001077
+    },
+    {
+      "regime": "R3",
+      "benchmark": "multi_swebench",
+      "config": "w_od=1.2",
+      "policy": "A5",
+      "seconds": 19.788064600001235
+    },
+    {
+      "regime": "R3",
+      "benchmark": "multi_swebench",
+      "config": "w_od=1.2",
+      "policy": "A8",
+      "seconds": 21.638065600000118
+    },
+    {
+      "regime": "R3",
+      "benchmark": "real_webagents",
+      "config": "BASE2",
+      "policy": "A1",
+      "seconds": 1.1567501999998058
+    },
+    {
+      "regime": "R3",
+      "benchmark": "real_webagents",
+      "config": "BASE2",
+      "policy": "A2",
+      "seconds": 1.2028411999999662
+    },
+    {
+      "regime": "R3",
+      "benchmark": "real_webagents",
+      "config": "BASE2",
+      "policy": "A3",
+      "seconds": 1.2714551000026404
+    },
+    {
+      "regime": "R3",
+      "benchmark": "real_webagents",
+      "config": "BASE2",
+      "policy": "A5",
+      "seconds": 1.2851816000002145
+    },
+    {
+      "regime": "R3",
+      "benchmark": "real_webagents",
+      "config": "BASE2",
+      "policy": "A8",
+      "seconds": 2.125834299997223
+    },
+    {
+      "regime": "R3",
+      "benchmark": "real_webagents",
+      "config": "tau_scale=0.8",
+      "policy": "A1",
+      "seconds": 1.1574212000014086
+    },
+    {
+      "regime": "R3",
+      "benchmark": "real_webagents",
+      "config": "tau_scale=0.8",
+      "policy": "A2",
+      "seconds": 1.149681499999133
+    },
+    {
+      "regime": "R3",
+      "benchmark": "real_webagents",
+      "config": "tau_scale=0.8",
+      "policy": "A3",
+      "seconds": 1.2670230000003357
+    },
+    {
+      "regime": "R3",
+      "benchmark": "real_webagents",
+      "config": "tau_scale=0.8",
+      "policy": "A5",
+      "seconds": 1.2177311000014015
+    },
+    {
+      "regime": "R3",
+      "benchmark": "real_webagents",
+      "config": "tau_scale=0.8",
+      "policy": "A8",
+      "seconds": 1.9034729000013613
+    },
+    {
+      "regime": "R3",
+      "benchmark": "real_webagents",
+      "config": "tau_scale=1.2",
+      "policy": "A1",
+      "seconds": 1.1066485999981523
+    },
+    {
+      "regime": "R3",
+      "benchmark": "real_webagents",
+      "config": "tau_scale=1.2",
+      "policy": "A2",
+      "seconds": 1.1427509999994072
+    },
+    {
+      "regime": "R3",
+      "benchmark": "real_webagents",
+      "config": "tau_scale=1.2",
+      "policy": "A3",
+      "seconds": 1.1649058000002697
+    },
+    {
+      "regime": "R3",
+      "benchmark": "real_webagents",
+      "config": "tau_scale=1.2",
+      "policy": "A5",
+      "seconds": 1.236425600000075
+    },
+    {
+      "regime": "R3",
+      "benchmark": "real_webagents",
+      "config": "tau_scale=1.2",
+      "policy": "A8",
+      "seconds": 1.9901733999977296
+    },
+    {
+      "regime": "R3",
+      "benchmark": "real_webagents",
+      "config": "w_od=0.7",
+      "policy": "A1",
+      "seconds": 1.168734000002587
+    },
+    {
+      "regime": "R3",
+      "benchmark": "real_webagents",
+      "config": "w_od=0.7",
+      "policy": "A2",
+      "seconds": 1.1795949000006658
+    },
+    {
+      "regime": "R3",
+      "benchmark": "real_webagents",
+      "config": "w_od=0.7",
+      "policy": "A3",
+      "seconds": 1.239281000001938
+    },
+    {
+      "regime": "R3",
+      "benchmark": "real_webagents",
+      "config": "w_od=0.7",
+      "policy": "A5",
+      "seconds": 1.258711200000107
+    },
+    {
+      "regime": "R3",
+      "benchmark": "real_webagents",
+      "config": "w_od=0.7",
+      "policy": "A8",
+      "seconds": 2.3837271999982477
+    },
+    {
+      "regime": "R3",
+      "benchmark": "real_webagents",
+      "config": "w_od=0.85",
+      "policy": "A1",
+      "seconds": 1.2976866999997583
+    },
+    {
+      "regime": "R3",
+      "benchmark": "real_webagents",
+      "config": "w_od=0.85",
+      "policy": "A2",
+      "seconds": 1.1985516999993706
+    },
+    {
+      "regime": "R3",
+      "benchmark": "real_webagents",
+      "config": "w_od=0.85",
+      "policy": "A3",
+      "seconds": 1.2265392000008433
+    },
+    {
+      "regime": "R3",
+      "benchmark": "real_webagents",
+      "config": "w_od=0.85",
+      "policy": "A5",
+      "seconds": 1.200837500000489
+    },
+    {
+      "regime": "R3",
+      "benchmark": "real_webagents",
+      "config": "w_od=0.85",
+      "policy": "A8",
+      "seconds": 1.9984695999992255
+    },
+    {
+      "regime": "R3",
+      "benchmark": "real_webagents",
+      "config": "w_od=1.2",
+      "policy": "A1",
+      "seconds": 1.1817828999992344
+    },
+    {
+      "regime": "R3",
+      "benchmark": "real_webagents",
+      "config": "w_od=1.2",
+      "policy": "A2",
+      "seconds": 1.2159360000005108
+    },
+    {
+      "regime": "R3",
+      "benchmark": "real_webagents",
+      "config": "w_od=1.2",
+      "policy": "A3",
+      "seconds": 1.2263308000001416
+    },
+    {
+      "regime": "R3",
+      "benchmark": "real_webagents",
+      "config": "w_od=1.2",
+      "policy": "A5",
+      "seconds": 1.246406999998726
+    },
+    {
+      "regime": "R3",
+      "benchmark": "real_webagents",
+      "config": "w_od=1.2",
+      "policy": "A8",
+      "seconds": 2.110742600001686
+    },
+    {
+      "regime": "R3",
+      "benchmark": "researchcodebench",
+      "config": "BASE2",
+      "policy": "A1",
+      "seconds": 2.1596542000006593
+    },
+    {
+      "regime": "R3",
+      "benchmark": "researchcodebench",
+      "config": "BASE2",
+      "policy": "A2",
+      "seconds": 2.0970574999992095
+    },
+    {
+      "regime": "R3",
+      "benchmark": "researchcodebench",
+      "config": "BASE2",
+      "policy": "A3",
+      "seconds": 2.0892090999986976
+    },
+    {
+      "regime": "R3",
+      "benchmark": "researchcodebench",
+      "config": "BASE2",
+      "policy": "A5",
+      "seconds": 2.0333988000020327
+    },
+    {
+      "regime": "R3",
+      "benchmark": "researchcodebench",
+      "config": "BASE2",
+      "policy": "A8",
+      "seconds": 3.1233062999999675
+    },
+    {
+      "regime": "R3",
+      "benchmark": "researchcodebench",
+      "config": "tau_scale=0.8",
+      "policy": "A1",
+      "seconds": 2.0690060000015364
+    },
+    {
+      "regime": "R3",
+      "benchmark": "researchcodebench",
+      "config": "tau_scale=0.8",
+      "policy": "A2",
+      "seconds": 2.3406482999998843
+    },
+    {
+      "regime": "R3",
+      "benchmark": "researchcodebench",
+      "config": "tau_scale=0.8",
+      "policy": "A3",
+      "seconds": 1.728856600002473
+    },
+    {
+      "regime": "R3",
+      "benchmark": "researchcodebench",
+      "config": "tau_scale=0.8",
+      "policy": "A5",
+      "seconds": 2.0744432999999844
+    },
+    {
+      "regime": "R3",
+      "benchmark": "researchcodebench",
+      "config": "tau_scale=0.8",
+      "policy": "A8",
+      "seconds": 2.9187425000018266
+    },
+    {
+      "regime": "R3",
+      "benchmark": "researchcodebench",
+      "config": "tau_scale=1.2",
+      "policy": "A1",
+      "seconds": 1.9035543000027246
+    },
+    {
+      "regime": "R3",
+      "benchmark": "researchcodebench",
+      "config": "tau_scale=1.2",
+      "policy": "A2",
+      "seconds": 1.897810300000856
+    },
+    {
+      "regime": "R3",
+      "benchmark": "researchcodebench",
+      "config": "tau_scale=1.2",
+      "policy": "A3",
+      "seconds": 1.9782993999979226
+    },
+    {
+      "regime": "R3",
+      "benchmark": "researchcodebench",
+      "config": "tau_scale=1.2",
+      "policy": "A5",
+      "seconds": 2.013709499999095
+    },
+    {
+      "regime": "R3",
+      "benchmark": "researchcodebench",
+      "config": "tau_scale=1.2",
+      "policy": "A8",
+      "seconds": 2.970346599999175
+    },
+    {
+      "regime": "R3",
+      "benchmark": "researchcodebench",
+      "config": "w_od=0.7",
+      "policy": "A1",
+      "seconds": 1.8491606999996293
+    },
+    {
+      "regime": "R3",
+      "benchmark": "researchcodebench",
+      "config": "w_od=0.7",
+      "policy": "A2",
+      "seconds": 1.8999312999985705
+    },
+    {
+      "regime": "R3",
+      "benchmark": "researchcodebench",
+      "config": "w_od=0.7",
+      "policy": "A3",
+      "seconds": 1.8644690000000992
+    },
+    {
+      "regime": "R3",
+      "benchmark": "researchcodebench",
+      "config": "w_od=0.7",
+      "policy": "A5",
+      "seconds": 2.016743400003179
+    },
+    {
+      "regime": "R3",
+      "benchmark": "researchcodebench",
+      "config": "w_od=0.7",
+      "policy": "A8",
+      "seconds": 2.79552540000077
+    },
+    {
+      "regime": "R3",
+      "benchmark": "researchcodebench",
+      "config": "w_od=0.85",
+      "policy": "A1",
+      "seconds": 1.8042396000018925
+    },
+    {
+      "regime": "R3",
+      "benchmark": "researchcodebench",
+      "config": "w_od=0.85",
+      "policy": "A2",
+      "seconds": 1.9428956000010658
+    },
+    {
+      "regime": "R3",
+      "benchmark": "researchcodebench",
+      "config": "w_od=0.85",
+      "policy": "A3",
+      "seconds": 1.8658752000010281
+    },
+    {
+      "regime": "R3",
+      "benchmark": "researchcodebench",
+      "config": "w_od=0.85",
+      "policy": "A5",
+      "seconds": 1.9331591999980446
+    },
+    {
+      "regime": "R3",
+      "benchmark": "researchcodebench",
+      "config": "w_od=0.85",
+      "policy": "A8",
+      "seconds": 2.8196046000011847
+    },
+    {
+      "regime": "R3",
+      "benchmark": "researchcodebench",
+      "config": "w_od=1.2",
+      "policy": "A1",
+      "seconds": 1.8517757000008714
+    },
+    {
+      "regime": "R3",
+      "benchmark": "researchcodebench",
+      "config": "w_od=1.2",
+      "policy": "A2",
+      "seconds": 1.8650374999997439
+    },
+    {
+      "regime": "R3",
+      "benchmark": "researchcodebench",
+      "config": "w_od=1.2",
+      "policy": "A3",
+      "seconds": 1.8708289999995031
+    },
+    {
+      "regime": "R3",
+      "benchmark": "researchcodebench",
+      "config": "w_od=1.2",
+      "policy": "A5",
+      "seconds": 1.9612139999990177
+    },
+    {
+      "regime": "R3",
+      "benchmark": "researchcodebench",
+      "config": "w_od=1.2",
+      "policy": "A8",
+      "seconds": 2.9684441999997944
+    },
+    {
+      "regime": "R3",
+      "benchmark": "matharena",
+      "config": "BASE2",
+      "policy": "A1",
+      "seconds": 19.948309899999003
+    },
+    {
+      "regime": "R3",
+      "benchmark": "matharena",
+      "config": "BASE2",
+      "policy": "A2",
+      "seconds": 20.08740779999789
+    },
+    {
+      "regime": "R3",
+      "benchmark": "matharena",
+      "config": "BASE2",
+      "policy": "A3",
+      "seconds": 20.32975969999825
+    },
+    {
+      "regime": "R3",
+      "benchmark": "matharena",
+      "config": "BASE2",
+      "policy": "A5",
+      "seconds": 20.690251200001512
+    },
+    {
+      "regime": "R3",
+      "benchmark": "matharena",
+      "config": "BASE2",
+      "policy": "A8",
+      "seconds": 23.518271000000823
+    },
+    {
+      "regime": "R3",
+      "benchmark": "matharena",
+      "config": "tau_scale=0.8",
+      "policy": "A1",
+      "seconds": 19.546981700001197
+    },
+    {
+      "regime": "R3",
+      "benchmark": "matharena",
+      "config": "tau_scale=0.8",
+      "policy": "A2",
+      "seconds": 19.914666900000157
+    },
+    {
+      "regime": "R3",
+      "benchmark": "matharena",
+      "config": "tau_scale=0.8",
+      "policy": "A3",
+      "seconds": 20.177458999998635
+    },
+    {
+      "regime": "R3",
+      "benchmark": "matharena",
+      "config": "tau_scale=0.8",
+      "policy": "A5",
+      "seconds": 19.754362499999843
+    },
+    {
+      "regime": "R3",
+      "benchmark": "matharena",
+      "config": "tau_scale=0.8",
+      "policy": "A8",
+      "seconds": 21.705098499998712
+    },
+    {
+      "regime": "R3",
+      "benchmark": "matharena",
+      "config": "tau_scale=1.2",
+      "policy": "A1",
+      "seconds": 20.591482499999984
+    },
+    {
+      "regime": "R3",
+      "benchmark": "matharena",
+      "config": "tau_scale=1.2",
+      "policy": "A2",
+      "seconds": 21.563946100002795
+    },
+    {
+      "regime": "R3",
+      "benchmark": "matharena",
+      "config": "tau_scale=1.2",
+      "policy": "A3",
+      "seconds": 21.04905239999789
+    },
+    {
+      "regime": "R3",
+      "benchmark": "matharena",
+      "config": "tau_scale=1.2",
+      "policy": "A5",
+      "seconds": 20.112708000000566
+    },
+    {
+      "regime": "R3",
+      "benchmark": "matharena",
+      "config": "tau_scale=1.2",
+      "policy": "A8",
+      "seconds": 23.2286391000016
+    },
+    {
+      "regime": "R3",
+      "benchmark": "matharena",
+      "config": "w_od=0.7",
+      "policy": "A1",
+      "seconds": 19.236555999999837
+    },
+    {
+      "regime": "R3",
+      "benchmark": "matharena",
+      "config": "w_od=0.7",
+      "policy": "A2",
+      "seconds": 19.125268799998594
+    },
+    {
+      "regime": "R3",
+      "benchmark": "matharena",
+      "config": "w_od=0.7",
+      "policy": "A3",
+      "seconds": 19.254356299999927
+    },
+    {
+      "regime": "R3",
+      "benchmark": "matharena",
+      "config": "w_od=0.7",
+      "policy": "A5",
+      "seconds": 18.606809400000202
+    },
+    {
+      "regime": "R3",
+      "benchmark": "matharena",
+      "config": "w_od=0.7",
+      "policy": "A8",
+      "seconds": 21.708232000000862
+    },
+    {
+      "regime": "R3",
+      "benchmark": "matharena",
+      "config": "w_od=0.85",
+      "policy": "A1",
+      "seconds": 21.00301500000205
+    },
+    {
+      "regime": "R3",
+      "benchmark": "matharena",
+      "config": "w_od=0.85",
+      "policy": "A2",
+      "seconds": 21.818084599999565
+    },
+    {
+      "regime": "R3",
+      "benchmark": "matharena",
+      "config": "w_od=0.85",
+      "policy": "A3",
+      "seconds": 21.65556099999958
+    },
+    {
+      "regime": "R3",
+      "benchmark": "matharena",
+      "config": "w_od=0.85",
+      "policy": "A5",
+      "seconds": 20.570390299999417
+    },
+    {
+      "regime": "R3",
+      "benchmark": "matharena",
+      "config": "w_od=0.85",
+      "policy": "A8",
+      "seconds": 21.31679509999958
+    },
+    {
+      "regime": "R3",
+      "benchmark": "matharena",
+      "config": "w_od=1.2",
+      "policy": "A1",
+      "seconds": 19.225408499998593
+    },
+    {
+      "regime": "R3",
+      "benchmark": "matharena",
+      "config": "w_od=1.2",
+      "policy": "A2",
+      "seconds": 19.42062839999926
+    },
+    {
+      "regime": "R3",
+      "benchmark": "matharena",
+      "config": "w_od=1.2",
+      "policy": "A3",
+      "seconds": 19.742798300001596
+    },
+    {
+      "regime": "R3",
+      "benchmark": "matharena",
+      "config": "w_od=1.2",
+      "policy": "A5",
+      "seconds": 19.34465700000146
+    },
+    {
+      "regime": "R3",
+      "benchmark": "matharena",
+      "config": "w_od=1.2",
+      "policy": "A8",
+      "seconds": 21.313310399997135
+    }
+  ],
+  "limitations": [
+    "Timing only; prediction-quality metrics are discarded.",
+    "Does not measure Gumbel, horseshoe, spike-and-slab, t3 pair effects, Laplace, or MCMC.",
+    "One seed per regime estimates throughput, not score uncertainty."
+  ],
+  "output_bytes": 60935
+}

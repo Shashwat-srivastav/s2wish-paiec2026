@@ -1,0 +1,19 @@
+== A4_v1_1 stateful execution / order (v1_1) ==
+n_labeled 217
+n_targets 250
+perm_labeled_maxdiff 4.440892098500626e-16
+target_order_maxdiff 0.0
+repeat_maxdiff 0.0
+mutates_args False
+fresh_process_maxdiff 0.0
+after_interleave_maxdiff 0.0
+pair_order_alc_maxdiff 2.7755575615628914e-17
+duplicate_entries_change 0.017113259251559043
+item_key_probes {'exact': 0.0487, 'trailing_ws': 0.7586, 'crlf': 0.7586, 'features_changed': 0.7586, 'interactors_None': 0.0487, 'bench_int_vs_str': 0.0487, 'key_order': 0.0487, 'no_item_evidence(L2)': 0.9627}
+-- A4 done in 6s
+== A7_v1_1 runtime robustness (v1_1) ==
+n_cases 52
+fails []
+hook_fails []
+latency {'1x10000': {'ms': 88.9, 'peak_MB': 0.5, 'p': 0.4862}, '300x34': {'ms': 162.7, 'peak_MB': 20.3, 'p': 0.5044}, '1000x10': {'ms': 219.3, 'peak_MB': 61.7, 'p': 0.4954}, '2000x5': {'ms': 298.4, 'peak_MB': 121.0, 'p': 0.5034}}
+-- A7 done in 3s

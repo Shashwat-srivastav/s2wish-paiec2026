@@ -1,0 +1,20 @@
+{
+  "_doc": "Beta-Binomial prior. p = (k*m + successes)/(k + n). Resolution: by_benchmark > by_subject_name > by_subject_field (in field_order) > default. Fill tables once training data exists.",
+  "default": {"m": 0.5, "k": 2.0},
+  "clip": [0.02, 0.98],
+  "by_benchmark": {},
+  "by_subject_name": {},
+  "by_subject_field": {
+    "harness": {},
+    "reasoning_effort": {},
+    "provider": {}
+  },
+  "field_order": ["harness", "reasoning_effort", "provider"],
+  "irt": {
+    "enabled": false,
+    "difficulties_file": "item_difficulty.json",
+    "prior_sd": 1.5,
+    "default_difficulty": 0.0,
+    "newton_iters": 25
+  }
+}

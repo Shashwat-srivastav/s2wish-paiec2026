@@ -1,0 +1,52 @@
+[e2b] 39164 pairs; by bench {'multi_swebench': 16588, 'swe_rebench': 11937, 'matharena': 7153, 'real_webagents': 1826, 'researchcodebench': 1660}
+[e2b] 39164 to query
+E:\NeurIPS\aims\src\paiec\analysis\e2_jev.py:668: FutureWarning: The behavior of DataFrame concatenation with empty or all-NA entries is deprecated. In a future version, this will no longer exclude empty or all-NA columns when determining the result dtypes. To retain the old behavior, exclude the relevant entries before the concat operation.
+  cache = pd.concat([cache, pd.DataFrame(new)], ignore_index=True).drop_duplicates("key", keep="last")
+[e2b] 1000/39164 (22s)
+[e2b] 2000/39164 (41s)
+[e2b] 3000/39164 (61s)
+[e2b] 4000/39164 (80s)
+[e2b] 5000/39164 (108s)
+[e2b] 6000/39164 (127s)
+[e2b] 7000/39164 (147s)
+[e2b] 8000/39164 (166s)
+[e2b] 9000/39164 (186s)
+[e2b] 10000/39164 (205s)
+[e2b] 11000/39164 (225s)
+[e2b] 12000/39164 (244s)
+[e2b] 13000/39164 (264s)
+[e2b] 14000/39164 (284s)
+[e2b] 15000/39164 (304s)
+[e2b] 16000/39164 (323s)
+[e2b] 17000/39164 (343s)
+[e2b] 18000/39164 (363s)
+[e2b] 19000/39164 (383s)
+[e2b] 20000/39164 (403s)
+[e2b] 21000/39164 (422s)
+[e2b] 22000/39164 (442s)
+[e2b] 23000/39164 (462s)
+[e2b] 24000/39164 (482s)
+[e2b] 25000/39164 (501s)
+[e2b] 26000/39164 (522s)
+[e2b] 27000/39164 (544s)
+[e2b] 28000/39164 (564s)
+[e2b] 29000/39164 (584s)
+[e2b] 30000/39164 (604s)
+[e2b] 31000/39164 (624s)
+[e2b] 32000/39164 (643s)
+[e2b] 33000/39164 (663s)
+[e2b] 34000/39164 (682s)
+[e2b] 35000/39164 (702s)
+[e2b] 36000/39164 (722s)
+[e2b] 37000/39164 (741s)
+[e2b] 38000/39164 (761s)
+[e2b] 39000/39164 (781s)
+[e2b] 39164/39164 (785s)
+E:\NeurIPS\aims\src\paiec\analysis\e2_jev.py:677: FutureWarning: Downcasting object dtype arrays on .fillna, .ffill, .bfill is deprecated and will change in a future version. Call result.infer_objects(copy=False) instead. To opt-in to the future behavior, set `pd.set_option('future.no_silent_downcasting', True)`
+  "tokens": int(P.tokens.fillna(0).sum()), "model": str(P.model.dropna().iloc[0])}
+[e2b] matharena          pointwise 0.335 [0.183,0.563]  BT 0.412 [0.256,0.599]  diff +0.076 [0.011 0.139]  rho(bt,jev)=0.812
+[e2b] multi_swebench     pointwise 0.197 [0.154,0.238]  BT 0.114 [0.072,0.155]  diff -0.082 [-0.103 -0.061]  rho(bt,jev)=0.861
+[e2b] real_webagents     pointwise 0.186 [0.056,0.302]  BT 0.150 [0.022,0.271]  diff -0.036 [-0.099  0.022]  rho(bt,jev)=0.899
+[e2b] researchcodebench  pointwise 0.211 [0.076,0.343]  BT 0.312 [0.174,0.444]  diff +0.101 [0.002 0.2  ]  rho(bt,jev)=0.697
+[e2b] swe_rebench        pointwise 0.207 [0.158,0.256]  BT 0.145 [0.096,0.197]  diff -0.061 [-0.088 -0.037]  rho(bt,jev)=0.876
+[e2b decision] KEEP_POINTWISE (2/5); tokens 56,041,175 ~ $2.35; P(a) mean 0.475

@@ -1,0 +1,19 @@
+{
+ "link_vs_mc_maxabs": 0.00021054086227656477,
+ "map_vs_scipy_maxabs_eta": 5.796864546159242e-07,
+ "online_vs_grid_maxabs": 3.75010107189766e-07,
+ "online_mask": [
+  true,
+  true
+ ],
+ "synthetic_fit": {
+  "alpha_true_identified": 1.7953572016637345,
+  "alpha_hat": 1.8935654478879198,
+  "m_true_identified": -0.49127224704258154,
+  "m_hat": -0.4898601998873779,
+  "sd_true": 1.299252996296899,
+  "sd_hat": 1.3883364173169668,
+  "converged": true
+ },
+ "pass": true
+}
