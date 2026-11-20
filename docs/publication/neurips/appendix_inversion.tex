@@ -7,7 +7,7 @@ The platform's formative feedback reports, for every evaluated subject--benchmar
 Brier score $B_b$ and the calibration error $E_b$ at each label budget $b\in\mathcal{B}=\{0,1,3,7,15,31\}$, rounded to
 six decimals. This appendix shows that, under conditions we state and check, these numbers determine (a)~the pair's
 accuracy, (b)~on singleton pairs, the number of successes among the revealed labels, and hence (c)~the exact score of
-any pair-level change to the model, together with floor and ceiling bounds. The implementation is the NumPy package
+any pair-constant change to the model, together with floor and ceiling bounds. The implementation is the NumPy package
 \texttt{paiec.feedback}; each number quoted here is asserted by \texttt{tests/test\_feedback\_inversion.py}.
 
 \paragraph{Setting.}
@@ -73,19 +73,20 @@ it must be identical across runs. Lemma~1 provides a third: $B_b-a(1-a)-E_b^2=0$
 \textit{Proof.} Lemma~1 at budget $b$ with $q=p(k_b,b)$, and the error bound of Proposition~1 applied to $a$ and
 $E_b$.\hfill$\square$
 
-\paragraph{Corollary (exact zero-upload replay).}
-Let $q(k,b)$ be any \emph{pair-level} rule, i.e.\ one value per pair from the revealed count. Given $a$ and the
+\paragraph{Corollary (zero-upload replay, exact under A4).}
+Let $q(k,b)$ be any \emph{pair-constant} rule, i.e.\ one value per pair from the revealed count. Given $a$ and the
 recovered path $(k_b)$, its score on the platform pair is exactly $B_b(q)=a(1-a)+(q(k_b,b)-a)^2$, with ALC
 $\sum_bw_bB_b(q)$. No upload, rerun or fitting is involved. At budget 0 only $a$ is needed, so budget-0
 counterfactuals are exact on every pair where the observed and the alternative budget-0 predictions are constant.
 
 \paragraph{Proposition 4 (floor and ceiling).}
-For any pair-level method, $B_b\ge a(1-a)$, with equality if and only if $q=a$. Hence the mean ALC over pairs is at
+For any pair-constant rule $q(k_b,b)$, $B_b\ge a(1-a)$, with equality if and only if $q=a$. Hence the mean ALC over pairs is at
 least the \emph{pair-constant floor} $F=\overline{a(1-a)}$, which the feedback identifies even without $p_0$ (as
-$B_0-E_0^2$). With the \emph{label-removable excess} $X_b=\overline{B_b-a(1-a)}$ of the observed curves, no pair-level
+$B_0-E_0^2$). With the \emph{label-removable excess} $X_b=\overline{B_b-a(1-a)}$ of the observed curves, no pair-constant
 change can improve ALC by more than $\sum_bw_bX_b=\overline{\mathrm{ALC}}-F$. \textit{Proof.} Lemma~1 and
 $\sum_bw_b=1$.\hfill$\square$ Methods whose predictions vary across items within a pair, such as item pooling across
-subjects, are not covered and can go below $F$.
+subjects, are not covered and can go below $F$. The bound reported in \S\ref{sec:headroom} is in-sample and
+specific to the draws: its 26 pair-slots pool three archives on the same earlier draws.
 
 \paragraph{Validation.}
 \emph{Synthetic.} We simulated pairs, scored them with the published rules (which match our re-implemented evaluator to
@@ -114,7 +115,7 @@ max $|a-a_{\mathrm{ECE}}|$, 34 saved pair-slots & $5.05\times10^{-6}$ & $\le\var
 $B_0$ reconstructed from $(a,p_0)$, 34 slots & error $2.8\times10^{-17}$ & Lemma~1\\
 pair-constant floor $F$, 26 slots of the three later models (v1\_1--v1\_3) & 0.1511 & Prop.~4\\
 label-removable excess $X_0,\dots,X_{31}$ (same 26) & 0.081, 0.037, 0.021, 0.007, 0.004, 0.000 & Prop.~4\\
-ceiling for any pair-level change (same 26) & $-0.0218$ ALC & observed ALC 0.173\\
+ceiling for any pair-constant change (same 26) & $-0.0218$ ALC & observed ALC 0.173\\
 \bottomrule
 \end{tabular}
 \end{table}

@@ -493,10 +493,10 @@ def PLAT_():
     num(s, "PLAT.v1_1.ci_hi", "v1_1 95% t-interval high", v11.mean() + t * se, "0.208", lit="[0.176, 0.208]")
     num(s, "PLAT.v1_1.sd", "v1_1 repeat SD (sec. 5: 0.013 observed)", v11.std(ddof=1), "0.013")
     v1 = [a for _, a in by["v1.zip"]]
-    num(s, "PLAT.v1", "v1 first submission scored 0.216", v1[0], "0.216", lit="which scored 0.216")
+    num(s, "PLAT.v1", "v1 first submission scored 0.216", v1[0], "0.216")  # record-only: sentence cut from the camera-ready
     pre = (PLAT / "2026-10-01_v1.md").read_text(encoding="utf-8")
     exact(s, "PLAT.v1_pred", "pre-submission record states the 0.212 prediction (2026-10-01_v1.md)",
-          "prediction ALC 0.212 (R1)" in pre, True, lit="predicted 0.212",
+          "prediction ALC 0.212 (R1)" in pre, True,  # record-only (camera-ready cut)
           note="documentary: the record predates the run")
     if INTERNAL:
         PLAT_variant(s, by, x, stats)
@@ -779,7 +779,12 @@ FULL_JOBS = {
 }
 # inputs a full job needs; the job SKIPs (with this reason) when any is absent
 FULL_REQUIRES = {
-    "exp0058": ["data/_main_54074453", "external/official_baselines/empirical_mean/model.py"],
+    "exp0058": ["data/_main_54074453", "external/official_baselines/empirical_mean/model.py",
+                "external/starting_kit/tools/streaming_ingestion.py",
+                *[f"data/{b}" for b in ("matharena", "multi_swebench", "real_webagents",
+                                        "researchcodebench", "swe_rebench")],
+                # built by: python -m paiec.analysis.exp_0039r_simulator_repair --step compact
+                ".tmp/exp0039r_cache/afrieval.npz", ".tmp/exp0039r_cache/workbench_revisited.npz"],
 }
 # result file (relative to experiments/runs) and the keys compared, per job
 FULL_COMPARE = {

@@ -231,7 +231,7 @@ def fig_teaser():
     print(f"  teaser: shrinkage {gain_shrink:.1f} of {gain_total:.1f} (x1e-3); floor {floor:.4f}")
 
     rows = [("official baseline", base, MUTED),
-            ("Beta-binomial shrinkage", v0, C2),
+            ("fixed Beta(1,1) shrinkage", v0, C2),
             ("final model", fin, C1)]
     FS = 8  # >= 8 pt at print size (the figure is placed at its native width)
     fig, ax = plt.subplots(figsize=(FULL_W, 1.65))
@@ -418,7 +418,7 @@ def fig_budget_curves():
     fig, ax = plt.subplots(figsize=(HALF_W, 2.1))
     xs = np.arange(len(BUDGETS))
     for ys, lab, col, mk, ls in [(l0, "official empirical mean", MUTED, "^", ":"),
-                                 (v0, "v0 (Beta-binomial)", C2, "s", "--"),
+                                 (v0, "v0 (fixed Beta(1,1))", C2, "s", "--"),
                                  (v13["curve"], "v1_3", C1, "o", "-")]:
         ax.plot(xs, ys, color=col, marker=mk, ms=3.5, lw=1.1, ls=ls, mec="white", mew=0.4, label=lab)
     ax.set_xticks(xs); ax.set_xticklabels([str(b) for b in BUDGETS])
