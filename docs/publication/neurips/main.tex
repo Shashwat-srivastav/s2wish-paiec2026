@@ -478,8 +478,7 @@ analysis used $p_0=0.5513$ instead of $0.448722$ and wrongly concluded that the 
 \paragraph{What item knowledge is worth (oracles, in-sample).} We give the hedged-centre model one true quantity at
 a time (note 19): the offset at the held-out benchmark's full-data mean pair logit, the pair ability at the pair's
 full-data logit, or item difficulty from a Rasch fit to the held-out benchmark. Item difficulty accounts for about
-half of the closable budget-0 gap (0.48; 0.45 when the Rasch fit leaves out the target pair); we had pre-registered
-60--80\% for the offset. Figure~\ref{fig:rho} mixes the leave-pair-out difficulty with independent Gaussian noise
+half of the closable budget-0 gap (0.48; 0.45 when the Rasch fit leaves out the target pair); we had pre-registered 60--80\% for the offset. A share is $(B_{\mathrm{model}}-B_{\mathrm{oracle}})/(B_{\mathrm{model}}-B_{\mathrm{all\ oracles}})$ at budget 0 over fold means; the item oracle uses centred Rasch $\beta$, with the pair level $c$ solving $\overline{\sigma(c+\beta_k)}$ = the pair's full-data accuracy (\texttt{docs/research\_notes/19\_E1\_B0\_DECOMPOSITION.md}). Figure~\ref{fig:rho} mixes the leave-pair-out difficulty with independent Gaussian noise
 until its within-benchmark \rs{} with the truth reaches a target value: a synthetic signal, not a trained scorer. The value of a label-free difficulty signal is roughly quadratic in its quality over
 $\rs \in [0.2, 1.0]$ ($-\dalc/\rs^2 = 58$--$74$; Figure~\ref{fig:rho}). A scorer at $\rs=0.3$ is worth
 $5.7\ee{3}$. That is within the range our offline LLM rating reached (0.19--0.34), and above the 0.14--0.23
